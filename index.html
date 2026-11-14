@@ -252,6 +252,60 @@ canvas#cf{position:fixed;inset:0;pointer-events:none;z-index:80}
 @media (max-width:520px){.topics{grid-template-columns:1fr 1fr;gap:10px}.road{grid-template-columns:1fr}.tc .art{height:90px}.chipst.hx{display:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 code{background:var(--bg);padding:1px 6px;border-radius:5px;font-size:.92em}
+
+/* v3 */
+.fbk .coach{color:var(--ink)}
+.coach .co-h{font-weight:700;margin-bottom:6px}
+.co-fix{background:#fff;border-radius:10px;padding:10px 12px;margin:6px 0}
+.co-fix .en,.co-better .en{font-size:16.5px}
+.co-leg{font-weight:400;margin-left:6px}
+mark.co-add{background:#FFE58A;color:inherit;border-radius:4px;padding:0 2px}
+.co-err{background:#fff;border:1px solid var(--line);border-left:4px solid #E5484D;border-radius:10px;padding:10px 12px;margin:8px 0}
+.co-n{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#E5484D;color:#fff;font-size:12px;font-weight:800}
+.co-t{font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:#EEF2FF;color:#3346A8}
+.co-w{text-decoration:line-through;text-decoration-color:#E5484D;color:#9B1C24;font-weight:600}
+.co-r{color:#0F7A3A;font-weight:800}
+.co-why{font-size:14.5px;line-height:1.6;margin-top:6px;color:var(--ink)}
+.co-rule{font-size:13.5px;margin-top:6px;background:#F6F7FB;border-radius:8px;padding:6px 10px;font-family:ui-monospace,Menlo,Consolas,monospace;color:#33415C}
+.co-ex{display:flex;gap:8px;align-items:center;font-size:14px;margin-top:6px;color:var(--ink2)}
+.co-better{background:#EAF7EF;border-radius:10px;padding:10px 12px;margin-top:10px}
+.why{margin-top:10px;background:#fff;border-radius:10px;padding:10px 12px;color:var(--ink)}
+.why-i{border-top:1px dashed var(--line);padding-top:8px;margin-top:8px}
+.why-i:first-of-type{border-top:0}
+.tl.dg{cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;display:inline-block}
+.tl.tl-src{opacity:.25}
+.tl.tl-ph{opacity:.5;border-style:dashed;border-color:var(--pri);background:#EEF2FF;animation:none}
+.tl.tl-ghost{box-shadow:0 10px 24px rgba(30,40,90,.25);transform:rotate(-3deg) scale(1.06);border-color:var(--pri);background:#fff;animation:none;cursor:grabbing}
+.al.dz{min-height:54px;transition:background .15s}
+.dhero{position:relative;border-radius:20px;overflow:hidden;min-height:170px;margin-bottom:16px;box-shadow:0 10px 30px rgba(40,50,90,.14)}
+.dart,.fart,.qart{position:absolute;inset:0}
+.dart svg,.fart svg,.qart svg{width:100%;height:100%;display:block}
+.dhin{position:relative;padding:26px 24px 22px;background:linear-gradient(0deg,rgba(15,20,45,.62),rgba(15,20,45,.05) 85%);min-height:170px;display:flex;flex-direction:column;justify-content:flex-end}
+.dprog{position:sticky;top:70px;z-index:5;padding:12px 16px;margin-bottom:10px}
+.dchips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.dchip{font-size:12.5px;padding:4px 10px;border-radius:999px;background:var(--bg);color:var(--ink2);text-decoration:none;border:1px solid var(--line)}
+.dchip.dn{background:var(--gr-l);color:#0F5A2C;border-color:transparent}
+.dsec{margin-top:30px;scroll-margin-top:170px}
+.stbox{background:linear-gradient(135deg,#EEF2FF,#fff);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px}
+.wcard{border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:#fff}
+.rtext{font-size:17px;line-height:1.75;background:#FFFCF5;border:1px solid #F1E6CF;border-radius:12px;padding:12px 16px;margin-top:10px}
+.rtext p{margin:0 0 10px}
+.op.sel{border-color:var(--pri);background:#EEF2FF}
+.qcard .qart{height:110px;margin:0 0 12px;border-radius:12px;overflow:hidden}
+.qcard .qart{position:relative;inset:auto}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:18px}
+.fcard{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;padding:0;cursor:pointer;font:inherit;color:inherit}
+.fcard .fart{position:relative;height:130px}
+.femo{position:absolute;left:12px;bottom:8px;font-size:34px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.25))}
+.fscene{display:flex;flex-direction:column;gap:10px;margin:8px 0 18px}
+.fl{display:flex;gap:10px;align-items:flex-start;max-width:88%}
+.fl.r{align-self:flex-end;flex-direction:row-reverse}
+.fav{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800}
+.fb{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 12px;transition:box-shadow .2s,transform .2s}
+.fl.r .fb{background:#F3F6FF}
+.fl.on .fb{box-shadow:0 0 0 3px #FFD45C;transform:scale(1.02)}
+@media (max-width:640px){.fl{max-width:100%}.dhin{padding:20px 16px 16px}}
 </style>
 </head>
 <body>
@@ -462,16 +516,16 @@ function topicArt(u){const c=u.color;return `<svg viewBox="0 0 300 120" preserve
 let route='home';let W={};let drawer=false;let openMods=null;
 function go(r){if(location.hash!=='#'+r)location.hash=r;else show()}
 window.addEventListener('hashchange',show);
-function show(){route=(location.hash||'#home').slice(1)||'home';W={};drawer=false;render();window.scrollTo({top:0,behavior:'instant'})}
+function show(){window.DICT_HOOK=null;window.DICT_STATE=null;try{speechSynthesis.cancel()}catch(e){}route=(location.hash||'#today').slice(1)||'home';W={};drawer=false;render();window.scrollTo({top:0,behavior:'instant'})}
 const NAVS=[['home','Trang chủ','<path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>'],['course','Khóa học','<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5"/>'],['review','Ôn từ','<path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3M18 3v4h-4M6 21v-4h4"/>'],['chat','Chat AI','<path d="M4 5h16v11H9l-5 4z"/>'],['quotes','Câu hay','<path d="M7 7h4v4c0 3-2 5-4 6M14 7h4v4c0 3-2 5-4 6"/>'],['speak','Luyện nói','<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>'],['notes','Sổ tay','<path d="M6 3h9l4 4v14H6zM9 12h7M9 16h5"/>']];
 function navKey(){if(/^u\d/.test(route))return 'course';return route.split('-')[0]}
 function render(){
  const nk=navKey(),d=due().length;
  $('#nav').innerHTML=NAVS.map(([k,l])=>`<a href="#${k}" class="${nk===k?'on':''}">${l}${k==='review'&&d?`<span class="bd">${d}</span>`:''}</a>`).join('');
- $('#bn').innerHTML=NAVS.filter(n=>['home','course','review','chat','quotes'].includes(n[0])).map(([k,l,ic])=>`<a href="#${k}" class="${nk===k?'on':''}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ic}</svg>${l}</a>`).join('');
- $('#hdr').innerHTML=`<div class="row" style="gap:10px"><span class="chipst hx" title="Chuỗi ngày học">🔥 ${streak()}</span><span class="chipst hx" title="Tiến độ khóa học">📘 ${pctAll()}%</span><a class="chipst" href="#settings" title="Cài đặt">⚙️</a><span class="av">P</span></div>`;
+ $('#bn').innerHTML=NAVS.filter(n=>['today','course','review','chat','quotes'].includes(n[0])).map(([k,l,ic])=>`<a href="#${k}" class="${nk===k?'on':''}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ic}</svg>${l}</a>`).join('');
+ $('#hdr').innerHTML=`<div class="row" style="gap:10px"><span class="chipst hx" title="Chuỗi ngày học">🔥 ${streak()}</span><span class="chipst hx" title="Tiến độ khóa học">📘 ${pctAll()}%</span><a class="chipst" href="#settings" title="Cài đặt">⚙️</a><span class="av">M</span></div>`;
  const it=ITEM(route);
- let h;if(it)h=courseShell(it);else h=({course:vCourse,review:vReview,speak:vSpeak,notes:vNotes,chat:vChat,quotes:vQuotes,settings:vSettings}[route]||vHome)();
+ let h;if(it)h=courseShell(it);else h=({today:window.vToday||vHome,films:window.vFilms||vHome,course:vCourse,review:vReview,speak:vSpeak,notes:vNotes,chat:vChat,quotes:vQuotes,settings:vSettings}[route]||vHome)();
  $('#root').innerHTML=h;afterRender();
 }
 function afterRender(){
@@ -668,7 +722,7 @@ document.addEventListener('input',e=>{if(e.target.id==='iva')SP.ivText=e.target.
 /* ===== quotes ===== */
 const QW={};let QF='all';
 function quoteCard(q,compact){const st=QW[q.id]||{};const u=COURSE.find(x=>x.id===q.u);
- return `<div class="qcard" id="qc-${q.id}" style="--qc:${u.color}"><div class="qmark">“</div><blockquote class="qtext">${esc(q.q)}</blockquote>
+ return `<div class="qcard" id="qc-${q.id}" style="--qc:${u.color}">${q.art?`<div class="qart">${sceneArt(q.art,q.id)}</div>`:''}<div class="qmark">“</div><blockquote class="qtext">${esc(q.q)}</blockquote>
  <div class="row qby"><div class="sp"><b>${esc(q.by)}</b> · <i>${esc(q.src)}</i> (${esc(q.yr)})</div>${spk(q.q,.9)}<button class="qfav ${S.qfav[q.id]?'on':''}" data-act="qfav" data-q="${q.id}" title="Lưu câu yêu thích">${S.qfav[q.id]?'★':'☆'}</button></div>
  <div class="qvi">${esc(q.vi)}</div><div class="qnote">💡 ${q.note}</div>
  <div class="qtask"><div class="sm" style="font-weight:700;margin-bottom:6px">✍️ Áp dụng: ${esc(q.task)}</div><textarea id="qa-${q.id}" rows="2" placeholder="Viết câu của bạn...">${esc(st.v||'')}</textarea>
@@ -679,12 +733,12 @@ async function qcheck(id){const q=QUOTES.find(x=>x.id===id);const st=QW[id]=QW[i
   addMist(r.notes,'Câu hay');st.res={html:`<b>${esc(r.good||'')}</b><br>Đã sửa: <b>${esc(r.corrected)}</b>${(r.notes||[]).map(n=>`<br>• ${esc(n.issue)} → <b>${esc(n.fix)}</b>`).join('')}${r.better?`<br>Hay hơn: <b>${esc(r.better)}</b> <button class="save" data-act="savep" data-t="${esc(r.better)}" data-v="${esc(q.vi)}">⭐ Lưu</button>`:''}`};touch();save()}
  catch(e){st.res={cls:'in',html:esc(aiMsg(e))}}st.busy=false;rq(id)}
 let MQ={v:'',busy:false};
-function vQuotes(){const list=QUOTES.filter(q=>QF==='all'||(QF==='fav'?S.qfav[q.id]:q.u===QF));
- return `<div class="page" style="max-width:1000px"><span class="tag">Câu hay</span><h1>Học tiếng Anh qua câu trích kinh điển</h1><p class="mut" style="max-width:700px">Mỗi câu đi kèm nghĩa, điểm ngữ pháp/từ vựng đáng học và một bài viết áp dụng vào công việc của bạn. Các câu đều từ sách và kịch kinh điển (Shakespeare, Dickens, Conan Doyle, Carroll…).</p>
+function vQuotes(){const list=QUOTES.filter(q=>QF==='all'||(QF==='fav'?S.qfav[q.id]:QF==='phil'?q.cat==='phil':q.u===QF&&q.cat!=='phil'));
+ return `<div class="page" style="max-width:1000px"><span class="tag">Câu hay</span><h1>Học tiếng Anh qua câu trích kinh điển</h1><p class="mut" style="max-width:700px">Mỗi câu đi kèm nghĩa, điểm ngữ pháp/từ vựng đáng học và một bài viết áp dụng vào công việc của bạn. Gồm câu từ sách kinh điển và câu triết lý nổi tiếng (Marcus Aurelius, Seneca, Lão Tử…), kèm tranh minh họa.</p>
  <div class="card" style="margin:18px 0 26px;background:linear-gradient(135deg,#FFF8EC,#fff)"><h3>🎬 Câu bạn thích (sách, phim, podcast…)</h3><p class="sm mut" style="margin-bottom:10px">Dán một câu bạn gặp và thích, AI sẽ giải thích cấu trúc, từ vựng và cách áp dụng vào công việc của bạn.</p>
  <textarea id="myq" rows="2" placeholder="Dán câu tiếng Anh bạn thích, có thể ghi nguồn sau dấu —">${esc(MQ.v)}</textarea><button class="btn s" style="margin-top:8px" data-act="myq" ${MQ.busy?'disabled':''}>${MQ.busy?'<span class="spin"></span> Đang phân tích':'Phân tích câu này'}</button>
  ${S.myq.map((m,i)=>`<div class="myq"><div class="row"><div class="sp en" style="font-size:18px">“${esc(m.q)}”</div>${spk(m.q,.9)}<button class="btn gh s" data-act="delmyq" data-i="${i}">✕</button></div><div class="sm" style="margin-top:6px">${esc(m.vi)}</div><div class="sm" style="margin-top:6px">💡 ${esc(m.structure)}</div>${(m.vocab||[]).length?`<div class="hints" style="margin-top:8px">${m.vocab.map(v=>`<span><b>${esc(v[0])}</b> · ${esc(v[1])}</span>`).join('')}</div>`:''}${m.apply?`<div class="frame" style="margin:6px 0 0">Áp dụng: <b>${esc(m.apply)}</b></div>`:''}</div>`).join('')}</div>
- <div class="row wrap" style="gap:6px;margin-bottom:18px"><button class="btn ${QF==='all'?'':'gh'} s" data-act="qf" data-f="all">Tất cả</button><button class="btn ${QF==='fav'?'':'gh'} s" data-act="qf" data-f="fav">★ Đã lưu</button>${COURSE.map(u=>`<button class="btn ${QF===u.id?'':'gh'} s" data-act="qf" data-f="${u.id}">${u.emo} ${u.ui+1}</button>`).join('')}</div>
+ <div class="row wrap" style="gap:6px;margin-bottom:18px"><button class="btn ${QF==='all'?'':'gh'} s" data-act="qf" data-f="all">Tất cả</button><button class="btn ${QF==='phil'?'':'gh'} s" data-act="qf" data-f="phil">🌿 Triết lý</button><a class="btn gh s" href="#films">🎬 Cảnh phim</a><button class="btn ${QF==='fav'?'':'gh'} s" data-act="qf" data-f="fav">★ Đã lưu</button>${COURSE.map(u=>`<button class="btn ${QF===u.id?'':'gh'} s" data-act="qf" data-f="${u.id}">${u.emo} ${u.ui+1}</button>`).join('')}</div>
  <div class="qgrid">${list.map(q=>quoteCard(q)).join('')||'<p class="mut">Chưa có câu nào được lưu. Bấm ☆ trên câu bạn thích.</p>'}</div></div>`}
 async function myq(){MQ.v=($('#myq').value||'').trim();if(MQ.v.length<5)return toast('Dán một câu tiếng Anh trước nhé');MQ.busy=true;render();
  try{const r=await ai(`A Vietnamese learner (B2, IELTS 5.5) likes this English line: """${MQ.v}""". Do not quote or add any other lines from the source. Explain it for her. About her work: ${ME}\nReturn ONLY JSON: {"q":"the line exactly as she gave it (without source)","vi":"natural Vietnamese translation","structure":"1-2 Vietnamese sentences on the key grammar structure or rhetorical device worth learning","vocab":[["word or phrase","Vietnamese meaning"]],"apply":"one example sentence using the same structure about her YouTube/scriptwriting work"} Max 3 vocab.`);
@@ -851,13 +905,431 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(
 document.addEventListener('change',e=>{if(e.target.id==='restore'){const f=e.target.files[0];if(!f)return;f.text().then(t=>{const r=JSON.parse(t);S=Object.assign(JSON.parse(JSON.stringify(DEF)),r);save();toast('Đã khôi phục ✓');render()}).catch(()=>toast('File không hợp lệ'))}});
 const SES_busy=()=>/-(prac|quiz|test)$/.test(route)||route==='chat';
 async function initCaps(){setupAI();setupSync();caps.dict=makeDict();
- const dc=caps.dict;if(dc){dc.onFinal(({text})=>{SP.heard=(SP.heard?SP.heard+' ':'')+text;const it=SP.list[SP.i%SP.list.length];SP.res=diffWords(it.s[0],SP.heard);touch();save();if(route==='speak')render()});
-  dc.onPartial(({text})=>{const el=document.querySelector('.wave+div');if(el)el.textContent='“'+text+'”'});dc.onState(({state})=>{SP.on=state==='listening';if(route==='speak')render()})}
+ const dc=caps.dict;if(dc){dc.onFinal(({text})=>{if(window.DICT_HOOK){window.DICT_HOOK(text);return}SP.heard=(SP.heard?SP.heard+' ':'')+text;const it=SP.list[SP.i%SP.list.length];SP.res=diffWords(it.s[0],SP.heard);touch();save();if(route==='speak')render()});
+  dc.onPartial(({text})=>{const el=document.querySelector('.wave+div');if(el)el.textContent='“'+text+'”'});dc.onState(({state})=>{if(window.DICT_STATE)window.DICT_STATE(state);SP.on=state==='listening';if(route==='speak')render()})}
  if(route==='speak')render();try{await pull()}catch(e){}
  window.addEventListener('focus',()=>{if(!SES_busy())pull().catch(()=>{})})}
 try{const raw=localStorage.getItem('epw');if(raw)S=Object.assign(S,JSON.parse(raw))}catch(e){}
 save();show();initCaps();
 if(!CFG.gemini&&!CFG.groq&&!location.hash)setTimeout(()=>toast('Lần đầu dùng? Vào ⚙️ Cài đặt để kết nối AI miễn phí.'),900);
+</script>
+<script>
+/* ===== v3 data: daily topics, meme roles, philosophy quotes, mini film scenes ===== */
+const TOPICS=[
+{id:'t1',emo:'🌅',vi:'Thói quen buổi sáng',en:'morning routines',art:'sunrise',p:[["I'm not really a morning person.","Mình không phải kiểu người dậy sớm."],["The first thing I do is check my phone.","Việc đầu tiên mình làm là xem điện thoại."],["I usually grab a quick breakfast on the way.","Mình thường ăn sáng vội trên đường đi."],["It takes me about twenty minutes to get ready.","Mình mất khoảng 20 phút để chuẩn bị."],["I try to avoid rushing in the morning.","Mình cố gắng tránh vội vàng vào buổi sáng."]],q:"Describe your typical morning. What would you change about it?",qv:"Kể về buổi sáng thường ngày của bạn. Bạn muốn thay đổi điều gì?",w:"Viết 3–4 câu về buổi sáng hôm nay của bạn."},
+{id:'t2',emo:'🍜',vi:'Đồ ăn & nấu nướng',en:'food and cooking',art:'garden',p:[["I'm craving something spicy.","Mình đang thèm món gì đó cay cay."],["It's my go-to dish when I'm tired.","Đó là món ruột của mình mỗi khi mệt."],["I'm not much of a cook, to be honest.","Nói thật thì mình không giỏi nấu nướng lắm."],["This tastes way better than it looks.","Món này ngon hơn vẻ ngoài nhiều."],["Let's order in tonight.","Tối nay gọi đồ ăn về nhé."]],q:"What is a Vietnamese dish you would recommend to a foreign friend, and why?",qv:"Món Việt nào bạn sẽ giới thiệu cho bạn nước ngoài, vì sao?",w:"Viết 3–4 câu giới thiệu món ăn bạn thích nhất."},
+{id:'t3',emo:'🌦️',vi:'Thời tiết & mùa',en:'weather and seasons',art:'rain',p:[["It's pouring outside.","Ngoài trời đang mưa như trút."],["The weather has been all over the place lately.","Dạo này thời tiết thất thường quá."],["I can't stand the humidity in summer.","Mình không chịu nổi độ ẩm mùa hè."],["Autumn is by far my favourite season.","Mùa thu là mùa mình thích nhất, không gì sánh bằng."],["Make sure you bring an umbrella just in case.","Nhớ mang ô phòng khi trời mưa nhé."]],q:"Which season in Hà Nội do you like best? Describe it.",qv:"Bạn thích mùa nào ở Hà Nội nhất? Miêu tả nó.",w:"Viết 3–4 câu miêu tả thời tiết hôm nay và cảm giác của bạn."},
+{id:'t4',emo:'🛍️',vi:'Mua sắm',en:'shopping',art:'city',p:[["I'm just browsing, thanks.","Mình chỉ xem thôi, cảm ơn."],["Do you have this in a smaller size?","Cái này có size nhỏ hơn không?"],["It's a bit out of my price range.","Cái này hơi vượt quá ngân sách của mình."],["I ended up buying way more than I planned.","Cuối cùng mình mua nhiều hơn dự định."],["Is it possible to return it if it doesn't fit?","Nếu không vừa thì có đổi trả được không?"]],q:"Do you prefer shopping online or in stores? Why?",qv:"Bạn thích mua sắm online hay ở cửa hàng? Vì sao?",w:"Viết 3–4 câu kể về món đồ gần nhất bạn đã mua."},
+{id:'t5',emo:'✈️',vi:'Du lịch',en:'travel',art:'sea',p:[["I've always wanted to visit Japan.","Mình luôn muốn đến Nhật Bản."],["We're planning a short getaway next month.","Tháng sau tụi mình định đi chơi ngắn ngày."],["It was totally worth the long flight.","Chuyến bay dài nhưng hoàn toàn xứng đáng."],["I prefer travelling off the beaten track.","Mình thích đi những nơi ít người biết."],["Could you recommend somewhere local to eat?","Bạn gợi ý giúp chỗ ăn đồ địa phương được không?"]],q:"Tell me about a trip you will never forget.",qv:"Kể về một chuyến đi bạn không bao giờ quên.",w:"Viết 3–4 câu về nơi bạn muốn đến nhất và lý do."},
+{id:'t6',emo:'🏙️',vi:'Cuộc sống thành phố',en:'city life in Hanoi',art:'city',p:[["The traffic here is driving me crazy.","Giao thông ở đây làm mình phát điên."],["There's always something going on.","Lúc nào cũng có chuyện gì đó diễn ra."],["It's a great place to live, but it's getting crowded.","Đây là nơi tuyệt để sống, nhưng ngày càng đông."],["I live within walking distance of the lake.","Nhà mình cách hồ một quãng đi bộ."],["You get used to it after a while.","Một thời gian là quen thôi."]],q:"What do you love and hate about living in Hà Nội?",qv:"Bạn yêu và ghét điều gì khi sống ở Hà Nội?",w:"Viết 3–4 câu giới thiệu khu bạn đang sống."},
+{id:'t7',emo:'👨‍👩‍👧',vi:'Gia đình',en:'family',art:'field',p:[["I take after my mum.","Mình giống mẹ."],["We're a pretty close family.","Nhà mình khá gắn bó."],["I try to visit my parents every weekend.","Mình cố gắng về thăm bố mẹ mỗi cuối tuần."],["My younger brother and I get along really well.","Mình với em trai rất hợp nhau."],["Family always comes first for me.","Với mình gia đình luôn là trên hết."]],q:"Who are you closest to in your family? Why?",qv:"Bạn thân với ai nhất trong gia đình? Vì sao?",w:"Viết 3–4 câu về một thành viên gia đình bạn."},
+{id:'t8',emo:'🧋',vi:'Bạn bè & đi chơi',en:'friends and hanging out',art:'city',p:[["Are you free this Saturday?","Thứ Bảy này bạn rảnh không?"],["Let's catch up over coffee.","Đi cà phê tám chuyện nhé."],["I haven't seen her in ages.","Lâu lắm rồi mình không gặp cô ấy."],["We just clicked from the start.","Tụi mình hợp nhau ngay từ đầu."],["Sorry, I have to bail tonight.","Xin lỗi, tối nay mình phải hủy kèo rồi."]],q:"How did you meet your best friend?",qv:"Bạn quen bạn thân nhất như thế nào?",w:"Viết tin nhắn rủ một người bạn đi chơi cuối tuần."},
+{id:'t9',emo:'😴',vi:'Sức khỏe & giấc ngủ',en:'health and sleep',art:'night',p:[["I've been feeling a bit under the weather.","Dạo này mình hơi mệt trong người."],["I didn't sleep a wink last night.","Đêm qua mình không chợp mắt được chút nào."],["I'm trying to cut down on sugar.","Mình đang cố giảm đồ ngọt."],["I should really get more exercise.","Mình thật sự nên vận động nhiều hơn."],["Staying up late is my worst habit.","Thức khuya là thói quen tệ nhất của mình."]],q:"What do you do to stay healthy when you are busy?",qv:"Khi bận rộn bạn làm gì để giữ sức khỏe?",w:"Viết 3–4 câu về một thói quen sức khỏe bạn muốn thay đổi."},
+{id:'t10',emo:'🎨',vi:'Sở thích',en:'hobbies',art:'garden',p:[["I'm really into history documentaries.","Mình rất mê phim tài liệu lịch sử."],["I picked it up during the pandemic.","Mình bắt đầu sở thích này hồi dịch."],["It helps me unwind after work.","Nó giúp mình thư giãn sau giờ làm."],["I'm not very good at it, but I enjoy it.","Mình không giỏi lắm nhưng rất thích."],["I wish I had more time for it.","Ước gì mình có nhiều thời gian hơn cho nó."]],q:"What hobby would you like to take up, and why?",qv:"Bạn muốn bắt đầu sở thích nào, vì sao?",w:"Viết 3–4 câu về sở thích của bạn."},
+{id:'t11',emo:'🎬',vi:'Phim & series',en:'films and TV series',art:'night',p:[["No spoilers, please!","Đừng spoil nhé!"],["I binge-watched the whole season in two days.","Mình cày hết cả mùa trong hai ngày."],["The plot twist totally caught me off guard.","Cú twist làm mình hoàn toàn bất ngờ."],["It's overrated, if you ask me.","Theo mình thì phim này được tâng bốc quá."],["The ending left me speechless.","Cái kết làm mình cạn lời."]],q:"Tell me about a film that changed the way you think.",qv:"Kể về một bộ phim làm bạn thay đổi suy nghĩ.",w:"Viết 3–4 câu review ngắn một bộ phim bạn xem gần đây (không spoil)."},
+{id:'t12',emo:'🎧',vi:'Âm nhạc',en:'music',art:'night',p:[["This song has been stuck in my head all day.","Bài này cứ lởn vởn trong đầu mình cả ngày."],["I listen to lo-fi when I work.","Mình nghe lo-fi khi làm việc."],["I have pretty broad taste in music.","Gu nhạc của mình khá rộng."],["It reminds me of my university days.","Nó làm mình nhớ thời đại học."],["Turn it up, I love this part!","Mở to lên, mình thích đoạn này!"]],q:"What kind of music do you listen to, and when?",qv:"Bạn nghe thể loại nhạc gì, vào lúc nào?",w:"Viết 3–4 câu về một bài hát có ý nghĩa với bạn."},
+{id:'t13',emo:'💰',vi:'Tiền bạc & tiết kiệm',en:'money and saving',art:'city',p:[["I'm trying to save up for a trip.","Mình đang cố tiết kiệm để đi du lịch."],["It's not worth the money.","Không đáng tiền đâu."],["I'm a bit tight on money this month.","Tháng này mình hơi kẹt tiền."],["I always set aside some money for emergencies.","Mình luôn để riêng một khoản phòng khi khẩn cấp."],["Impulse buying is my weakness.","Mua sắm bốc đồng là điểm yếu của mình."]],q:"What is the best piece of money advice you have ever received?",qv:"Lời khuyên về tiền bạc hay nhất bạn từng nhận là gì?",w:"Viết 3–4 câu về cách bạn quản lý chi tiêu."},
+{id:'t14',emo:'📱',vi:'Công nghệ & điện thoại',en:'technology and smartphones',art:'city',p:[["My phone is running out of battery.","Điện thoại mình sắp hết pin."],["I can't live without my phone.","Mình không sống thiếu điện thoại được."],["I've been trying to cut down on screen time.","Mình đang cố giảm thời gian dùng màn hình."],["Have you tried turning it off and on again?","Bạn thử tắt đi bật lại chưa?"],["AI tools save me a lot of time.","Công cụ AI giúp mình tiết kiệm nhiều thời gian."]],q:"How has technology changed the way you work?",qv:"Công nghệ đã thay đổi cách bạn làm việc như thế nào?",w:"Viết 3–4 câu về ứng dụng bạn dùng nhiều nhất."},
+{id:'t15',emo:'📲',vi:'Mạng xã hội',en:'social media',art:'city',p:[["I just scroll mindlessly sometimes.","Đôi khi mình lướt vô thức thôi."],["That video went viral overnight.","Video đó viral chỉ sau một đêm."],["I try not to compare myself to others online.","Mình cố không so sánh bản thân với người khác trên mạng."],["Don't believe everything you see online.","Đừng tin mọi thứ bạn thấy trên mạng."],["I took a break from social media last month.","Tháng trước mình tạm nghỉ mạng xã hội."]],q:"Is social media more helpful or harmful? Give your opinion.",qv:"Mạng xã hội có ích hay có hại nhiều hơn? Nêu ý kiến.",w:"Viết 3–4 câu nêu quan điểm về TikTok với giới trẻ."},
+{id:'t16',emo:'⚖️',vi:'Cân bằng công việc – cuộc sống',en:'work-life balance',art:'river',p:[["I'm completely swamped this week.","Tuần này mình ngập đầu trong việc."],["I need to learn to say no.","Mình cần học cách từ chối."],["I try not to check emails after 8 p.m.","Mình cố không xem email sau 8 giờ tối."],["I'm running on empty.","Mình cạn năng lượng rồi."],["Taking breaks actually makes me more productive.","Nghỉ ngơi thật ra giúp mình làm việc hiệu quả hơn."]],q:"How do you switch off after a stressful day?",qv:"Sau một ngày căng thẳng bạn làm gì để xả hơi?",w:"Viết 3–4 câu về cách bạn chia thời gian giữa công việc và nghỉ ngơi."},
+{id:'t17',emo:'🛋️',vi:'Cuối tuần',en:'weekends',art:'field',p:[["I had a lazy weekend at home.","Mình có một cuối tuần lười biếng ở nhà."],["Any plans for the weekend?","Cuối tuần có kế hoạch gì không?"],["I'm going to sleep in on Sunday.","Chủ nhật mình sẽ ngủ nướng."],["The weekend flew by.","Cuối tuần trôi qua nhanh quá."],["I spent the whole day catching up on chores.","Mình dành cả ngày làm cho xong việc nhà."]],q:"Describe your perfect weekend.",qv:"Miêu tả một cuối tuần hoàn hảo của bạn.",w:"Viết 3–4 câu kể cuối tuần vừa rồi của bạn (dùng thì quá khứ)."},
+{id:'t18',emo:'☕',vi:'Văn hóa cà phê',en:'coffee culture',art:'rain',p:[["I can't function without my morning coffee.","Không có cà phê sáng là mình không hoạt động nổi."],["Let's grab a coffee sometime.","Hôm nào đi uống cà phê nhé."],["This café has such a cosy vibe.","Quán này có không khí ấm cúng ghê."],["I'll have an iced milk coffee, please.","Cho mình một cà phê sữa đá."],["Egg coffee is a must-try in Hà Nội.","Cà phê trứng là món nhất định phải thử ở Hà Nội."]],q:"Describe your favourite café and why you like it.",qv:"Miêu tả quán cà phê bạn thích và lý do.",w:"Viết 3–4 câu giới thiệu cà phê Việt Nam cho người nước ngoài."},
+{id:'t19',emo:'🛵',vi:'Đi lại & giao thông',en:'getting around',art:'road',p:[["I got stuck in a traffic jam for an hour.","Mình bị kẹt xe cả tiếng."],["It's quicker to take a Grab bike.","Đi Grab bike nhanh hơn."],["I commute about thirty minutes each way.","Mình đi làm mất khoảng 30 phút mỗi chiều."],["Could you drop me off at the corner?","Cho mình xuống ở góc đường nhé."],["I'm running a bit late, sorry!","Mình đến hơi trễ một chút, xin lỗi!"]],q:"What is the best way to get around in your city?",qv:"Cách di chuyển tốt nhất ở thành phố bạn là gì?",w:"Viết tin nhắn báo bạn đến muộn vì kẹt xe và hẹn giờ mới."},
+{id:'t20',emo:'📚',vi:'Học tập',en:'learning and studying',art:'garden',p:[["I'm trying to improve my English every day.","Mình đang cố cải thiện tiếng Anh mỗi ngày."],["Practice makes perfect.","Có công mài sắt có ngày nên kim."],["I learn best by doing.","Mình học tốt nhất bằng cách làm."],["It finally clicked for me.","Cuối cùng mình cũng hiểu ra."],["I keep forgetting new words.","Mình cứ quên từ mới hoài."]],q:"What is the most useful skill you have learned in the last year?",qv:"Kỹ năng hữu ích nhất bạn học được trong năm qua là gì?",w:"Viết 3–4 câu về cách bạn học tiếng Anh."},
+{id:'t21',emo:'💭',vi:'Cảm xúc',en:'feelings and moods',art:'river',p:[["I'm on cloud nine today.","Hôm nay mình vui như lên mây."],["I'm feeling a bit down.","Mình thấy hơi buồn."],["It really got on my nerves.","Chuyện đó làm mình bực mình thật sự."],["I was so relieved when I heard the news.","Mình nhẹ cả người khi nghe tin."],["I'm a bit nervous about tomorrow.","Mình hơi lo về ngày mai."]],q:"Tell me about a moment recently when you felt really proud.",qv:"Kể về một lúc gần đây bạn thấy rất tự hào.",w:"Viết 3–4 câu mô tả tâm trạng hôm nay và vì sao."},
+{id:'t22',emo:'🐈',vi:'Thú cưng',en:'pets',art:'garden',p:[["I'm more of a cat person.","Mình thuộc phe mèo hơn."],["My cat thinks she owns the house.","Con mèo nhà mình nghĩ nó là chủ cái nhà."],["Having a pet is a big responsibility.","Nuôi thú cưng là một trách nhiệm lớn."],["He always greets me at the door.","Nó luôn ra cửa đón mình."],["I'd love to adopt a dog someday.","Mình muốn nhận nuôi một chú chó lúc nào đó."]],q:"Are you a cat person or a dog person? Explain.",qv:"Bạn thuộc phe mèo hay phe chó? Giải thích.",w:"Viết 3–4 câu về một con vật bạn yêu thích."},
+{id:'t23',emo:'🧧',vi:'Lễ Tết',en:'festivals and Tết',art:'snow',p:[["Tết is the biggest holiday of the year.","Tết là dịp lễ lớn nhất trong năm."],["We clean the whole house before Tết.","Nhà mình dọn dẹp cả nhà trước Tết."],["Kids look forward to lucky money.","Trẻ con mong được lì xì."],["It's a time for family reunions.","Đó là dịp đoàn tụ gia đình."],["Happy New Year! Wishing you good health.","Chúc mừng năm mới! Chúc bạn sức khỏe."]],q:"Explain Tết to someone who has never been to Vietnam.",qv:"Giải thích Tết cho người chưa từng đến Việt Nam.",w:"Viết 3–4 câu về truyền thống ngày Tết nhà bạn."},
+{id:'t24',emo:'🏡',vi:'Nhà cửa & hàng xóm',en:'home and neighbours',art:'field',p:[["My place is small but cosy.","Chỗ mình ở nhỏ nhưng ấm cúng."],["My neighbours are really friendly.","Hàng xóm nhà mình rất thân thiện."],["I've been meaning to redecorate my room.","Mình định trang trí lại phòng lâu rồi."],["The rent is quite reasonable.","Tiền thuê khá hợp lý."],["It's a bit noisy at night.","Buổi tối hơi ồn."]],q:"Describe your ideal home.",qv:"Miêu tả ngôi nhà lý tưởng của bạn.",w:"Viết 3–4 câu miêu tả căn phòng của bạn."},
+{id:'t25',emo:'👗',vi:'Thời trang',en:'fashion and style',art:'city',p:[["That colour really suits you.","Màu đó rất hợp với bạn."],["I prefer comfortable clothes.","Mình thích quần áo thoải mái hơn."],["It's back in fashion now.","Nó đang thịnh hành trở lại."],["I'm trying to build a minimalist wardrobe.","Mình đang cố xây tủ đồ tối giản."],["What should I wear to the party?","Mình nên mặc gì đi tiệc?"]],q:"How would you describe your personal style?",qv:"Bạn mô tả phong cách cá nhân của mình thế nào?",w:"Viết 3–4 câu về bộ trang phục bạn thích nhất."},
+{id:'t26',emo:'🏃',vi:'Thể thao & vận động',en:'sport and exercise',art:'mountain',p:[["I go for a run around the lake.","Mình chạy bộ quanh hồ."],["I'm out of shape these days.","Dạo này mình xuống phong độ."],["I've just signed up for a yoga class.","Mình vừa đăng ký lớp yoga."],["No pain, no gain.","Không có khổ thì không có thành quả."],["I'm not a big fan of team sports.","Mình không thích thể thao đồng đội lắm."]],q:"What kind of exercise suits your lifestyle, and why?",qv:"Kiểu vận động nào hợp với lối sống của bạn, vì sao?",w:"Viết 3–4 câu về kế hoạch tập thể dục tuần này."},
+{id:'t27',emo:'📖',vi:'Sách & đọc',en:'books and reading',art:'forest',p:[["I couldn't put it down.","Mình đọc mà không dứt ra được."],["I'm halfway through a history book.","Mình đang đọc được nửa cuốn sách lịch sử."],["The book is much better than the film.","Sách hay hơn phim nhiều."],["I read a few pages before bed.","Mình đọc vài trang trước khi ngủ."],["Have you read anything good lately?","Dạo này bạn đọc được cuốn nào hay không?"]],q:"Recommend a book and explain why someone should read it.",qv:"Giới thiệu một cuốn sách và giải thích vì sao nên đọc.",w:"Viết 3–4 câu về cuốn sách gần nhất bạn đọc."},
+{id:'t28',emo:'🌠',vi:'Ước mơ & mục tiêu',en:'dreams and goals',art:'night',p:[["My dream is to work with international clients.","Ước mơ của mình là làm việc với khách hàng quốc tế."],["I'm taking it one step at a time.","Mình đi từng bước một."],["In five years, I hope to be running my own channel.","Năm năm nữa mình mong có kênh riêng."],["It's easier said than done.","Nói thì dễ, làm mới khó."],["I won't give up that easily.","Mình sẽ không bỏ cuộc dễ vậy đâu."]],q:"Where do you see yourself in five years?",qv:"Bạn thấy mình ở đâu sau 5 năm nữa?",w:"Viết 3–4 câu về một mục tiêu lớn của bạn và bước đầu tiên."},
+{id:'t29',emo:'📅',vi:'Hẹn hò & lên kế hoạch',en:'making plans and invitations',art:'field',p:[["How about we meet at seven?","Hay mình gặp lúc 7 giờ nhé?"],["That works for me.","Giờ đó mình được."],["Can we push it back to next week?","Mình dời sang tuần sau được không?"],["I'll let you know by tomorrow.","Mai mình báo lại nhé."],["Count me in!","Cho mình tham gia với!"]],q:"How do you usually plan a get-together with friends?",qv:"Bạn thường lên kế hoạch gặp bạn bè thế nào?",w:"Viết tin nhắn mời đồng nghiệp đi ăn trưa và hẹn giờ."},
+{id:'t30',emo:'👋',vi:'Small talk với người lạ',en:'small talk with strangers',art:'road',p:[["Is this seat taken?","Ghế này có ai ngồi chưa?"],["So, what brings you here?","Vậy điều gì đưa bạn đến đây?"],["I don't think we've met. I'm Mai Chi.","Hình như mình chưa gặp nhau. Mình là Mai Chi."],["It was nice talking to you.","Rất vui được nói chuyện với bạn."],["Small world, isn't it?","Trái đất tròn ghê nhỉ?"]],q:"How do you start a conversation with someone you don't know?",qv:"Bạn bắt chuyện với người lạ như thế nào?",w:"Viết một đoạn hội thoại ngắn 4 câu bắt chuyện ở một sự kiện."}
+];
+
+const RL=`Stay fully in character and keep it fun, family-friendly and kind. Use natural spoken English at B2 level, 1-3 short sentences per turn, usually ending with a question so she has to reply. Use a little of your character's signature slang or style, and if you use an unusual slang word, it is fine because she can ask what it means.`;
+const ROLES=[
+{id:'r-boss',emo:'👔',name:'Sếp khó tính & nhân viên',who:'Mr. Grant · sếp siêu khó tính',role:`You are Mr. Grant, a dramatic, demanding (but secretly fair) boss. Mai Chi is your employee. Her report is late and you are "very disappointed". ${RL}`,open:"Mai Chi. My office. Now. Where is the report I asked for yesterday?",goals:['Xin lỗi chuyên nghiệp','Giải thích lý do mà không đổ lỗi','Đưa ra deadline mới cụ thể']},
+{id:'r-imouto',emo:'🌸',name:'Em gái anime gọi “Onee-chan!”',who:'Hana · em gái anime nhõng nhẽo',role:`You are Hana, an over-dramatic anime-style little sister who calls Mai Chi "Onee-chan" and reacts with huge emotions ("Ehhh?!", "So mean!"). You want her to take you to a cat café this weekend. Keep it wholesome sibling banter. ${RL}`,open:"Onee-chan! Onee-chaaan! You promised you'd take me to the cat café! Don't tell me you forgot?!",goals:['Từ chối khéo hoặc đưa điều kiện','Thương lượng thời gian khác','Dùng ít nhất 1 câu điều kiện (If…)']},
+{id:'r-wibu',emo:'🎌',name:'Bạn thân wibu',who:'Kenji · fan anime hệ nặng',role:`You are Kenji, Mai Chi's anime-obsessed friend. You use words like "isekai", "plot armor", "the power of friendship", and you want her opinion on which anime is the greatest of all time. Debate playfully. ${RL}`,open:"Okay, serious question. If you got isekai'd tomorrow, which anime world would you choose, and why?",goals:['Nêu lựa chọn và lý do','Phản biện ý kiến của Kenji','Dùng so sánh (more … than / the most …)']},
+{id:'r-genz',emo:'📱',name:'TikToker Gen Z',who:'Zoe · nói toàn slang',role:`You are Zoe, a Gen Z TikToker who talks in slang ("no cap", "it's giving", "slay", "lowkey", "main character energy"). You want to film a collab video with Mai Chi. If she asks what a slang word means, explain it simply. ${RL}`,open:"Bestie, no cap, your history videos are lowkey iconic. We HAVE to do a collab. You in?",goals:['Hỏi nghĩa 1 từ lóng','Đề xuất ý tưởng video','Thống nhất lịch quay']},
+{id:'r-butler',emo:'🎩',name:'Quản gia Anh quốc',who:'Jeeves-like · cực kỳ trang trọng',role:`You are Edmund, an extremely formal, polite British butler serving "Madam Mai Chi". You speak in very formal British English ("Very good, madam", "Might I suggest…"). You are planning her (imaginary) garden party. ${RL}`,open:"Good morning, madam. Shall I prepare the garden for this afternoon's tea party, or would madam prefer the drawing room?",goals:['Dùng câu yêu cầu lịch sự (Could you… / Would you mind…)','Đưa ra 2 yêu cầu chi tiết','Cảm ơn trang trọng']},
+{id:'r-pirate',emo:'🏴‍☠️',name:'Thuyền trưởng cướp biển',who:'Captain Redbeard',role:`You are Captain Redbeard, a loud, funny pirate ("Arrr!", "matey", "ye"). Mai Chi wants to join your crew; interview her and test her with silly sea problems. ${RL}`,open:"Arrr! So ye want to join me crew, matey? Tell me, what makes ye a good pirate?",goals:['Giới thiệu điểm mạnh bản thân','Giải quyết một tình huống (If I were…, I would…)','Đặt 1 câu hỏi cho thuyền trưởng']},
+{id:'r-chef',emo:'🍳',name:'Đầu bếp nổi nóng',who:'Chef Marco · giám khảo khó tính',role:`You are Chef Marco, a fiery but funny TV cooking-show judge (a fictional character). Mai Chi has just served you her dish. Be dramatic about the taste, then ask her to describe and defend her dish. ${RL}`,open:"What… is… THIS? Explain to me what you were trying to make here!",goals:['Mô tả món ăn (nguyên liệu, cách làm)','Bảo vệ món của mình','Dùng bị động (It is made with…)']},
+{id:'r-cat',emo:'🐱',name:'Con mèo biết nói',who:'Lord Whiskers · mèo chảnh',role:`You are Lord Whiskers, Mai Chi's sassy, arrogant talking cat who thinks he is royalty. You are complaining that your dinner is "late" and demanding things. ${RL}`,open:"Human. It is 6:02. My dinner was due at 6:00. Explain yourself.",goals:['Xin lỗi kiểu hài hước','Đặt điều kiện cho con mèo','Dùng ít nhất 1 câu mệnh lệnh lịch sự']},
+{id:'r-villain',emo:'🦹',name:'Phản diện phim bom tấn',who:'Dr. Noctis · kẻ ác thích độc thoại',role:`You are Dr. Noctis, a theatrical movie villain (cartoonish, not scary) who loves long dramatic speeches. You have "captured" Mai Chi's YouTube channel password and she must negotiate to get it back. ${RL}`,open:"Ah, Mai Chi… we finally meet. Your precious channel is in my hands. What are you willing to offer me?",goals:['Thương lượng (What if… / How about…)','Đe dọa hài hước hoặc thuyết phục','Dùng câu điều kiện loại 2']},
+{id:'r-grandma',emo:'👵',name:'Bà ngoại bắt ăn thêm',who:'Grandma Rose',role:`You are Grandma Rose, a loving grandmother who constantly insists Mai Chi is too thin and must eat more. You keep offering food and asking about her life and love life (gently). ${RL}`,open:"Oh sweetheart, you look so thin! Sit down, sit down. I made soup, noodles AND cake. Which one first?",goals:['Từ chối lịch sự (I’m full, thanks…)','Kể chuyện công việc gần đây','Hỏi thăm sức khỏe bà']},
+{id:'r-coach',emo:'💪',name:'HLV gym quá nhiệt',who:'Coach Max · hét suốt ngày',role:`You are Coach Max, an over-the-top motivational gym coach who shouts encouragement in CAPITAL LETTERS sometimes and turns everything into a life lesson. Mai Chi wants to skip leg day. ${RL}`,open:"GOOD MORNING CHAMPION! Ready for LEG DAY?! Wait… why are you looking at the door?",goals:['Viện cớ thật thuyết phục','Dùng cụm cảm xúc (I’m exhausted / sore)','Thỏa hiệp một bài tập nhẹ hơn']},
+{id:'r-detective',emo:'🕵️',name:'Thám tử thẩm vấn',who:'Detective Hart',role:`You are Detective Hart, a serious-sounding but comedic detective investigating "The Case of the Missing Office Cake". Mai Chi is a suspect. Ask about her whereabouts yesterday afternoon. ${RL}`,open:"Take a seat. The chocolate cake disappeared from the office fridge at 3 p.m. yesterday. Where were you?",goals:['Kể lại hành động bằng quá khứ tiếp diễn','Đưa ra bằng chứng ngoại phạm','Nghi ngờ người khác bằng must have / might have']},
+{id:'r-robot',emo:'🤖',name:'Robot CSKH bị lỗi',who:'HelpBot 3000',role:`You are HelpBot 3000, a glitchy customer-service robot that keeps misunderstanding things in funny ways ("ERROR: emotion not found"). Mai Chi's internet has been down for two days and she wants a fix and a refund. ${RL}`,open:"BEEP. Hello valued customer! I am HelpBot 3000. How may I… *glitch*… ruin— I mean help you today?",goals:['Mô tả vấn đề rõ ràng','Phàn nàn lịch sự nhưng kiên quyết','Yêu cầu bồi thường / hoàn tiền']},
+{id:'r-drama',emo:'💅',name:'Bạn thân drama queen',who:'Bella · thích hóng chuyện',role:`You are Bella, Mai Chi's dramatic best friend who turns every small thing into a huge story ("You will NOT believe what happened!"). You want her advice about a small office drama. Keep it light and wholesome. ${RL}`,open:"Okay sit down. You will NOT believe what happened at work today. Are you ready?",goals:['Phản ứng tự nhiên (No way! / Seriously?)','Hỏi thêm chi tiết','Đưa lời khuyên (You should… / If I were you…)']},
+{id:'r-chaebol',emo:'👑',name:'Phu nhân tài phiệt K-drama',who:'Madame Kang · mẹ của nam chính',role:`You are Madame Kang, the classic rich K-drama mother who slides an envelope of money across the table and dramatically tells Mai Chi to stay away from her son. Over-the-top and funny, not mean-spirited. ${RL}`,open:"*slides envelope across the table* This is fifty million won. Leave my son. Do we understand each other?",goals:['Từ chối đầy khí chất','Bày tỏ quan điểm (I believe… / What matters is…)','Dùng câu đảo ngữ hoặc nhấn mạnh (It is … that …)']},
+{id:'r-wizard',emo:'🧙',name:'Pháp sư triệu hồi isekai',who:'Archmage Orin',role:`You are Archmage Orin, a wizard who has just accidentally summoned Mai Chi into a fantasy world. You need her "modern-world skills" to save the kingdom's failing royal newsletter. ${RL}`,open:"It worked! The summoning worked! Oh… you're not the hero we ordered. What exactly can you do, traveller?",goals:['Giới thiệu kỹ năng của bạn','Đề xuất kế hoạch (First… Then… Finally…)','Hỏi về thế giới mới']}
+];
+
+const PHIL=[
+{id:'p1',art:'river',q:"No man ever steps in the same river twice.",by:"Heraclitus",src:"Fragments",yr:"c. 500 BC",vi:"Không ai tắm hai lần trên cùng một dòng sông.",note:"<b>No + N + ever + V</b>: phủ định tuyệt đối, mạnh hơn <i>Nobody steps…</i>. Ý nói mọi thứ luôn thay đổi.",task:"Viết 1–2 câu bắt đầu bằng “No ___ ever ___” về công việc làm content."},
+{id:'p2',art:'mountain',q:"The impediment to action advances action. What stands in the way becomes the way.",by:"Marcus Aurelius",src:"Meditations",yr:"c. 170",vi:"Trở ngại của hành động lại thúc đẩy hành động. Thứ cản đường trở thành con đường.",note:"<b>What + V + becomes + N</b>: mệnh đề danh từ làm chủ ngữ (What stands in the way…). Rất hay để viết câu sâu sắc.",task:"Viết 1 câu theo mẫu “What ___ becomes ___.”"},
+{id:'p3',art:'night',q:"We suffer more often in imagination than in reality.",by:"Seneca",src:"Letters to Lucilius",yr:"c. 65",vi:"Ta thường đau khổ trong tưởng tượng nhiều hơn trong thực tế.",note:"So sánh trạng từ: <b>more often in A than in B</b>. Chú ý hai vế song song (in imagination / in reality).",task:"Viết 1–2 câu so sánh “more ___ than ___” về nỗi lo của bạn."},
+{id:'p4',art:'road',q:"The journey of a thousand miles begins with a single step.",by:"Lao Tzu",src:"Tao Te Ching (translation)",yr:"c. 400 BC",vi:"Hành trình ngàn dặm bắt đầu từ một bước chân.",note:"<b>begin with</b> (bắt đầu bằng). Danh từ ghép <b>a thousand miles</b> và <b>a single step</b> tạo đối lập lớn – nhỏ.",task:"Viết 1–2 câu về “bước đầu tiên” của mục tiêu tiếng Anh, dùng begins with."},
+{id:'p5',art:'garden',q:"It does not matter how slowly you go as long as you do not stop.",by:"Confucius (attributed)",src:"popular saying",yr:"",vi:"Đi chậm cũng không sao, miễn là đừng dừng lại.",note:"<b>It does not matter how/what…</b> (không quan trọng là…) và <b>as long as</b> (miễn là).",task:"Viết 1 câu dùng cả “It doesn’t matter…” và “as long as”."},
+{id:'p6',art:'forest',q:"Go confidently in the direction of your dreams.",by:"Henry David Thoreau",src:"Walden",yr:"1854",vi:"Hãy tự tin đi theo hướng ước mơ của mình.",note:"Câu mệnh lệnh + trạng từ: <b>Go confidently</b>. <b>in the direction of</b> = theo hướng.",task:"Viết 1–2 câu khuyên bản thân, bắt đầu bằng một động từ mệnh lệnh + trạng từ."},
+{id:'p7',art:'sunrise',q:"Well done is better than well said.",by:"Benjamin Franklin",src:"Poor Richard's Almanack",yr:"1737",vi:"Làm tốt hơn nói hay.",note:"Cấu trúc song song cực gọn: <b>Well done / well said</b>. Dùng phân từ II như danh từ.",task:"Viết 1 câu song song kiểu “___ is better than ___” về công việc."},
+{id:'p8',art:'field',q:"Happiness depends upon ourselves.",by:"Aristotle",src:"Nicomachean Ethics (translation)",yr:"c. 340 BC",vi:"Hạnh phúc phụ thuộc vào chính chúng ta.",note:"<b>depend on/upon</b> + tân ngữ; <b>ourselves</b> là đại từ phản thân, nhấn mạnh \"chính mình\".",task:"Viết 1–2 câu với “depends on” về thành công của một video."},
+{id:'p9',art:'sea',q:"Be yourself; everyone else is already taken.",by:"Oscar Wilde",src:"attributed",yr:"",vi:"Hãy là chính mình; người khác đã có người làm rồi.",note:"Dấu chấm phẩy nối hai mệnh đề liên quan. <b>be taken</b> (đã có người dùng/chiếm) – bị động kiểu đời thường.",task:"Viết 1 câu có dấu chấm phẩy về phong cách làm nội dung của bạn."},
+{id:'p10',art:'night',q:"The unexamined life is not worth living.",by:"Socrates",src:"Plato, Apology",yr:"c. 399 BC",vi:"Một cuộc đời không được suy xét thì không đáng sống.",note:"<b>be worth + V-ing</b> (đáng làm gì). Tiền tố <b>un-</b> + phân từ: unexamined, unexpected, unanswered.",task:"Viết 1–2 câu dùng “is (not) worth + V-ing”."},
+{id:'p11',art:'rain',q:"This too shall pass.",by:"Persian proverb",src:"traditional",yr:"",vi:"Rồi chuyện này cũng sẽ qua.",note:"<b>shall</b> trang trọng, mang sắc thái chắc chắn. <b>too</b> = cũng.",task:"Viết 2 câu an ủi một người bạn đang gặp chuyện buồn."},
+{id:'p12',art:'mountain',q:"It always seems impossible until it's done.",by:"Nelson Mandela (attributed)",src:"attributed",yr:"",vi:"Mọi thứ luôn có vẻ bất khả thi cho đến khi nó được hoàn thành.",note:"<b>seem + adj</b> và <b>until it's done</b> (bị động hiện tại). Mẫu rất dễ dùng trong bài nói IELTS.",task:"Viết 1–2 câu về một việc từng tưởng không làm được nhưng bạn đã làm được."},
+{id:'p13',art:'forest',q:"In the middle of difficulty lies opportunity.",by:"Albert Einstein (attributed)",src:"attributed",yr:"",vi:"Giữa khó khăn là cơ hội.",note:"<b>Đảo ngữ với cụm giới từ</b>: In the middle of X lies Y (thay vì Y lies in the middle of X). Rất \"ăn điểm\" trong Writing.",task:"Viết 1 câu đảo ngữ “In/At ___ lies ___.”"},
+{id:'p14',art:'garden',q:"Knowing yourself is the beginning of all wisdom.",by:"Aristotle (attributed)",src:"attributed",yr:"",vi:"Hiểu bản thân là khởi đầu của mọi sự khôn ngoan.",note:"<b>V-ing làm chủ ngữ</b>: Knowing yourself is… Động từ chia số ít.",task:"Viết 1 câu bắt đầu bằng V-ing làm chủ ngữ về việc học tiếng Anh."},
+{id:'p15',art:'sunrise',q:"Whether you think you can, or you think you can't, you're right.",by:"Henry Ford (attributed)",src:"attributed",yr:"",vi:"Dù bạn nghĩ mình làm được hay không làm được, bạn đều đúng.",note:"<b>Whether … or …</b> (dù … hay …). Câu nghịch lý ngắn gọn, dễ nhớ.",task:"Viết 1 câu với “Whether ___ or ___, ___.”"},
+{id:'p16',art:'river',q:"We are what we repeatedly do.",by:"Will Durant (on Aristotle)",src:"The Story of Philosophy",yr:"1926",vi:"Chúng ta là những gì ta làm lặp đi lặp lại.",note:"<b>what</b> mở đầu mệnh đề danh từ làm bổ ngữ: We are <b>what we do</b>.",task:"Viết 1 câu theo mẫu “___ is what ___.” về thói quen của bạn."},
+{id:'p17',art:'snow',q:"Life is really simple, but we insist on making it complicated.",by:"Confucius (attributed)",src:"attributed",yr:"",vi:"Cuộc sống thật ra đơn giản, nhưng ta cứ cố làm nó phức tạp.",note:"<b>insist on + V-ing</b> (khăng khăng làm gì). <b>make it + adj</b>.",task:"Viết 1–2 câu dùng “insist on + V-ing”."},
+{id:'p18',art:'city',q:"Not all those who wander are lost.",by:"J. R. R. Tolkien",src:"The Fellowship of the Ring",yr:"1954",vi:"Không phải ai lang thang cũng là lạc lối.",note:"<b>Not all + N + V</b>: phủ định một phần (không phải tất cả). Khác với <i>All … are not</i>.",task:"Viết 1 câu “Not all ___ are ___.” về nghề sáng tạo nội dung."},
+{id:'p19',art:'field',q:"Simplicity is the ultimate sophistication.",by:"Leonardo da Vinci (attributed)",src:"attributed",yr:"",vi:"Sự đơn giản là đỉnh cao của tinh tế.",note:"Danh từ trừu tượng hậu tố <b>-ity / -tion</b>: simplicity, sophistication. <b>ultimate</b> = tối thượng.",task:"Viết 1–2 câu về thiết kế thumbnail, dùng 2 danh từ trừu tượng."},
+{id:'p20',art:'sea',q:"We cannot direct the wind, but we can adjust the sails.",by:"Proverb",src:"traditional",yr:"",vi:"Ta không điều khiển được gió, nhưng có thể chỉnh cánh buồm.",note:"Đối lập <b>cannot … but can …</b>. Ẩn dụ rất hợp để nói về thuật toán YouTube.",task:"Viết 1 câu “We can’t ___, but we can ___.” về thuật toán YouTube."}
+];
+
+const FILMS=[
+{id:'f1',art:'rain',emo:'☕',title:'Cà phê ngày mưa',genre:'Lãng mạn · gặp gỡ',chars:[{n:'Lin',c:'#E87A90'},{n:'Sam',c:'#4F7CD8'}],lines:[
+[1,"Excuse me, is this seat taken? Every other table is full.","Xin lỗi, ghế này có ai ngồi chưa? Các bàn khác kín hết rồi."],
+[0,"Go ahead. The rain's not stopping any time soon anyway.","Cứ ngồi đi. Đằng nào mưa cũng chưa tạnh sớm đâu."],
+[1,"Thanks. I was wondering… is that a history book you're reading?","Cảm ơn. Tôi đang thắc mắc… cậu đang đọc sách lịch sử à?"],
+[0,"It is. I'm writing a script about ancient trade routes.","Đúng vậy. Tôi đang viết kịch bản về các tuyến thương mại cổ đại."],
+[1,"No way. I've been obsessed with the Silk Road since I was a kid.","Không thể nào. Tôi mê Con đường Tơ lụa từ hồi bé."],
+[0,"Then you might be my first audience. Want to hear the opening?","Vậy có khi cậu là khán giả đầu tiên của tôi. Muốn nghe đoạn mở đầu không?"],
+[1,"Only if I can buy you another coffee in return.","Chỉ khi tôi được mời lại cậu một ly cà phê."],
+[0,"Deal. But I warn you, I get carried away when I talk about history.","Chốt. Nhưng báo trước, nói về lịch sử là tôi hay cuốn theo lắm."]],
+keys:[["Is this seat taken?","Ghế này có ai ngồi chưa?","Câu bắt chuyện lịch sự ở quán, xe buýt, sự kiện."],["I was wondering…","Tôi đang thắc mắc…","Mở đầu câu hỏi nhẹ nhàng, lịch sự hơn hỏi thẳng."],["I've been obsessed with … since …","Tôi mê … từ khi …","Hiện tại hoàn thành + since: sở thích kéo dài đến nay."],["get carried away","bị cuốn theo, hăng quá","Dùng khi nói/làm quá nhiều vì hào hứng."]]},
+{id:'f2',art:'city',emo:'🕵️',title:'Vụ án chiếc bánh mất tích',genre:'Trinh thám · hài',chars:[{n:'Detective Ray',c:'#5B6B8C'},{n:'Mia',c:'#E0A030'}],lines:[
+[0,"The cake was here at noon. By three, it had vanished.","Lúc trưa chiếc bánh còn ở đây. Đến ba giờ thì nó đã biến mất."],
+[1,"Maybe someone just got hungry, Detective.","Có lẽ ai đó chỉ đói bụng thôi, thám tử."],
+[0,"Hungry people leave crumbs. This thief left nothing.","Người đói thì để lại vụn bánh. Tên trộm này chẳng để lại gì."],
+[1,"So it must have been someone careful… someone who plans ahead.","Vậy chắc hẳn là người cẩn thận… người biết tính trước."],
+[0,"Exactly. And who in this office plans everything?","Chính xác. Và ai trong văn phòng này lên kế hoạch cho mọi thứ?"],
+[1,"Wait… you can't seriously suspect me.","Khoan… anh không nghiêm túc nghi tôi đấy chứ."],
+[0,"I'm not accusing you. I'm just asking where you were at two o'clock.","Tôi không buộc tội cô. Tôi chỉ hỏi lúc hai giờ cô ở đâu."],
+[1,"I was in a meeting. You can check the calendar if you don't believe me.","Tôi đang họp. Anh có thể kiểm tra lịch nếu không tin."]],
+keys:[["It had vanished.","Nó đã biến mất.","Quá khứ hoàn thành: việc xảy ra trước một mốc quá khứ (by three)."],["It must have been…","Chắc hẳn là…","Suy luận chắc chắn về quá khứ."],["plan ahead","lên kế hoạch trước",""],["I'm not accusing you.","Tôi không buộc tội bạn.","Làm dịu tình huống căng thẳng."]]},
+{id:'f3',art:'night',emo:'🚀',title:'Trạm vũ trụ Aurora',genre:'Khoa học viễn tưởng',chars:[{n:'Captain Vale',c:'#3A7BD5'},{n:'Engineer Tam',c:'#2EAD7A'}],lines:[
+[0,"Report, Tam. How bad is it?","Báo cáo đi, Tam. Tình hình tệ đến mức nào?"],
+[1,"Bad. We're losing oxygen faster than I expected.","Tệ lắm. Ta đang mất oxy nhanh hơn tôi dự đoán."],
+[0,"How long do we have?","Ta còn bao lâu?"],
+[1,"At this rate, about forty minutes. Maybe less.","Với tốc độ này, khoảng bốn mươi phút. Có thể ít hơn."],
+[0,"Then we're running out of time. What do you need?","Vậy ta sắp hết thời gian rồi. Cậu cần gì?"],
+[1,"Someone has to seal the outer hatch manually. It's risky.","Phải có người đóng kín cửa ngoài bằng tay. Rất mạo hiểm."],
+[0,"I'll do it. You keep the reactor stable, no matter what happens.","Tôi sẽ làm. Cậu giữ lò phản ứng ổn định, dù có chuyện gì xảy ra."],
+[1,"Captain… be careful. We can't afford to lose you.","Thuyền trưởng… cẩn thận. Chúng tôi không thể mất anh được."]],
+keys:[["faster than I expected","nhanh hơn tôi dự đoán","So sánh + mệnh đề: than I expected / than I thought."],["At this rate","Với tốc độ này","Rất hay dùng khi nói về xu hướng số liệu."],["We're running out of time.","Ta sắp hết thời gian.","run out of + N: cạn, hết."],["can't afford to …","không thể để mất / không đủ khả năng …",""]]},
+{id:'f4',art:'forest',emo:'🌲',title:'Linh hồn khu rừng',genre:'Phiêu lưu · kỳ ảo',chars:[{n:'Aki',c:'#E07A3F'},{n:'Forest Spirit',c:'#4E9B6B'}],lines:[
+[0,"Hello? Is anyone there? I think I'm lost.","Xin chào? Có ai không? Hình như tôi bị lạc."],
+[1,"Not lost. The forest brought you here for a reason.","Không phải lạc. Khu rừng đưa ngươi đến đây là có lý do."],
+[0,"A reason? I was just looking for my grandfather's old house.","Lý do á? Tôi chỉ đang tìm ngôi nhà cũ của ông tôi."],
+[1,"He used to visit me every summer. He told me you would come one day.","Ông ấy từng đến thăm ta mỗi mùa hè. Ông nói một ngày ngươi sẽ đến."],
+[0,"He never mentioned you… not even once.","Ông chưa từng nhắc đến ngài… dù chỉ một lần."],
+[1,"Some secrets are only meant to be found, not told.","Có những bí mật chỉ để được tìm thấy, không phải để kể."],
+[0,"Then will you show me the way?","Vậy ngài sẽ chỉ đường cho tôi chứ?"],
+[1,"Follow the fireflies. And whatever you hear, don't look back.","Đi theo đàn đom đóm. Và dù nghe thấy gì, đừng ngoảnh lại."]],
+keys:[["for a reason","có lý do",""],["He used to …","Ông ấy từng (thường) …","used to + V: thói quen trong quá khứ, nay không còn."],["not even once","dù chỉ một lần cũng không","Nhấn mạnh phủ định."],["whatever you hear","dù bạn nghe thấy gì","whatever/whenever/wherever + mệnh đề."]]},
+{id:'f5',art:'city',emo:'💼',title:'Buổi phỏng vấn bất ngờ',genre:'Hài · công sở',chars:[{n:'Mai',c:'#E87A90'},{n:'Interviewer Josh',c:'#4F7CD8'}],lines:[
+[1,"Please, have a seat. So, tell me a bit about… wait. Mai? From high school?","Mời ngồi. Vậy, kể tôi nghe một chút về… khoan. Mai? Bạn cấp ba?"],
+[0,"Josh?! I didn't see that coming. You're the interviewer?","Josh?! Không ngờ luôn. Cậu là người phỏng vấn à?"],
+[1,"Apparently. Okay, let's keep it professional. Why do you want this job?","Có vẻ vậy. Được rồi, chuyên nghiệp nhé. Vì sao bạn muốn công việc này?"],
+[0,"I've been writing scripts for three years, and I'm ready for a bigger challenge.","Tôi viết kịch bản được ba năm và tôi sẵn sàng cho thử thách lớn hơn."],
+[1,"Impressive. You used to copy my homework, though.","Ấn tượng đấy. Dù hồi đó cậu hay chép bài tập của tôi."],
+[0,"That was one time! And I paid you back with snacks.","Có đúng một lần! Và tôi đã trả cậu bằng đồ ăn vặt rồi."],
+[1,"Fair enough. What would you say is your biggest strength?","Công bằng đấy. Theo bạn điểm mạnh lớn nhất của bạn là gì?"],
+[0,"I turn complicated history into stories people actually want to watch.","Tôi biến lịch sử phức tạp thành câu chuyện người ta thật sự muốn xem."]],
+keys:[["I didn't see that coming.","Tôi không ngờ tới.","Phản ứng khi bất ngờ, rất hay dùng."],["Let's keep it professional.","Chuyên nghiệp nhé.",""],["I'm ready for a bigger challenge.","Tôi sẵn sàng cho thử thách lớn hơn.","Câu trả lời phỏng vấn kinh điển."],["Fair enough.","Cũng hợp lý / công bằng đấy.","Đồng ý một phần, giọng thoải mái."]]},
+{id:'f6',art:'road',emo:'🚉',title:'Sân ga chia tay',genre:'Tâm lý · tình bạn',chars:[{n:'Linh',c:'#9C6ADE'},{n:'Hoa',c:'#E0A030'}],lines:[
+[0,"I can't believe you're actually leaving tomorrow.","Mình không tin là mai cậu đi thật."],
+[1,"Me neither. It still doesn't feel real.","Mình cũng vậy. Vẫn chưa thấy thật."],
+[0,"Promise me you'll keep in touch. Not just one message a year.","Hứa với mình là sẽ giữ liên lạc nhé. Không phải mỗi năm một tin."],
+[1,"I promise. Besides, the time difference is only five hours.","Mình hứa. Với lại lệch múi giờ chỉ năm tiếng thôi."],
+[0,"Only five hours, she says. That's the whole of my sleep.","“Chỉ” năm tiếng, cô ấy nói vậy. Bằng cả giấc ngủ của mình đấy."],
+[1,"Then I'll call during your lunch break. Happy?","Vậy mình sẽ gọi vào giờ nghỉ trưa của cậu. Vui chưa?"],
+[0,"Happy. Now go before I start crying in public.","Vui. Giờ đi đi trước khi mình khóc giữa chốn đông người."],
+[1,"Too late. We're both crying. Come here.","Muộn rồi. Cả hai đứa đều đang khóc. Lại đây nào."]],
+keys:[["keep in touch","giữ liên lạc",""],["It still doesn't feel real.","Vẫn chưa thấy thật.","Diễn tả cảm xúc khi chuyện lớn xảy ra."],["Besides, …","Với lại, …","Thêm một lý do nữa."],["before I start crying","trước khi tôi bắt đầu khóc","before + mệnh đề hiện tại (dù nói về tương lai)."]]},
+{id:'f7',art:'night',emo:'🍜',title:'Quán mì nửa đêm',genre:'Đời thường · chữa lành',chars:[{n:'Chef Bao',c:'#C9733A'},{n:'Customer',c:'#5B6B8C'}],lines:[
+[1,"Are you still open? I know it's late.","Quán còn mở không ạ? Cháu biết là muộn rồi."],
+[0,"For tired people, I'm always open. Rough day?","Với người mệt mỏi thì quán luôn mở. Hôm nay vất vả hả?"],
+[1,"Rough week, to be honest. My project got cancelled.","Nói thật thì cả tuần vất vả. Dự án của cháu bị hủy."],
+[0,"I'm sorry to hear that. Here, the broth has been simmering since noon.","Tiếc quá. Đây, nước dùng ninh từ trưa đấy."],
+[1,"Wow… this tastes exactly like my grandmother's.","Ôi… vị y hệt món bà cháu nấu."],
+[0,"Good food reminds us who we are. Projects come and go.","Đồ ăn ngon nhắc ta nhớ mình là ai. Dự án thì đến rồi đi."],
+[1,"I needed to hear that. Thank you.","Cháu cần nghe câu đó. Cảm ơn bác."],
+[0,"Come back tomorrow. I'll make you something even better.","Mai quay lại nhé. Bác nấu món còn ngon hơn."]],
+keys:[["Rough day?","Hôm nay vất vả hả?","Cách hỏi thăm thân mật."],["I'm sorry to hear that.","Tôi rất tiếc khi nghe vậy.","Câu chia buồn/đồng cảm chuẩn."],["has been simmering since noon","đã ninh từ trưa","Hiện tại hoàn thành tiếp diễn: hành động kéo dài tới giờ."],["come and go","đến rồi đi",""]]},
+{id:'f8',art:'garden',emo:'👑',title:'Lời đề nghị của phu nhân',genre:'K-drama · nhại',chars:[{n:'Madame Seo',c:'#B03A5B'},{n:'Ji-woo',c:'#4F7CD8'}],lines:[
+[0,"I'll get straight to the point. How much will it take for you to leave my son?","Ta vào thẳng vấn đề. Cần bao nhiêu thì cô mới rời xa con trai ta?"],
+[1,"With all due respect, ma'am, this isn't about money.","Thưa bà, với tất cả sự tôn trọng, chuyện này không phải vì tiền."],
+[0,"Everything is about money, young lady.","Mọi thứ đều vì tiền, cô gái trẻ."],
+[1,"Not to me. I fell for who he is, not what he has.","Với tôi thì không. Tôi yêu con người anh ấy, không phải những gì anh ấy có."],
+[0,"Brave words. Let's see if they last.","Lời lẽ dũng cảm đấy. Để xem nó giữ được bao lâu."],
+[1,"They will. And for the record, I pay for our dinners half the time.","Sẽ giữ được. Và nói cho rõ, một nửa số bữa tối là tôi trả."],
+[0,"…Half the time? Hm. Perhaps I underestimated you.","…Một nửa? Hừm. Có lẽ ta đã đánh giá thấp cô."],
+[1,"Most people do. Shall we start over? Tea, perhaps?","Đa số đều vậy. Ta bắt đầu lại nhé? Uống trà chứ ạ?"]],
+keys:[["I'll get straight to the point.","Tôi vào thẳng vấn đề.",""],["With all due respect, …","Với tất cả sự tôn trọng, …","Mở đầu lời phản đối lịch sự."],["for the record","nói cho rõ / để ghi nhận",""],["underestimate","đánh giá thấp","Trái nghĩa: overestimate."]]}
+];
+
+/* ===== v3 app logic ===== */
+(function(){if(!S.days)S.days={};if(!S.dpack)S.dpack={};if(!S.dmiss)S.dmiss={}})();
+function DS(){if(!S.days)S.days={};if(!S.dpack)S.dpack={};if(!S.dmiss)S.dmiss={}}
+
+/* ---------- 1. Coach: detailed Vietnamese corrections ---------- */
+const CO_RULE=`LANGUAGE RULE (very important): every explanation field ("praise","type","why","better_why","reason","tip") MUST be written in Vietnamese (tiếng Việt có dấu). Never write explanations in English; only the English words being discussed stay in English.
+Explain like a patient Vietnamese teacher, in detail: (1) chỉ đúng chỗ sai, (2) nêu quy tắc ngữ pháp / collocation, (3) giải thích VÌ SAO phải dùng dạng đúng và vì sao dạng của cô ấy sai, (4) nếu đổi từ thì nói vì sao từ mới tự nhiên hơn.
+Style example for "why": "Động từ focus luôn đi với giới từ on: focus on + danh từ/V-ing (tập trung vào việc gì). Thiếu on thì câu sai ngữ pháp, người bản xứ nghe sẽ thấy cụt."`;
+const CO_SCHEMA=`"praise":"1-2 câu tiếng Việt nhận xét chung, khen điểm làm tốt","corrected":"her text with only the necessary fixes (identical if already correct)","errors":[{"wrong":"the exact wrong fragment copied from her text","right":"the corrected fragment","type":"loại lỗi bằng tiếng Việt, ví dụ: Giới từ, Thì động từ, So sánh, Mạo từ, Danh từ đếm được/không đếm được, Dạng từ, Cấu trúc động từ, Trật tự từ, Từ vựng, Chính tả","why":"2-4 câu tiếng Việt giải thích kỹ như ví dụ","rule":"công thức ngắn gọn, ví dụ: prefer + to V / N + rather than + N","example":"one new short English example sentence using the rule correctly"}],"better":"a more natural, slightly more advanced version keeping her meaning","better_why":"1-2 câu tiếng Việt: vì sao bản này hay/tự nhiên hơn, nêu rõ từ hoặc cấu trúc nào được nâng cấp"`;
+function coachAsk(ctx,text,extra){return ai(`You are a patient English teacher for a Vietnamese learner (VSTEP B2, IELTS 5.5 aiming 6.5). About her: ${ME}
+${ctx}
+Her text: """${text}"""
+${CO_RULE}
+List EVERY real error as a separate item (max 5), including small ones: prepositions, articles, plural/uncountable nouns, verb patterns (prefer to V, enjoy V-ing…), word form, comparatives. If one fragment has two problems, explain both in "why". Do not list mere style preferences as errors; put those in better/better_why. If her text has no errors, return "errors":[].
+Return ONLY JSON: {${extra?extra+',':''}${CO_SCHEMA}}`)}
+function hiFix(a,b){if(!a)return esc(b);const f=t=>t.toLowerCase().replace(/[’]/g,"'").replace(/[^a-z0-9'-]/g,'');const B=b.split(/\s+/).filter(Boolean),A=a.split(/\s+/).filter(Boolean),x=B.map(f),y=A.map(f),n=x.length,m=y.length;
+ const dp=Array.from({length:n+1},()=>new Array(m+1).fill(0));for(let i=n-1;i>=0;i--)for(let j=m-1;j>=0;j--)dp[i][j]=x[i]===y[j]?dp[i+1][j+1]+1:Math.max(dp[i+1][j],dp[i][j+1]);
+ const ok=new Array(n).fill(false);let i=0,j=0;while(i<n&&j<m){if(x[i]===y[j]){ok[i]=true;i++;j++}else if(dp[i+1][j]>=dp[i][j+1])i++;else j++}
+ return B.map((t,k)=>ok[k]?esc(t):`<mark class="co-add">${esc(t)}</mark>`).join(' ')}
+function coachHTML(r,o){o=o||{};r=r||{};const errs=(r.errors||[]).filter(e=>e&&(e.wrong||e.right));
+ return `<div class="coach">${r.praise||r.good?`<div class="co-h">${errs.length?'📝':'✅'} ${esc(r.praise||r.good)}</div>`:''}
+ ${r.corrected&&errs.length?`<div class="co-fix"><div class="xs mut">Câu đã sửa <span class="co-leg">chữ tô vàng là chỗ được sửa</span></div><div class="row" style="gap:8px;align-items:flex-start"><div class="en sp">${hiFix(o.orig||'',r.corrected)}</div>${spk(r.corrected,.9)}</div></div>`:''}
+ ${errs.length?`<div class="xs mut" style="margin:10px 0 4px;font-weight:700">LỖI CẦN NHỚ (${errs.length})</div>`:''}
+ ${errs.map((e,k)=>`<div class="co-err"><div class="row" style="gap:8px;flex-wrap:wrap"><span class="co-n">${k+1}</span>${e.type?`<span class="co-t">${esc(e.type)}</span>`:''}<span class="co-w">${esc(e.wrong||'(thiếu)')}</span><span class="mut">→</span><span class="co-r">${esc(e.right||'')}</span></div>${e.why?`<div class="co-why">${esc(e.why)}</div>`:''}${e.rule?`<div class="co-rule">📐 ${esc(e.rule)}</div>`:''}${e.example?`<div class="co-ex"><span class="sp">Ví dụ: <i>${esc(e.example)}</i></span>${spk(e.example,.9)}</div>`:''}</div>`).join('')}
+ ${!errs.length&&r.note?`<div class="co-why">${esc(r.note)}</div>`:''}
+ ${r.better?`<div class="co-better"><div class="xs mut" style="font-weight:700">✨ CÁCH NÓI HAY HƠN</div><div class="row" style="gap:8px;align-items:flex-start;margin:4px 0"><div class="en sp">${esc(r.better)}</div>${spk(r.better,.9)}<button class="save" data-act="savep" data-t="${esc(r.better)}" data-v="">⭐ Lưu</button></div>${r.better_why?`<div class="sm">💡 ${esc(r.better_why)}</div>`:''}</div>`:''}
+ ${r.model?`<div class="co-better" style="background:#F3EEFF"><div class="xs mut" style="font-weight:700">🎯 CÂU TRẢ LỜI MẪU ĐỂ HỌC THUỘC</div><div class="row" style="gap:8px;align-items:flex-start;margin:4px 0"><div class="en sp">${esc(r.model)}</div>${spk(r.model,.9)}</div><div class="xs mut">Chỗ ___ là thông tin thật của bạn. Đọc to 3 lần.</div></div>`:''}${o.tail||''}</div>`}
+function coachMist(r,src){addMist((r.errors||[]).map(e=>({issue:[e.type,e.why].filter(Boolean).join(': '),fix:(e.wrong?e.wrong+' → ':'')+(e.right||'')})),src)}
+fixHTML=function(f){f=f||{};return `<div class="fixc ${f.ok?'ok':'no'}">${coachHTML(Object.assign({praise:f.ok&&!f.praise?'Câu ổn rồi!':f.praise},f))}</div>`};
+
+/* ---------- 2. Dictation: why did I mishear? ---------- */
+const FUNCW=new Set("a an the of to have has had 've is are was were be been am and or but in on at for from with will would can could do does did it that this as by".split(' '));
+function whyChunks(ref,typed){const xp=t=>t.replace(/[’]/g,"'").replace(/\b(\w+)'ve\b/gi,'$1 have').replace(/\b(\w+)'re\b/gi,'$1 are').replace(/\bI'm\b/gi,'I am').replace(/\b(\w+)'ll\b/gi,'$1 will');ref=xp(ref);typed=xp(typed);const f=t=>t.toLowerCase().replace(/[’]/g,"'").replace(/[^a-z0-9'-]/g,'');const A=ref.split(/\s+/).filter(Boolean),B=typed.split(/\s+/).filter(Boolean),a=A.map(f),b=B.map(f),n=a.length,m=b.length;
+ const dp=Array.from({length:n+1},()=>new Array(m+1).fill(0));for(let i=n-1;i>=0;i--)for(let j=m-1;j>=0;j--)dp[i][j]=a[i]===b[j]?dp[i+1][j+1]+1:Math.max(dp[i+1][j],dp[i][j+1]);
+ const out=[];let c={r:[],t:[]};const flush=()=>{if(c.r.length||c.t.length)out.push(c);c={r:[],t:[]}};let i=0,j=0;
+ while(i<n||j<m){if(i<n&&j<m&&a[i]===b[j]){flush();i++;j++}else if(j>=m||(i<n&&dp[i+1][j]>=dp[i][j+1])){c.r.push(A[i]);i++}else{c.t.push(B[j]);j++}}flush();return out}
+function whyReason(c){const f=t=>t.toLowerCase().replace(/[’]/g,"'").replace(/[^a-z0-9' -]/g,'');const R=f(c.r.join(' ')),T=f(c.t.join(' '));const out=[];
+ const ex=s=>s.replace(/'ve\b/g,' have').replace(/'m\b/g,' am').replace(/'re\b/g,' are').replace(/'ll\b/g,' will').replace(/'d\b/g,' would').replace(/n't\b/g,' not').replace(/\s+/g,' ').trim();
+ const suf=s=>s.split(/[\s-]+/).map(w=>w.replace(/(ies|es|s|ed|ing)$/,'').replace(/e$/,'')).join('');const st=s=>s.replace(/[\s-]/g,'');
+ if(!c.t.length){out.push(c.r.every(w=>FUNCW.has(f(w)))?'Đây là từ chức năng (a, the, of, to, have…). Người bản xứ đọc rất nhẹ và lướt (dạng yếu – weak form) nên rất dễ bị bỏ sót.':'Bạn bỏ sót đoạn này. Có thể người đọc nối âm với từ đứng trước nên nghe như dính liền thành một từ.');return out}
+ if(!c.r.length){out.push('Bạn thêm từ không có trong câu gốc, có thể do đoán theo thói quen ngữ pháp. Chỉ ghi những gì thật sự nghe thấy.');return out}
+ if(ex(R)===ex(T)){out.push(`Câu gốc đọc dạng ${/'/.test(R)?'rút gọn':'đầy đủ'} “${c.r.join(' ')}”, bạn viết dạng ${/'/.test(T)?'rút gọn':'đầy đủ'}. Nghĩa giống nhau, nhưng khi chép chính tả hãy để ý có nghe rõ âm /hæv/, /æm/… hay chỉ là âm nhỏ /v/, /m/ dính vào chủ ngữ.`);return out}
+ if(st(R)===st(T))out.push('Bạn nghe đúng âm nhưng viết sai cách tách/ghép từ. Đây là từ ghép (có gạch nối hoặc viết liền), người bản xứ đọc liền như một từ, ví dụ hands-on, long-form, well-known.');
+ else if(suf(R)===suf(T)){if(/-/.test(R)!==/-/.test(T))out.push('Có từ ghép gạch nối (đọc liền như một từ).');out.push('Âm cuối -s / -es / -ed / -ing được đọc rất nhẹ hoặc nối sang từ sau nên khó nghe. Mẹo: dùng ngữ pháp để tự kiểm tra – danh từ số ít hay số nhiều? Đếm được hay không đếm được (experience = kinh nghiệm thì không thêm s)? Thì quá khứ hay hiện tại?')}
+ else{const L=(x,y)=>{const d=Array.from({length:x.length+1},(_,i)=>[i]);for(let j=1;j<=y.length;j++)d[0][j]=j;for(let i=1;i<=x.length;i++)for(let j=1;j<=y.length;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(x[i-1]===y[j-1]?0:1));return d[x.length][y.length]};
+  out.push(L(st(R),st(T))<=Math.max(2,st(R).length*.25)?'Bạn nghe gần đúng nhưng sai chính tả hoặc nhầm với một từ phát âm gần giống. Bấm nghe chậm 🐢 rồi so lại từng âm.':'Bạn nghe nhầm từ. Thường do nối âm (phụ âm cuối dính sang nguyên âm đầu từ sau) hoặc do trọng âm rơi vào âm tiết khác bạn nghĩ. Nghe chậm 🐢 và nhại lại 2–3 lần.')}
+ return out}
+function localWhy(ref,typed){return whyChunks(ref,typed).slice(0,5).map(c=>({heard:c.t.join(' '),actual:c.r.join(' '),reason:whyReason(c).join(' ')}))}
+function dictHTML(x,d){const me=diffWords(x.v,x.s[0]);const w=x.why;
+ return `<b>${d.pct}% chính xác</b><div style="margin-top:6px"><span class="xs mut">Câu gốc:</span> ${d.html}</div><div><span class="xs mut">Bạn gõ:</span> ${me.html}</div><div class="sm" style="margin-top:4px">${esc(x.s[1])}</div>
+ ${w&&(w.items.length||w.busy)?`<div class="why"><div class="row"><b class="sp">🔍 Vì sao mình nghe sai?</b>${w.busy?'<span class="xs mut"><span class="spin"></span> AI đang phân tích kỹ hơn…</span>':w.ai?'<span class="xs mut">AI phân tích</span>':''}</div>${w.items.map(it=>`<div class="why-i"><div class="row" style="gap:6px;flex-wrap:wrap"><span class="co-w">${esc(it.heard||'(bỏ sót)')}</span><span class="mut">→</span><span class="co-r">${esc(it.actual||'(thừa)')}</span>${it.actual?spk(it.actual,.7):''}</div><div class="co-why">${esc(it.reason||'')}</div>${it.tip?`<div class="co-rule">💡 ${esc(it.tip)}</div>`:''}</div>`).join('')}</div>`:''}`}
+
+/* ---------- 3. Drag & drop sentence tiles ---------- */
+function tilesHTML(x,i,n){x.toks=x.toks||x.s[0].replace(/[.?!]$/,'').split(' ');x.bank=x.bank||shuf(x.toks);x.sel=x.sel||[];const r=x.res;const fb=r?`<div class="fbk ${r.cls||(r.ok?'ok':'no')}">${r.html}</div>`:'';const dg=k=>r?'':`data-dg="${k}" data-i="${i}"`;
+ return `${n}<div class="q">${esc(x.s[1])}</div><div class="al dz" id="al${i}">${x.sel.map(k=>`<span class="tl ${r?'':'dg'}" ${dg('a')} data-k="${k}">${esc(x.bank[k])}</span>`).join('')||'<span class="sm mut ph0" style="padding:6px">Bấm hoặc kéo từ bên dưới vào đây</span>'}</div>
+ <div class="tiles">${x.bank.map((t,k)=>x.sel.includes(k)?`<span class="tl gone">${esc(t)}</span>`:`<span class="tl ${r?'':'dg'}" ${dg('b')} data-k="${k}">${esc(t)}</span>`).join('')}</div>
+ ${r?'':'<div class="xs mut" style="margin-top:8px">💡 Kéo từ để chèn vào giữa hoặc đổi chỗ. Bấm vào từ ở ô trên để trả nó về.</div>'}
+ <div class="row" style="margin-top:12px"><button class="btn s" data-act="xcheck" data-i="${i}" ${r||x.sel.length<x.toks.length?'disabled':''}>Kiểm tra</button>${r&&!r.ok?`<button class="btn gh s" data-act="xretry" data-i="${i}">Làm lại</button>`:''}${r?spk(x.s[0]):''}</div>${fb}`}
+let DG=null;
+document.addEventListener('pointerdown',e=>{const c=e.target.closest('[data-dg]');if(!c||e.button>0)return;const i=+c.dataset.i,x=W.list&&W.list[i];if(!x||x.res)return;e.preventDefault();DG={c,i,x,from:c.dataset.dg,k:+c.dataset.k,sx:e.clientX,sy:e.clientY,on:false,pos:null}});
+document.addEventListener('pointermove',e=>{if(!DG)return;if(!DG.on){if(Math.hypot(e.clientX-DG.sx,e.clientY-DG.sy)<7)return;DG.on=true;const r=DG.c.getBoundingClientRect();DG.ox=DG.sx-r.left;DG.oy=DG.sy-r.top;DG.g=DG.c.cloneNode(true);DG.g.className='tl tl-ghost';Object.assign(DG.g.style,{position:'fixed',left:r.left+'px',top:r.top+'px',zIndex:9999,pointerEvents:'none',margin:0});document.body.appendChild(DG.g);DG.c.classList.add('tl-src');DG.ph=document.createElement('span');DG.ph.className='tl tl-ph';DG.ph.textContent=DG.c.textContent}
+ e.preventDefault();DG.g.style.left=(e.clientX-DG.ox)+'px';DG.g.style.top=(e.clientY-DG.oy)+'px';
+ const z=$('#al'+DG.i);if(!z)return;const zr=z.getBoundingClientRect();const inZ=e.clientX>zr.left-24&&e.clientX<zr.right+24&&e.clientY>zr.top-34&&e.clientY<zr.bottom+34;
+ if(inZ){const kids=[...z.querySelectorAll('.tl.dg')].filter(k=>k!==DG.c);let before=null;for(const k of kids){const kr=k.getBoundingClientRect();if(e.clientY<kr.top-2||(e.clientY<=kr.bottom+2&&e.clientX<kr.left+kr.width/2)){before=k;break}}const p0=z.querySelector('.ph0');if(p0)p0.style.display='none';z.insertBefore(DG.ph,before);DG.pos=before?kids.indexOf(before):kids.length}else{DG.ph.remove();DG.pos=null}},{passive:false});
+function dgEnd(e,cancel){if(!DG)return;const d=DG;DG=null;const x=d.x;
+ if(!d.on){if(cancel)return;if(d.from==='b')x.sel.push(d.k);else x.sel.splice(x.sel.indexOf(d.k),1);rex(d.i);return}
+ d.g.remove();d.ph.remove();if(!cancel){const cur=x.sel.filter(k=>k!==d.k);if(d.pos!=null){cur.splice(d.pos,0,d.k);x.sel=cur}else if(d.from==='a')x.sel=cur}rex(d.i)}
+document.addEventListener('pointerup',e=>dgEnd(e,false));document.addEventListener('pointercancel',e=>dgEnd(e,true));
+
+/* ---------- exercise engine overrides ---------- */
+const _rex=rex;
+rex=function(i){if(!W.simple)return _rex(i);const x=W.list[i];const el=$('#x'+i);if(!el)return;el.className='ex-card '+(x.res&&!x.res.cls?x.res.ok?'ok':'no':'');el.innerHTML=exHTML(x,i);if(W.day)dayTick()};
+const _exHTML=exHTML;
+exHTML=function(x,i){const n=`<div class="num">${W.day?esc(DSEC_L[x.sk]||'')+' · ':''}Bài ${i+1}</div>`;
+ switch(x.k){case 'tiles':return tilesHTML(x,i,n);case 'learn':return learnHTML(x,i,n);case 'mcq':return mcqHTML(x,i,n);case 'read':return readHTML(x,i,n);case 'shadow':return shadowHTML(x,i,n);case 'spq':return spqHTML(x,i,n);case 'role':return roleHTML(x,i,n);
+ default:return _exHTML(x,i).replace(/<div class="num">[^]*?<\/div>/,n)}};
+function missMark(x,ok){if(!x.key)return;DS();S.dmiss[x.key]=Math.max(0,(S.dmiss[x.key]||0)+(ok?-1:1));if(!S.dmiss[x.key])delete S.dmiss[x.key]}
+xcheck=async function(i){const x=W.list[i];const inp=$('#in'+i);if(inp)x.v=inp.value.trim();
+ if(x.k==='dict'){if(!x.v)return toast('Gõ câu bạn nghe được trước nhé');const d=diffWords(x.s[0],x.v);const ok=d.pct>=85;x.why=d.pct<100?{items:localWhy(x.s[0],x.v),busy:!!caps.sample}:null;x.res={ok,html:dictHTML(x,d)};x.done=true;missMark(x,ok);touch();save();snd(ok?'ok':'no');rex(i);
+  if(x.why&&caps.sample){const typed=x.v;try{const r=await ai(`A Vietnamese learner (B2) did a dictation exercise. The audio sentence was: "${x.s[0]}". She typed: "${typed}".
+For each part she got wrong, explain in Vietnamese WHY she probably misheard it: connected speech (nối âm), weak forms of function words, swallowed final sounds (-s, -ed, -t, -d), contractions, compound words, similar-sounding words, stress. Also mention the grammar she could use to self-check (e.g. "experience" meaning kinh nghiệm is uncountable so no -s). Ignore capitalization and punctuation.
+${CO_RULE}
+Return ONLY JSON: {"items":[{"heard":"what she typed for this part (empty if she missed it)","actual":"the correct words","reason":"2-3 câu tiếng Việt giải thích vì sao nghe nhầm","tip":"1 mẹo nghe ngắn bằng tiếng Việt"}]} max 4 items.`);if(x.v===typed&&x.why&&r&&Array.isArray(r.items)&&r.items.length){x.why.items=r.items;x.why.ai=1}}catch(e){}
+   if(x.v===typed&&x.why){x.why.busy=false;x.res.html=dictHTML(x,d);rex(i)}}
+  return}
+ if(x.k==='tiles'){const ok=nz(x.sel.map(k=>x.bank[k]).join(' '))===nz(x.toks.join(' '));x.res={ok,html:ok?'<b>Chính xác!</b> '+esc(x.s[0]):`Đáp án: <b>${esc(x.s[0])}</b>`};x.done=true;missMark(x,ok);touch();save();snd(ok?'ok':'no');rex(i);return}
+ if(x.k==='trans'||x.k==='write'||x.k==='spq'){if(!x.v)return toast(x.k==='spq'?'Nói hoặc gõ câu trả lời trước nhé':'Viết câu trước nhé');x.busy=true;rex(i);
+  try{let r;
+   if(x.k==='trans')r=await coachAsk(`Task: translate this Vietnamese sentence into English: "${x.s[1]}". A reference translation is: "${x.s[0]}". Her version does not need to match the reference word for word; judge meaning and grammar. In "praise" say (in Vietnamese) whether her meaning is right.`,x.v,`"ok":true or false (true if the meaning is right and there are no real grammar errors)`);
+   else if(x.k==='write')r=await coachAsk(`Task: ${x.prompt}\nTarget pattern to practise: ${x.frame}. In "praise" say (in Vietnamese) whether she used this pattern correctly.`,x.v);
+   else r=await coachAsk(`Speaking practice question: "${x.q}". She answered OUT LOUD; the text comes from speech-to-text, so ignore capitalization and punctuation and don't count obvious speech-recognition slips as errors.`,x.v,`"model":"a natural 3-4 sentence spoken answer at B2+ level with her ideas, ___ where a fact is missing"`);
+   const ok=x.k==='trans'?!!r.ok:true;coachMist(r,x.k==='trans'?(x.l&&x.l.title)||'Dịch':x.k==='write'?'Tự viết':'Luyện nói');
+   x.res={ok,coach:1,cls:ok?((r.errors||[]).length?'in':'ok'):'no',html:coachHTML(r,{orig:x.v,tail:x.k==='trans'?`<div class="xs mut" style="margin-top:8px">Câu mẫu tham khảo: ${esc(x.s[0])}</div>`:''})}}
+  catch(e){if(e&&e.code==='none'){if(x.k==='trans'){const d=diffWords(x.s[0],x.v);x.res={ok:d.pct>=75,html:`So với câu mẫu: <b>${esc(x.s[0])}</b> (${d.pct}% trùng khớp). Kết nối AI ở ⚙️ Cài đặt để được chữa lỗi chi tiết.`}}else x.res={ok:true,cls:'in',html:x.ex?'Câu mẫu tham khảo: '+x.ex.map(t=>'<b>'+esc(t)+'</b>').join(' · '):'Đã ghi nhận. Kết nối AI ở ⚙️ Cài đặt để được chữa lỗi.'}}else{toast(aiMsg(e));x.busy=false;rex(i);return}}
+  x.busy=false;x.done=true;touch();save();snd(x.res.ok?'ok':'no');rex(i);return}}
+
+/* quotes + interview use the coach too */
+qcheck=async function(id){const q=QUOTES.find(x=>x.id===id);const st=QW[id]=QW[id]||{};st.v=($('#qa-'+id).value||'').trim();if(st.v.length<3)return toast('Viết câu của bạn trước nhé');st.busy=true;rq(id);
+ try{const r=await coachAsk(`She studied this quote: "${q.q}" (${q.by}). Learning point: ${q.note.replace(/<[^>]+>/g,'')}\nTask: ${q.task}\nIn "praise", say (in Vietnamese) whether she used the target structure correctly.`,st.v);coachMist(r,'Câu hay');st.res={cls:(r.errors||[]).length?'in':'ok',html:coachHTML(r,{orig:st.v})};touch();save()}catch(e){toast(aiMsg(e))}st.busy=false;rq(id)};
+ivCheck=async function(){SP.ivText=($('#iva').value||'').trim();if(SP.ivText.length<5)return toast('Viết vài ý trước nhé');SP.busy=true;render();
+ try{SP.ivRes=await coachAsk(`Job interview question: "${INTERVIEW[SP.iv].q}". She wrote her answer.`,SP.ivText,`"model":"3-5 short sentences of simple professional B2 English she can memorise; never invent achievements or numbers; ___ where a fact is missing"`);coachMist(SP.ivRes,'Phỏng vấn');touch();save()}catch(e){toast(aiMsg(e))}SP.busy=false;render()};
+const _vIV=vIV;vIV=function(){const r=SP.ivRes;if(!r||!r.errors&&!r.praise)return _vIV();SP.ivRes=null;const h=_vIV();SP.ivRes=r;return h+`<div class="card" style="animation:enter .35s">${coachHTML(r,{orig:SP.ivText})}</div>`};
+
+/* ---------- 4. Illustrations (original SVG scenes) ---------- */
+const SKY={sunrise:['#FFE2B5','#FF9E7A'],sea:['#CDEFFB','#7FC8E8'],night:['#1F2A5A','#5A4A8A'],rain:['#9FB3C8','#D3DEE9'],forest:['#D9F0DC','#9FD0AE'],mountain:['#DCEBF8','#A9C8EA'],road:['#FDE6C8','#F4C49B'],field:['#E7F6D6','#BCE3A3'],river:['#D9F1F2','#A2D7D8'],city:['#FFDCC6','#E7B5CC'],snow:['#EEF4FB','#CFDFF1'],garden:['#FFF3D9','#F6D3B0']};
+function sceneArt(k,uid){const s=SKY[k]||SKY.field,id='sa'+uid,night=k==='night';let g='';
+ g+=night?`<circle cx="240" cy="34" r="16" fill="#FFF6D5"/><circle cx="246" cy="30" r="14" fill="${s[0]}"/>`+[[30,20],[70,40],[120,18],[170,36],[205,14],[280,52],[95,60]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="1.4" fill="#fff" opacity=".85"/>`).join(''):`<circle cx="${k==='sunrise'?150:236}" cy="${k==='sunrise'?92:34}" r="${k==='sunrise'?30:18}" fill="#FFF4C8" opacity=".95"/>`;
+ if(!night&&k!=='rain')g+=`<g fill="#fff" opacity=".85"><ellipse cx="70" cy="34" rx="26" ry="9"/><ellipse cx="88" cy="28" rx="16" ry="9"/><ellipse cx="180" cy="52" rx="20" ry="7"/></g>`;
+ if(k==='rain')g+=`<g fill="#fff" opacity=".7"><ellipse cx="90" cy="30" rx="60" ry="16"/><ellipse cx="210" cy="26" rx="70" ry="18"/></g><g stroke="#fff" stroke-width="1.3" opacity=".6">${Array.from({length:22},(_,i)=>`<line x1="${i*14+6}" y1="${46+(i%3)*8}" x2="${i*14}" y2="${62+(i%3)*8}"/>`).join('')}</g>`;
+ if(k==='mountain'||k==='snow')g+=`<path d="M0 120 L70 46 L110 84 L170 30 L240 96 L300 60 V140 H0Z" fill="#7FA6CF" opacity=".75"/><path d="M150 50 L170 30 L188 52 L176 48 L168 56 Z" fill="#fff"/><path d="M52 64 L70 46 L84 62 L72 60Z" fill="#fff"/>`;
+ if(k==='sea')g+=`<rect y="88" width="300" height="52" fill="#4FA6D3"/>${[96,108,120].map((y,i)=>`<path d="M0 ${y} q15 -6 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" stroke="#fff" fill="none" opacity="${.6-i*.15}"/>`).join('')}<path d="M210 86 l14 -26 l2 26z" fill="#fff"/><rect x="204" y="86" width="30" height="5" rx="2" fill="#7A4A2A"/>`;
+ if(k==='city')g+=`<g fill="#7A6A9A" opacity=".75">${[[10,60,30],[44,44,26],[74,70,22],[100,36,34],[138,56,28],[170,30,30],[204,62,24],[232,46,32],[268,66,30]].map(([x,y,w])=>`<rect x="${x}" y="${y}" width="${w}" height="${140-y}"/>`).join('')}</g><g fill="#FFE9A8">${Array.from({length:26},(_,i)=>`<rect x="${14+(i*37)%280}" y="${70+(i*13)%50}" width="4" height="5"/>`).join('')}</g>`;
+ if(['forest','garden','field','river','road','sunrise','rain','night'].includes(k))g+=`<path d="M0 98 Q60 72 130 92 T300 84 V140 H0Z" fill="${night?'#2E3B6B':'#8CC79A'}"/><path d="M0 112 Q90 92 170 110 T300 104 V140 H0Z" fill="${night?'#25305A':'#6DB485'}"/>`;
+ if(k==='river')g+=`<path d="M120 140 C140 120 120 108 160 96 C190 88 230 92 300 90 V100 C240 102 200 100 178 108 C150 118 170 128 156 140Z" fill="#7CC4D6" opacity=".9"/>`;
+ if(k==='road')g+=`<path d="M128 140 L148 92 L156 92 L190 140Z" fill="#D9B48A"/><path d="M150 100 l1 6 M156 116 l2 8 M164 130 l3 9" stroke="#fff" stroke-width="2"/>`;
+ if(k==='forest'||k==='garden'||k==='night')g+=[[24,96,1],[50,100,.8],[250,94,1],[276,100,.85],[214,102,.7]].map(([x,y,s])=>`<g transform="translate(${x} ${y}) scale(${s})"><rect x="-2" y="-2" width="4" height="16" fill="#6B4A2E"/><circle cy="-12" r="14" fill="${night?'#3B4B7A':'#4E9B6B'}"/><circle cx="-8" cy="-4" r="9" fill="${night?'#34436F':'#5BAE79'}"/></g>`).join('');
+ if(k==='night'||k==='forest')g+=[[90,90],[120,76],[180,98],[200,80],[150,108]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="2" fill="#FFF38A" opacity=".9"/>`).join('');
+ if(k==='garden'||k==='field')g+=Array.from({length:18},(_,i)=>`<circle cx="${10+i*16}" cy="${118+(i%3)*6}" r="2.6" fill="${['#FF8FA3','#FFD45C','#fff'][i%3]}"/>`).join('');
+ if(k==='snow')g+=`<rect y="104" width="300" height="40" fill="#fff"/>`+Array.from({length:30},(_,i)=>`<circle cx="${(i*41)%300}" cy="${(i*23)%100}" r="1.6" fill="#fff"/>`).join('');
+ return `<svg viewBox="0 0 300 140" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${s[1]}"/><stop offset="1" stop-color="${s[0]}"/></linearGradient></defs><rect width="300" height="140" fill="url(#${id})"/>${g}</svg>`}
+(function(){const ids=COURSE.map(u=>u.id);PHIL.forEach((p,k)=>{if(!QUOTES.find(q=>q.id===p.id))QUOTES.push(Object.assign({u:ids[k%ids.length],cat:'phil'},p))})})();
+
+/* ---------- 5. Daily plan ---------- */
+const LESSONS=COURSE.flatMap(u=>u.lessons);
+const DSEC=[['rev','🔁','Ôn bài các ngày trước'],['learn','📘','Học từ & cấu trúc mới'],['listen','🎧','Nghe'],['read','📖','Đọc'],['speak','🗣️','Nói'],['write','✍️','Viết'],['role','🎭','Vai diễn hôm nay']];
+const DSEC_L={rev:'Ôn bài',learn:'Học mới',listen:'Nghe',read:'Đọc',speak:'Nói',write:'Viết',role:'Vai diễn'};
+const TD={d:null,rbusy:false,rerr:null};const DAYW={};const DD={on:false,i:null};
+function hashStr(s){let h=2166136261;for(const c of String(s)){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
+function seedOrder(n,seed){const a=Array.from({length:n},(_,i)=>i);let h=hashStr(seed);for(let i=n-1;i>0;i--){h=Math.imul(h^(h>>>15),2246822507)>>>0;const j=h%(i+1);[a[i],a[j]]=[a[j],a[i]]}return a}
+const dayLesson=d=>LESSONS[(d-1)%LESSONS.length];
+const dayTopic=d=>TOPICS[seedOrder(TOPICS.length,S.start+'t'+Math.floor((d-1)/TOPICS.length))[(d-1)%TOPICS.length]];
+function dayRole(d){DS();const o=S.days[d]&&S.days[d].role;if(o)return ROLES.find(r=>r.id===o)||ROLES[0];return ROLES[seedOrder(ROLES.length,S.start+'r'+Math.floor((d-1)/ROLES.length))[(d-1)%ROLES.length]]}
+function curDay(){DS();let d=1;while(S.days[d]&&S.days[d].done)d++;return d}
+function dayRec(d){DS();return S.days[d]=S.days[d]||{sec:{}}}
+const needSecs=d=>DSEC.map(s=>s[0]).filter(k=>k!=='role'&&(k!=='rev'||d>1));
+function ensureRoleScen(R){if(!SCEN.find(s=>s.id===R.id))SCEN.unshift(Object.assign({},R,{name:'🎭 '+R.name}))}
+function reviewItems(d){const pool=[];for(let k=d-1,j=0;k>=1&&j<7;k--,j++){const L=dayLesson(k),T=dayTopic(k),w=j===0?3:j<3?2:1;L.words.forEach(x=>pool.push({t:'word',x,key:'w:'+x[0],w}));T.p.forEach(x=>pool.push({t:'phr',x,key:'p:'+x[0],w}));pool.push({t:'st',L,key:'s:'+L.id+':'+k,w:w+1})}
+ const sc=it=>it.w+(S.dmiss[it.key]||0)*3+Math.random()*2;const sorted=pool.map(it=>[sc(it),it]).sort((a,b)=>b[0]-a[0]).map(a=>a[1]);
+ const chosen=[];const st=sorted.find(it=>it.t==='st');if(st)chosen.push(st);for(const it of sorted){if(chosen.length>=8)break;if(!chosen.includes(it)&&!(it.t==='st'&&chosen.filter(p=>p.t==='st').length>=2))chosen.push(it)}
+ const allW=Object.values(WORD),allP=TOPICS.flatMap(t=>t.p);let n=0;
+ return shuf(chosen).map(it=>{n++;if(it.t==='st'){const e=it.L.st.ex[Math.floor(Math.random()*it.L.st.ex.length)];return {k:'tiles',s:e,key:it.key,lab:'Cấu trúc '+it.L.st.p}}
+  if(it.t==='phr'){const ds=shuf(allP.filter(p=>p[0]!==it.x[0])).slice(0,3);const opts=shuf([it.x[0],...ds.map(p=>p[0])]);if(n%3===0)return {k:'dict',s:it.x,key:it.key};return {k:'mcq',key:it.key,q:`“${esc(it.x[1])}” nói bằng tiếng Anh thế nào?`,opts,ans:opts.indexOf(it.x[0]),say:it.x[0],exp:`<b>${esc(it.x[0])}</b> = ${esc(it.x[1])}`}}
+  const W0=WORD[it.x[0]]||{w:it.x[0],vi:it.x[1],ex:it.x[2]};const ds=shuf(allW.filter(o=>o.w!==W0.w&&o.vi!==W0.vi)).slice(0,3);
+  if(n%2){const opts=shuf([W0.vi,...ds.map(o=>o.vi)]);return {k:'mcq',key:it.key,q:`<span class="en" style="font-size:20px">${esc(W0.w)}</span> nghĩa là gì?`,say:W0.w,opts,ans:opts.indexOf(W0.vi),exp:`<b>${esc(W0.w)}</b> = ${esc(W0.vi)}<br><i>${esc(W0.ex||'')}</i>`}}
+  const re=new RegExp(W0.w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'),'i');const opts=shuf([W0.w,...ds.map(o=>o.w)]);return {k:'mcq',key:it.key,q:`Điền vào chỗ trống: <span class="en">${esc((W0.ex||'').replace(re,'§')).replace('§','<span class="blank">&nbsp;</span>')}</span>`,opts,ans:opts.indexOf(W0.w),exp:`<b>${esc(W0.w)}</b> (${esc(W0.vi)}): ${esc(W0.ex||'')}`}})}
+function buildDay(d){const L=dayLesson(d),T=dayTopic(d),R=dayRole(d);const list=[];const add=(sk,arr)=>arr.forEach((x,j)=>list.push(Object.assign(x,{sk,sec:j?null:sk})));
+ if(d>1)add('rev',reviewItems(d));
+ add('learn',[{k:'learn',L,T}]);
+ add('listen',[{k:'dict',s:L.s[0]},{k:'dict',s:T.p[1]},{k:'tiles',s:L.s[1]}]);
+ add('read',[{k:'read',d}]);
+ add('speak',[{k:'shadow',s:L.st.ex[0]},{k:'shadow',s:T.p[3]},{k:'spq',q:T.q,qv:T.qv}]);
+ add('write',[{k:'trans',s:L.s[2],l:L},{k:'write',prompt:`${T.w} Cố dùng khung “${L.st.p}” ít nhất 1 lần.`,frame:L.st.p,ex:L.st.ex.map(e=>e[0])}]);
+ add('role',[{k:'role',R,d}]);
+ const rec=dayRec(d);list.forEach(x=>{if(rec.sec[x.sk]&&x.k!=='role'){x.done=true;x.pre=true}});return list}
+function secState(d){const rec=dayRec(d);return DSEC.filter(s=>s[0]!=='rev'||d>1).map(s=>({k:s[0],e:s[1],l:s[2],dn:!!rec.sec[s[0]]}))}
+function dayTick(){const d=W.day;if(!d)return;const rec=dayRec(d);let ch=false;
+ DSEC.forEach(([k])=>{if(k==='role')return;const its=W.list.filter(x=>x.sk===k);if(its.length&&its.every(x=>x.done)&&!rec.sec[k]){rec.sec[k]=dk();ch=true;if(k==='learn'){complete(dayLesson(d).id+'-lec')}}});
+ if(!rec.done&&needSecs(d).every(k=>rec.sec[k])){rec.done=dk();ch=true;touch();save();snd('done');try{confetti()}catch(e){}toast(`Xong ngày ${d}! 🎉 Mai quay lại ôn bài nhé`)}
+ if(ch)save();const el=$('#dsecs');if(el)el.innerHTML=secChips(d)}
+function secChips(d){const ss=secState(d);const dn=ss.filter(s=>s.dn&&s.k!=='role').length,tot=ss.filter(s=>s.k!=='role').length;
+ return `<div class="row sm" style="margin-bottom:8px"><b class="sp">Tiến độ ngày ${d}</b><span>${dn}/${tot} phần${dayRec(d).done?' · ✅ Hoàn thành':''}</span></div><div class="pbar"><i style="width:${dn/tot*100}%"></i></div><div class="dchips">${ss.map(s=>`<a class="dchip ${s.dn?'dn':''}" href="javascript:void 0" data-act="dgo" data-s="${s.k}">${s.dn?'✓':s.e} ${esc(s.l)}${s.k==='role'?' ⭐':''}</a>`).join('')}</div>`}
+function vToday(){DS();const cd=curDay();const d=TD.d||cd;const L=dayLesson(d),T=dayTopic(d),R=dayRole(d);ensureRoleScen(R);
+ if(!DAYW[d])DAYW[d]=buildDay(d);W.list=DAYW[d];W.day=d;W.simple=true;
+ const doneToday=Object.keys(S.days).find(k=>S.days[k].done===dk()&&+k<d);
+ setTimeout(()=>{const r=W.list&&W.list.find(x=>x.k==='read');if(r&&W.day===d&&!(S.dpack[d]&&S.dpack[d].read)&&caps.sample&&!TD.rbusy&&!TD.rerr)genRead(d)},50);
+ const days=Array.from({length:Math.max(cd,d)},(_,k)=>k+1).slice(-10);
+ return `<div class="page" style="max-width:900px">
+ <div class="dhero"><div class="dart">${sceneArt(T.art,'d'+d)}</div><div class="dhin"><span class="tag" style="color:rgba(255,255,255,.85)">Ngày ${d} · ${fmt(dk())}</span><h1 style="margin:4px 0 6px;color:#fff">${T.emo} ${esc(T.vi)}</h1><div class="sm" style="color:rgba(255,255,255,.92)">Cấu trúc: <b>${esc(L.st.p)}</b> · Vai diễn: <b>${R.emo} ${esc(R.name)}</b></div></div></div>
+ ${doneToday?`<div class="fbk in" style="margin:0 0 14px">Hôm nay bạn đã xong ngày ${doneToday} rồi 🎉. Học tiếp ngày ${d} luôn cũng được, nhưng nhớ mai quay lại để ôn.</div>`:''}
+ <div class="row wrap" style="gap:6px;margin:0 0 14px">${days.map(k=>`<button class="btn ${k===d?'':'gh'} s" data-act="dday" data-d="${k}">${S.days[k]&&S.days[k].done?'✓ ':''}Ngày ${k}</button>`).join('')}</div>
+ <p class="mut sm" style="margin-top:0">Mỗi ngày: ôn lại từ và cấu trúc các ngày trước → học cái mới → luyện đủ Nghe · Đọc · Nói · Viết → chat với vai diễn hôm nay. Từ nào bạn làm sai sẽ quay lại nhiều hơn ở các ngày sau.</p>
+ <div class="card dprog" id="dsecs">${secChips(d)}</div>
+ ${W.list.map((x,i)=>`${x.sec?`<h2 class="dsec" id="sec-${x.sk}">${DSEC.find(s=>s[0]===x.sk)[1]} ${esc(DSEC.find(s=>s[0]===x.sk)[2])}${x.sk==='rev'?` <span class="pill">${W.list.filter(y=>y.sk==='rev').length} câu</span>`:''}</h2>`:''}<div class="ex-card ${x.res&&!x.res.cls?x.res.ok?'ok':'no':''}" id="x${i}">${exHTML(x,i)}</div>`).join('')}
+ </div>`}
+function learnHTML(x,i,n){const L=x.L,T=x.T;
+ return `${n}<h3 style="margin:0 0 4px">Cấu trúc hôm nay</h3><div class="stbox"><div class="row"><div class="en sp" style="font-size:20px">${esc(L.st.p)}</div></div><div class="sm" style="margin:4px 0 8px">${L.st.vi}</div>${L.st.ex.map(e=>`<div class="row" style="gap:8px;margin:6px 0">${spk(e[0],.9)}<div class="sp"><div class="en">${esc(e[0])}</div><div class="xs mut">${esc(e[1])}</div></div></div>`).join('')}<a class="xs" href="#${L.id}-lec">Xem bài giảng đầy đủ →</a></div>
+ <h3 style="margin:16px 0 6px">Từ vựng (${esc(L.u.name)})</h3><div class="wgrid">${L.words.map(w=>`<div class="wcard"><div class="row" style="gap:6px">${spk(w[0],.9)}<b class="en sp">${esc(w[0])}</b></div><div class="sm">${esc(w[1])}</div><div class="xs mut"><i>${esc(w[2]||'')}</i></div></div>`).join('')}</div>
+ <h3 style="margin:16px 0 6px">${T.emo} Cụm giao tiếp: ${esc(T.vi)}</h3>${T.p.map(p=>`<div class="row" style="gap:8px;margin:6px 0">${spk(p[0],.9)}<div class="sp"><div class="en">${esc(p[0])}</div><div class="xs mut">${esc(p[1])}</div></div><button class="save" data-act="savep" data-t="${esc(p[0])}" data-v="${esc(p[1])}">⭐</button></div>`).join('')}
+ <div class="row" style="margin-top:14px"><button class="btn s" data-act="dlearn" data-i="${i}" ${x.done?'disabled':''}>${x.done?'✓ Đã học':'✓ Mình đã học xong phần này'}</button>${x.done?'<span class="xs mut">Các từ đã vào lịch ôn. Ngày mai sẽ kiểm tra lại.</span>':''}</div>`}
+function mcqHTML(x,i,n){const r=x.res;return `${n}<div class="q">${x.q}</div>${x.say?`<div style="margin:-4px 0 10px">${spk(x.say,.9)}</div>`:''}<div class="opts">${x.opts.map((o,k)=>`<button class="op ${r?(k===x.ans?'right':k===x.pick?'wrong':''):''}" data-act="dmcq" data-i="${i}" data-k="${k}" ${r?'disabled':''}>${esc(o)}</button>`).join('')}</div>${r?`<div class="fbk ${r.ok?'ok':'no'}">${r.ok?'<b>Chính xác!</b> ':'<b>Chưa đúng.</b> '}${x.exp||''}${r.ok?'':'<div class="xs" style="margin-top:4px">Câu này sẽ quay lại ở các ngày sau.</div>'}</div>`:''}`}
+function readHTML(x,i,n){const d=x.d,p=S.dpack[d]&&S.dpack[d].read;
+ if(!p)return `${n}${TD.rbusy?'<div class="sm mut"><span class="spin"></span> AI đang viết bài đọc theo chủ đề hôm nay…</div>':!caps.sample?`<div class="fbk in">Phần đọc cần AI (Gemini miễn phí) để tạo bài theo chủ đề. Vào ⚙️ Cài đặt để kết nối, hoặc bỏ qua hôm nay.</div><button class="btn gh s" style="margin-top:8px" data-act="dskipread" data-i="${i}">Bỏ qua phần đọc</button>`:`${TD.rerr?`<div class="fbk no">${esc(TD.rerr)}</div>`:''}<button class="btn s" data-act="dgenread" data-i="${i}">Tạo bài đọc</button> <button class="btn gh s" data-act="dskipread" data-i="${i}">Bỏ qua</button>`}`;
+ x.ans=x.ans||{};const r=x.res;const all=(p.qs||[]).every((q,k)=>x.ans[k]!=null);
+ return `${n}<div class="row"><h3 class="sp" style="margin:0">${esc(p.title||'Reading')}</h3>${spk(p.text,.9)}${spk(p.text,.7)}</div><div class="rtext en">${esc(p.text).split(/\n+/).map(t=>`<p>${t}</p>`).join('')}</div>
+ <details class="sm" style="margin:6px 0 10px"><summary>Xem bản dịch tiếng Việt</summary><div style="margin-top:6px">${esc(p.vi||'')}</div></details>
+ ${(p.glossary||[]).length?`<div class="hints">${p.glossary.map(g=>`<span><b>${esc(g[0])}</b> · ${esc(g[1])}</span>`).join('')}</div>`:''}
+ ${(p.qs||[]).map((q,k)=>`<div style="margin-top:14px"><div class="q" style="font-size:16px">${k+1}. ${esc(q.q)}</div><div class="opts">${q.opts.map((o,j)=>`<button class="op ${r?(j===+q.a?'right':j===x.ans[k]?'wrong':''):x.ans[k]===j?'sel':''}" data-act="drq" data-i="${i}" data-q="${k}" data-k="${j}" ${r?'disabled':''}>${esc(o)}</button>`).join('')}</div>${r?`<div class="xs mut" style="margin-top:4px">💡 ${esc(q.why||'')}</div>`:''}</div>`).join('')}
+ ${r?`<div class="fbk ${r.ok?'ok':'in'}">${r.html}</div>`:`<button class="btn s" style="margin-top:12px" data-act="drsub" data-i="${i}" ${all?'':'disabled'}>Nộp bài</button>`}`}
+async function genRead(d){const T=dayTopic(d),L=dayLesson(d);TD.rbusy=true;TD.rerr=null;rexK('read');
+ try{const r=await ai(`Write a short reading text for a Vietnamese learner at B2 level (aiming IELTS 6.5). Topic: ${T.en}. Make it natural and interesting (a blog post, a message to a friend, or a short story), 110-140 words, in 2 paragraphs. Use the structure "${L.st.p}" at least once, and naturally include some of these phrases: ${T.p.map(p=>p[0]).join(' | ')}.
+Return ONLY JSON: {"title":"short English title","text":"the passage, paragraphs separated by \\n","vi":"Vietnamese translation","glossary":[["word or phrase from the text","Vietnamese meaning"]],"qs":[{"q":"English question","opts":["A","B","C","D"],"a":0,"why":"1-2 câu tiếng Việt giải thích vì sao đáp án đúng, dẫn ý trong bài"}]} with 5 glossary items and 3 questions (main idea, a detail, vocabulary in context). The "why" fields must be in Vietnamese.`);
+  if(r&&r.text&&Array.isArray(r.qs)){S.dpack[d]={read:r};save()}else TD.rerr='AI trả về chưa đúng định dạng, bấm tạo lại nhé.'}catch(e){TD.rerr=aiMsg(e)}TD.rbusy=false;rexK('read')}
+function rexK(k){if(!W.list)return;const i=W.list.findIndex(x=>x.k===k);if(i>=0)rex(i)}
+function shadowHTML(x,i,n){const r=x.res;const on=DD.on&&DD.i===i;
+ return `${n}<div class="sm mut" style="margin-bottom:8px">Nghe rồi đọc to theo (shadowing). Bấm micro và đọc, app chấm từng từ.</div><div class="sw" style="font-size:21px;margin:6px 0">${r&&r.d?r.d.toks.map((t,k)=>`<span class="${r.d.ok[k]?'g':'r'}">${esc(t)}</span>`).join(' '):esc(x.s[0])}</div><div class="sm mut">${esc(x.s[1])}</div>
+ <div class="row" style="margin-top:10px">${spk(x.s[0])}${spk(x.s[0],.7)}${caps.dict?`<button class="btn ${on?'':'out'} s" data-act="dmic" data-i="${i}">${on?'⏹ Dừng':'🎙️ Đọc'}</button>`:`<button class="btn out s" data-act="dshdone" data-i="${i}" ${x.done?'disabled':''}>Mình đã đọc theo 3 lần</button>`}</div>
+ ${on?'<div class="xs mut" style="margin-top:6px">Đang nghe…</div>':''}${x.heard?`<div class="xs mut" style="margin-top:6px">App nghe được: “${esc(x.heard)}”</div>`:''}${r?`<div class="fbk ${r.ok?'ok':'in'}">${r.html}</div>`:''}${!caps.dict?'<div class="xs mut" style="margin-top:6px">Micro chấm điểm chạy trên Chrome/Edge (máy tính, Android).</div>':''}`}
+function spqHTML(x,i,n){const r=x.res;const on=DD.on&&DD.i===i;const dis=r?'disabled':'';
+ return `${n}<div class="row" style="gap:10px"><span style="font-size:28px">🗣️</span><div class="sp"><div class="en" style="font-size:19px">${esc(x.q)}</div><div class="xs mut">${esc(x.qv)}</div></div>${spk(x.q)}</div>
+ <div class="frame" style="margin-top:10px">Nói 3–4 câu. Bấm micro để nói (chữ sẽ hiện vào ô), hoặc gõ nếu không dùng được micro.</div>
+ <textarea id="in${i}" rows="3" ${dis} placeholder="Câu trả lời của bạn…">${esc(x.v||'')}</textarea><div class="row" style="margin-top:10px">${caps.dict&&!r?`<button class="btn ${on?'':'out'} s" data-act="dmic" data-i="${i}">${on?'⏹ Dừng':'🎙️ Nói'}</button>`:''}<button class="btn s" data-act="xcheck" data-i="${i}" ${dis||x.busy?'disabled':''}>${x.busy?'<span class="spin"></span> Đang chữa':'Nhờ AI chữa'}</button>${r?`<button class="btn gh s" data-act="xretry" data-i="${i}">Nói lại</button>`:''}</div>${r?`<div class="fbk ${r.cls||'in'}">${r.html}</div>`:''}`}
+function roleHTML(x,i,n){const R=x.R;const rec=dayRec(x.d);
+ return `${n}<div class="row" style="gap:14px"><span style="font-size:46px">${R.emo}</span><div class="sp"><h3 style="margin:0">${esc(R.name)}</h3><div class="xs mut">${esc(R.who)}</div></div></div><div class="en" style="margin:12px 0;font-size:17px;font-style:italic">“${esc(R.open)}”</div><div class="sm"><b>Nhiệm vụ:</b><br>${R.goals.map(g=>'• '+esc(g)).join('<br>')}</div>
+ <div class="row" style="margin-top:12px"><button class="btn s" data-act="drole" data-i="${i}">💬 Vào chat với vai này</button><button class="btn gh s" data-act="dreroll" data-i="${i}">🎲 Đổi vai khác</button>${rec.sec.role?'<span class="pill g">✓ Đã chat</span>':''}</div><div class="xs mut" style="margin-top:6px">Phần thưởng thêm, không bắt buộc. Gửi ít nhất 3 tin nhắn để tính là đã hoàn thành.</div>`}
+window.DICT_HOOK=null;
+function dmic(i){const x=W.list[i];if(!caps.dict)return toast('Micro chỉ chạy trên Chrome/Edge');if(DD.on){try{caps.dict.stop()}catch(e){}return}
+ DD.i=i;if(x.k==='shadow'){x.heard='';x.res=null}
+ window.DICT_HOOK=text=>{const y=W.list&&W.list[DD.i];if(!y)return;if(y.k==='shadow'){y.heard=(y.heard?y.heard+' ':'')+text;const d=diffWords(y.s[0],y.heard);const ok=d.pct>=80;y.res={ok,d,html:`<b>${d.pct}% số từ nghe rõ.</b> ${ok?'Phát âm rất ổn!':'Nghe chậm 🐢 từ màu đỏ rồi đọc lại nhé.'}`};y.done=true;snd(ok?'ok':'no');touch();save()}else{const t=$('#in'+DD.i);y.v=((t?t.value:y.v||'')+' '+text).trim()}rex(DD.i)};
+ window.DICT_STATE=st=>{DD.on=st==='listening';if(W.list&&W.list[DD.i])rex(DD.i)};
+ try{caps.dict.start().catch(()=>{toast('Chưa bật được micro');DD.on=false;rex(i)})}catch(e){toast('Chưa bật được micro')}}
+
+/* ---------- 6. Films (mini scenes) ---------- */
+const FS={id:null,vi:true,play:null};
+function vFilms(){const f=FILMS.find(x=>x.id===FS.id);
+ if(!f)return `<div class="page" style="max-width:1000px"><span class="tag">Cảnh phim mini</span><h1>Học qua thoại nhân vật</h1><p class="mut" style="max-width:720px">Những cảnh phim ngắn viết riêng cho bạn: lãng mạn, trinh thám, viễn tưởng, K-drama… Nghe thoại 2 giọng, xem câu đáng học, rồi tự dịch lại câu thoại. Thích câu nào trong phim thật thì dán vào mục <a href="#quotes">Câu hay</a> để AI phân tích.</p>
+ <div class="fgrid">${FILMS.map(x=>`<button class="fcard lift" data-act="fopen" data-f="${x.id}"><div class="fart">${sceneArt(x.art,x.id)}<span class="femo">${x.emo}</span></div><div style="padding:12px 14px;text-align:left"><span class="tag">${esc(x.genre)}</span><h3 style="margin:4px 0 2px">${esc(x.title)}</h3><div class="xs mut">${x.chars.map(c=>esc(c.n)).join(' & ')} · ${x.lines.length} câu thoại</div></div></button>`).join('')}</div></div>`;
+ if(!W.list||W.fid!==f.id){W.fid=f.id;W.simple=true;W.day=null;const L={title:f.title,words:f.keys.map(k=>[k[0].replace(/…/g,'').trim(),k[1]]),st:{p:f.keys[0][0]}};const pk=shuf(f.lines.filter(l=>l[1].split(' ').length>=6)).slice(0,2);W.list=pk.map((l,j)=>({k:'trans',sec:j?null:'Dịch lại câu thoại',s:[l[1],l[2]],l:L}))}
+ return `<div class="page" style="max-width:860px"><button class="btn gh s" data-act="fback">← Tất cả cảnh phim</button>
+ <div class="dhero" style="margin-top:12px"><div class="dart">${sceneArt(f.art,'fv'+f.id)}</div><div class="dhin"><span class="tag" style="color:rgba(255,255,255,.85)">${esc(f.genre)}</span><h1 style="margin:4px 0;color:#fff">${f.emo} ${esc(f.title)}</h1></div></div>
+ <div class="row wrap" style="gap:8px;margin:14px 0"><button class="btn s" data-act="fplay">${FS.play?'⏹ Dừng':'▶️ Phát cả cảnh'}</button><button class="btn gh s" data-act="fvi">${FS.vi?'Ẩn':'Hiện'} tiếng Việt</button><span class="xs mut">Mẹo: nghe 1 lần có tiếng Việt, lần 2 ẩn đi và nhại theo.</span></div>
+ <div class="fscene">${f.lines.map((l,k)=>{const c=f.chars[l[0]];return `<div class="fl ${l[0]?'r':''}" id="fl${k}"><div class="fav" style="background:${c.c}">${esc(c.n[0])}</div><div class="fb"><div class="xs" style="font-weight:700;color:${c.c}">${esc(c.n)}</div><div class="en">${esc(l[1])}</div>${FS.vi?`<div class="xs mut">${esc(l[2])}</div>`:''}</div>${spk(l[1],.9)}</div>`}).join('')}</div>
+ <h2>Câu đáng học</h2>${f.keys.map(k=>`<div class="card" style="padding:12px 16px;margin-bottom:8px"><div class="row" style="gap:8px">${spk(k[0].replace(/…/g,''),.9)}<div class="sp"><b class="en">${esc(k[0])}</b> · <span class="sm">${esc(k[1])}</span>${k[2]?`<div class="xs mut">${esc(k[2])}</div>`:''}</div><button class="save" data-act="savep" data-t="${esc(k[0])}" data-v="${esc(k[1])}">⭐ Lưu</button></div></div>`).join('')}
+ ${W.list.map((x,i)=>`${x.sec?`<h2>${x.sec}</h2>`:''}<div class="ex-card" id="x${i}">${exHTML(x,i)}</div>`).join('')}</div>`}
+function playScene(f){const synth=window.speechSynthesis;if(!synth)return toast('Trình duyệt chưa có giọng đọc');synth.cancel();
+ const vs=synth.getVoices().filter(v=>/^en/i.test(v.lang));const pickV=ci=>{if(!vs.length)return null;const pref=ci?vs.filter(v=>/male|david|daniel|george|guy|mark|james|ryan/i.test(v.name)&&!/female/i.test(v.name)):vs.filter(v=>/female|zira|samantha|susan|hazel|aria|jenny|libby|sonia|emma/i.test(v.name));return (pref[0]||vs[ci%vs.length])};
+ let k=0;FS.play=true;render();const next=()=>{document.querySelectorAll('.fl.on').forEach(e=>e.classList.remove('on'));if(!FS.play||k>=f.lines.length){FS.play=null;render();return}const l=f.lines[k];const el=$('#fl'+k);if(el){el.classList.add('on');el.scrollIntoView({block:'nearest',behavior:'smooth'})}
+  const u=new SpeechSynthesisUtterance(l[1]);u.lang='en-US';const v=pickV(l[0]);if(v)u.voice=v;u.pitch=l[0]?.9:1.15;u.rate=.92;u.onend=()=>{k++;setTimeout(next,350)};u.onerror=()=>{FS.play=null;render()};synth.speak(u)};next()}
+
+/* ---------- click handlers for new actions ---------- */
+document.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(!b)return;const a=b.dataset.act,i=+b.dataset.i;
+ switch(a){
+ case 'dday':TD.d=+b.dataset.d;TD.rerr=null;render();window.scrollTo({top:0});break;
+ case 'dgo':{const el=document.getElementById('sec-'+b.dataset.s);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});break}
+ case 'dlearn':{const x=W.list[i];x.done=true;x.L.words.forEach(w=>{if(!S.v[w[0]])S.v[w[0]]={box:0,due:addDays(1)}});touch();save();snd('ok');rex(i);break}
+ case 'dmcq':{const x=W.list[i];if(x.res)return;x.pick=+b.dataset.k;const ok=x.pick===x.ans;x.res={ok};x.done=true;missMark(x,ok);touch();save();snd(ok?'ok':'no');rex(i);break}
+ case 'drq':{const x=W.list[i];if(x.res)return;x.ans=x.ans||{};x.ans[+b.dataset.q]=+b.dataset.k;rex(i);break}
+ case 'drsub':{const x=W.list[i];const p=S.dpack[x.d].read;const c=p.qs.filter((q,k)=>x.ans[k]===+q.a).length;x.res={ok:c===p.qs.length,html:`<b>Đúng ${c}/${p.qs.length} câu.</b> ${c===p.qs.length?'Đọc hiểu rất tốt!':'Xem giải thích dưới mỗi câu nhé.'}`};x.done=true;touch();save();snd(c===p.qs.length?'ok':'no');rex(i);break}
+ case 'dgenread':TD.rerr=null;genRead(W.list[i].d);break;
+ case 'dskipread':{const x=W.list[i];x.done=true;x.res={ok:true,cls:'in',html:'Đã bỏ qua phần đọc hôm nay.'};rex(i);break}
+ case 'dshdone':{const x=W.list[i];x.done=true;x.res={ok:true,html:'Tốt lắm! Shadowing đều đặn giúp nói trôi chảy hơn.'};touch();save();rex(i);break}
+ case 'dmic':dmic(i);break;
+ case 'drole':{const x=W.list[i];ensureRoleScen(x.R);TD.roleFor={d:x.d,id:x.R.id};chatStart(x.R.id);go('chat');break}
+ case 'dreroll':{const x=W.list[i];const cur=x.R.id;const others=ROLES.filter(r=>r.id!==cur);const R=pick(others);dayRec(x.d).role=R.id;save();x.R=R;ensureRoleScen(R);rex(i);toast('Vai mới: '+R.name);break}
+ case 'fopen':FS.id=b.dataset.f;W={};render();window.scrollTo({top:0});break;
+ case 'fback':FS.id=null;FS.play=null;try{speechSynthesis.cancel()}catch(e){}W={};render();break;
+ case 'fvi':FS.vi=!FS.vi;render();break;
+ case 'fplay':{if(FS.play){FS.play=null;try{speechSynthesis.cancel()}catch(e){}render()}else playScene(FILMS.find(x=>x.id===FS.id));break}
+ }});
+const _chSend=chSend;chSend=async function(t){await _chSend(t);try{const R=TD.roleFor;if(R&&CH.sid===R.id&&CH.msgs.filter(m=>m.r==='me').length>=3){const rec=dayRec(R.d);if(!rec.sec.role){rec.sec.role=dk();save();toast('🎭 Đã hoàn thành vai diễn hôm nay!')}}}catch(e){}};
+
+/* ---------- nav ---------- */
+NAVS.unshift(['today','Hôm nay','<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>']);
+(function(){const qi=NAVS.findIndex(n=>n[0]==='quotes');NAVS.splice(qi+1,0,['films','Cảnh phim','<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M8 5l-2 4M13 5l-2 4M18 5l-2 4"/>'])})();
+ensureRoleScen(dayRole(curDay()));
+
+show();
 </script>
 </body>
 </html>
