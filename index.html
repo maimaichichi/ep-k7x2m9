@@ -1137,7 +1137,7 @@ const sbH=()=>{const h={'apikey':CFG.sbKey,'Content-Type':'application/json'};if
 const sbOn=()=>CFG.sbUrl&&CFG.sbKey&&CFG.code;
 let syncState='';const hhmm=()=>new Date().toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'});
 async function pull(){if(!sbOn())return;try{const r=await fetch(`${CFG.sbUrl.replace(/\/$/,'')}/rest/v1/progress?id=eq.${encodeURIComponent(CFG.code)}&select=data`,{headers:sbH()});if(!r.ok)throw await httpErr(r);const a=await r.json();
- if(a[0]&&a[0].data){const rS=a[0].data;if((rS.t||0)>(S.t||0)){S=Object.assign(JSON.parse(JSON.stringify(DEF)),rS);try{localStorage.setItem('epw',JSON.stringify(S))}catch(e){}if(!SES_busy())render()}}syncState='đã đồng bộ '+hhmm()}catch(e){syncState='lỗi đồng bộ';throw e}}
+ if(a[0]&&a[0].data){const rS=a[0].data;if((rS.t||0)>(S.t||0)){const ml=Object.assign({},S.log,rS.log);S=Object.assign(JSON.parse(JSON.stringify(DEF)),rS);S.log=ml;try{localStorage.setItem('epw',JSON.stringify(S))}catch(e){}if(!SES_busy())render()}}syncState='đã đồng bộ '+hhmm()}catch(e){syncState='lỗi đồng bộ';throw e}}
 async function push(json){if(!sbOn())return;const r=await fetch(`${CFG.sbUrl.replace(/\/$/,'')}/rest/v1/progress`,{method:'POST',headers:Object.assign(sbH(),{'Prefer':'resolution=merge-duplicates,return=minimal'}),body:JSON.stringify({id:CFG.code,data:JSON.parse(json),updated_at:Date.now()})});if(!r.ok){syncState='lỗi đồng bộ';throw await httpErr(r)}syncState='đã đồng bộ '+hhmm()}
 function setupSync(){ref=sbOn()?{set:({json})=>push(json).catch(()=>{})}:null}
 const newCode=()=>Array.from(crypto.getRandomValues(new Uint8Array(12))).map(b=>'abcdefghjkmnpqrstuvwxyz23456789'[b%31]).join('');
@@ -2005,14 +2005,48 @@ setInterval(tick,20000);document.addEventListener('visibilitychange',()=>{if(!do
 (function(){
 const TMO=18000;const lim=(f,p,ms)=>Promise.race([f(p),new Promise((_,j)=>setTimeout(()=>j({code:'timeout',msg:'AI trả lời quá lâu'}),ms))]);
 setupAI=function(){caps.sample=(CFG.gemini||CFG.groq)?async(p)=>{const g=['Gemini',callGemini],q=['Groq',callGroq];const order=[];
-  const fast=CFG.prefer==='fast';if(fast){if(CFG.groq)order.push(q);if(CFG.gemini)order.push(g)}else{if(CFG.gemini)order.push(g);if(CFG.groq)order.push(q)}
+  const fast=CFG.prefer?CFG.prefer==='fast':!!CFG.groq;if(fast){if(CFG.groq)order.push(q);if(CFG.gemini)order.push(g)}else{if(CFG.gemini)order.push(g);if(CFG.groq)order.push(q)}
   let err;for(let k=0;k<order.length;k++){const [n,f]=order[k];try{const text=await lim(f,p,order.length>1&&k===0?TMO:60000);lastProv=n;return {text}}catch(e){err=e;console.warn(n,e)}}
   throw err||{code:'none'}}:null};
 setupAI();
-function chip(){const h=document.querySelector('#hdr .row');if(!h||h.querySelector('.fastchip'))return;const on=CFG.prefer==='fast';const a=document.createElement('button');a.className='chipst fastchip';a.title=on?'Đang ưu tiên Groq (nhanh). Bấm để chuyển sang Gemini (kỹ hơn)':'Đang ưu tiên Gemini (kỹ). Bấm để chuyển sang Groq (nhanh)';a.textContent=on?'⚡ Nhanh':'🧠 Kỹ';
- a.onclick=()=>{if(!CFG.groq&&CFG.prefer!=='fast'){toast('Cần dán key Groq (miễn phí) trong ⚙️ Cài đặt mới dùng chế độ Nhanh');return}CFG.prefer=on?'':'fast';saveCfg();setupAI();document.querySelectorAll('.fastchip').forEach(x=>x.remove());chip();toast(CFG.prefer==='fast'?'Chế độ Nhanh: ưu tiên Groq':'Chế độ Kỹ: ưu tiên Gemini')};
+function chip(){const h=document.querySelector('#hdr .row');if(!h||h.querySelector('.fastchip'))return;const on=CFG.prefer?CFG.prefer==='fast':!!CFG.groq;const a=document.createElement('button');a.className='chipst fastchip';a.title=on?'Đang ưu tiên Groq (nhanh). Bấm để chuyển sang Gemini (kỹ hơn)':'Đang ưu tiên Gemini (kỹ). Bấm để chuyển sang Groq (nhanh)';a.textContent=on?'⚡ Nhanh':'🧠 Kỹ';
+ a.onclick=()=>{if(!CFG.groq&&!on){toast('Cần dán key Groq (miễn phí) trong ⚙️ Cài đặt mới dùng chế độ Nhanh');return}CFG.prefer=on?'slow':'fast';saveCfg();setupAI();document.querySelectorAll('.fastchip').forEach(x=>x.remove());chip();toast(CFG.prefer==='fast'?'Chế độ Nhanh: dùng Groq':'Chế độ Kỹ: dùng Gemini')};
  h.insertBefore(a,h.firstChild)}
 const _r3=render;render=function(){const r=_r3();try{chip()}catch(e){}return r};chip();
+})();
+</script>
+<style>
+.exbtn{margin-top:8px}.exbox{margin-top:8px;background:var(--am-l);border:1px solid #F1DDA8;border-radius:10px;padding:10px 12px;font-size:14.5px;color:#4D3706;white-space:pre-wrap}
+.exbox .exen{display:block;margin-top:6px;font-weight:600;color:var(--ink)}
+</style>
+<script>
+(function(){
+async function geminiFirst(p){let err;if(CFG.gemini){try{return await Promise.race([callGemini(p),new Promise((_,j)=>setTimeout(()=>j({code:'timeout'}),45000))])}catch(e){err=e}}
+ if(CFG.groq){return await callGroq(p)}throw err||{code:'none'}}
+async function explain(btn){const card=btn.closest('.coach,.fixc,.tr-box');if(!card)return;
+ let box=card.querySelector(':scope > .exbox');if(box){box.remove();return}
+ const txt=card.innerText.replace(/Giải thích thêm/g,'').slice(0,1800);
+ box=document.createElement('div');box.className='exbox';box.innerHTML='<span class="spin"></span> Đang giải thích kỹ hơn…';btn.insertAdjacentElement('afterend',box);btn.disabled=true;
+ try{const t=await geminiFirst(`A Vietnamese learner (VSTEP B2, about IELTS 5.5) did not fully understand this English feedback or translation card:\n"""${txt}"""\nExplain it again MORE CLEARLY, entirely in simple Vietnamese, like a patient friend. Say WHY step by step (nghĩa, cấu trúc, giới từ/dạng từ đi kèm, khác nhau thế nào với cách nói dễ nhầm). Then give 2 short everyday example sentences in casual native English with Vietnamese meaning. Return ONLY JSON: {"exp":"the Vietnamese explanation, 3-7 short sentences, plain text","examples":[["English example","Vietnamese meaning"]]}`);
+  const m=t.match(/[\[{][\s\S]*[\]}]/);const j=JSON.parse(m[0]);
+  box.innerHTML=esc(j.exp||'')+(j.examples||[]).map(x=>`<span class="exen">${esc(x[0]||'')} <span class="mut" style="font-weight:400">· ${esc(x[1]||'')}</span></span>`).join('')}
+ catch(e){box.textContent=aiMsg(e)}
+ btn.disabled=false}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-act=explain]');if(b){e.stopPropagation();explain(b)}},true);
+let tm;function deco(){document.querySelectorAll('.coach,.fixc:not(.in),.tr-box').forEach(c=>{if(c.querySelector(':scope > .exbtn')||!c.innerText.trim())return;const b=document.createElement('button');b.className='btn gh s exbtn';b.dataset.act='explain';b.textContent='💡 Giải thích thêm';c.appendChild(b)})}
+new MutationObserver(()=>{clearTimeout(tm);tm=setTimeout(deco,80)}).observe(document.body,{childList:true,subtree:true});deco();
+})();
+</script>
+<style>
+@keyframes bump{0%{transform:scale(1)}30%{transform:scale(1.45) rotate(-6deg)}60%{transform:scale(.92)}100%{transform:scale(1)}}
+.chipst.bump{animation:bump .7s cubic-bezier(.3,1.6,.5,1) 2}
+</style>
+<script>
+(function(){
+streak=function(){const L=Object.assign({},S.log);Object.keys(S.days||{}).forEach(k=>{const v=S.days[k]&&S.days[k].done;if(typeof v==='string'&&/^\d{4}-\d\d-\d\d$/.test(v))L[v]=1});
+ let n=0;const d=new Date();if(!L[dk(d)])d.setDate(d.getDate()-1);while(L[dk(d)]){n++;d.setDate(d.getDate()-1)}return n};
+let last=+(localStorage.getItem('epw_lastst')||0);
+const _r4=render;render=function(){const r=_r4();try{const n=streak();const c=document.querySelector('#hdr .hx');if(c&&n>last&&last>=0&&localStorage.getItem('epw_lastst')!==null)c.classList.add('bump');if(n!==last){last=n;localStorage.setItem('epw_lastst',n)}}catch(e){}return r};
 })();
 </script>
 </body>
