@@ -809,15 +809,15 @@ let route='home';let W={};let drawer=false;let openMods=null;
 function go(r){if(location.hash!=='#'+r)location.hash=r;else show()}
 window.addEventListener('hashchange',show);
 function show(){window.DICT_HOOK=null;window.DICT_STATE=null;try{speechSynthesis.cancel()}catch(e){}route=(location.hash||'#today').slice(1)||'home';W={};drawer=false;render();window.scrollTo({top:0,behavior:'instant'})}
-const NAVS=[['home','Trang chủ','<path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>'],['course','Khóa học','<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5"/>'],['review','Ôn từ','<path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3M18 3v4h-4M6 21v-4h4"/>'],['chat','Chat AI','<path d="M4 5h16v11H9l-5 4z"/>'],['quotes','Câu hay','<path d="M7 7h4v4c0 3-2 5-4 6M14 7h4v4c0 3-2 5-4 6"/>'],['speak','Luyện nói','<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>'],['notes','Sổ tay','<path d="M6 3h9l4 4v14H6zM9 12h7M9 16h5"/>']];
+const NAVS=[['home','Trang chủ','<path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>'],['course','Khóa học','<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM4 19V5"/>'],['review','Ôn từ','<path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3M18 3v4h-4M6 21v-4h4"/>'],['chat','Chat AI','<path d="M4 5h16v11H9l-5 4z"/>'],['say','Diễn đạt','<path d="M12 3a6 6 0 0 0-3 11v3h6v-3a6 6 0 0 0-3-11zM9.5 20h5"/>'],['quotes','Câu hay','<path d="M7 7h4v4c0 3-2 5-4 6M14 7h4v4c0 3-2 5-4 6"/>'],['speak','Luyện nói','<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/>'],['notes','Sổ tay','<path d="M6 3h9l4 4v14H6zM9 12h7M9 16h5"/>']];
 function navKey(){if(/^u\d/.test(route))return 'course';return route.split('-')[0]}
 function render(){
  const nk=navKey(),d=due().length;
  $('#nav').innerHTML=NAVS.map(([k,l])=>`<a href="#${k}" class="${nk===k?'on':''}">${l}${k==='review'&&d?`<span class="bd">${d}</span>`:''}</a>`).join('');
- $('#bn').innerHTML=NAVS.filter(n=>['today','course','review','chat','quotes'].includes(n[0])).map(([k,l,ic])=>`<a href="#${k}" class="${nk===k?'on':''}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ic}</svg>${l}</a>`).join('');
+ $('#bn').innerHTML=NAVS.filter(n=>['today','course','review','chat','say'].includes(n[0])).map(([k,l,ic])=>`<a href="#${k}" class="${nk===k?'on':''}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${ic}</svg>${l}</a>`).join('');
  $('#hdr').innerHTML=`<div class="row" style="gap:10px"><span class="chipst hx" title="Chuỗi ngày học">🔥 ${streak()}</span><span class="chipst hx" title="Tiến độ khóa học">📘 ${pctAll()}%</span><a class="chipst" href="#settings" title="Cài đặt">⚙️</a><span class="av">M</span></div>`;
  const it=ITEM(route);
- let h;if(it)h=courseShell(it);else h=({today:window.vToday||vHome,films:window.vFilms||vHome,plan:window.vPlan||vHome,course:vCourse,review:vReview,speak:vSpeak,notes:vNotes,chat:vChat,quotes:vQuotes,settings:vSettings}[route]||vHome)();
+ let h;if(it)h=courseShell(it);else h=({today:window.vToday||vHome,films:window.vFilms||vHome,plan:window.vPlan||vHome,course:vCourse,review:vReview,speak:vSpeak,notes:vNotes,chat:vChat,say:(window.vSay||vHome),quotes:vQuotes,settings:vSettings}[route]||vHome)();
  $('#root').innerHTML=h;afterRender();
 }
 function afterRender(){
@@ -1048,7 +1048,8 @@ function vChat(){const sc=SCEN.find(x=>x.id===CH.sid);
  ${CH.busy?`<div class="msg ai"><div class="bub typing"><span class="dots3"><i></i><i></i><i></i></span></div></div>`:''}
  ${CH.end?endHTML(CH.end):''}</div>
  ${CH.hint?`<div class="hintbox"><div class="row"><b class="sp sm">💡 Gợi ý để bạn tự viết</b><button class="btn gh s" data-act="chhintx">✕</button></div>${CH.hint.ideas.map(x=>`<button class="hint" data-act="chuse" data-t="${esc(x)}">${esc(x)}</button>`).join('')}${(CH.hint.vocab||[]).length?`<div class="hints" style="margin:8px 0 0">${CH.hint.vocab.map(v=>`<span><b>${esc(v[0])}</b> · ${esc(v[1])}</span>`).join('')}</div>`:''}</div>`:''}
- <div class="chin"><textarea id="cin" rows="2" placeholder="Viết bằng tiếng Anh… (Enter để gửi, Shift+Enter xuống dòng)" ${CH.busy||CH.end?'disabled':''}></textarea><div class="col"><button class="btn" data-act="chsend" ${CH.busy||CH.end?'disabled':''}>Gửi</button><button class="btn gh s" data-act="chhint" ${CH.hbusy||CH.busy||CH.end?'disabled':''}>${CH.hbusy?'<span class="spin"></span>':'💡 Gợi ý'}</button></div></div></section></div>`}
+ ${CH.sayOpen?sayBox():''}
+ <div class="chin"><textarea id="cin" rows="2" placeholder="Viết bằng tiếng Anh… (Enter để gửi, Shift+Enter xuống dòng)" ${CH.busy||CH.end?'disabled':''}></textarea><div class="col"><button class="btn" data-act="chsend" ${CH.busy||CH.end?'disabled':''}>Gửi</button><button class="btn gh s" data-act="chhint" ${CH.hbusy||CH.busy||CH.end?'disabled':''}>${CH.hbusy?'<span class="spin"></span>':'💡 Gợi ý'}</button><button class="btn gh s" data-act="sayopen" ${CH.busy||CH.end?'disabled':''}>🗣️ Nói VN</button></div></div></section></div>`}
 function fixHTML(f){return `<div class="fixc ${f.ok?'ok':'no'}">${f.ok?'<b>✓ Câu ổn rồi.</b> ':''}${!f.ok?`<div><b>Sửa:</b> ${esc(f.corrected)}</div>`:''}${f.note?`<div>${esc(f.note)}</div>`:''}${f.better?`<div style="margin-top:4px"><b>Hay hơn:</b> <span class="en" style="font-size:15.5px">${esc(f.better)}</span> <button class="save" data-act="savep" data-t="${esc(f.better)}" data-v="">⭐ Lưu</button></div>`:''}</div>`}
 function endHTML(r){const sc=r.scores||{};return `<div class="endc"><div class="row" style="gap:18px"><div class="band"><small>Ước tính band</small><b>${esc(r.band)}</b></div><div class="sp">${Object.entries(sc).map(([k,v])=>`<div class="row xs" style="margin:3px 0"><span style="width:96px">${esc(k)}</span><div class="pbar sp" style="height:6px"><i style="width:${Math.min(100,(+v||0)/9*100)}%"></i></div><b style="width:24px;text-align:right">${esc(v)}</b></div>`).join('')}</div></div>
  <div class="grid2c"><div><b class="sm">👍 Điểm tốt</b><ul class="sm">${(r.strengths||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div><b class="sm">🎯 Cần cải thiện</b><ul class="sm">${(r.improve||[]).map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></div>
@@ -1876,7 +1877,7 @@ All meanings and notes must be in Vietnamese.`);
   if(!r||!Array.isArray(r.chunks))throw {message:'AI trả về chưa đúng, bấm Dịch lại nhé.'};
   m.tr={vi:r.vi||'',chunks:r.chunks.filter(c=>Array.isArray(c)&&c[0]).map(c=>[String(c[0]),String(c[1]||''),String(c[2]||'')])};m.trOpen=true;try{save()}catch(e){}}
  catch(e){m.trErr=(typeof aiMsg==='function'?aiMsg(e):'')||e.message||'Chưa dịch được.'}
- m.trBusy=false;reAm(i)}
+ m.trBusy=false;reAm(i);const el=document.getElementById('am'+i);if(el&&m.trOpen)el.scrollIntoView({block:'nearest',behavior:'smooth'})}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(!b)return;const a=b.dataset.act;
  if(a==='chtr')chTranslate(+b.dataset.i);
  if(a==='chtrc'){const i=+b.dataset.i,m=CH.msgs[i],k=+b.dataset.k;m.trSel=m.trSel===k?null:k;reAm(i)}});
@@ -1893,10 +1894,100 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(
 .tr-chunks{display:flex;flex-wrap:wrap;gap:6px}
 .tr-c{display:flex;flex-direction:column;align-items:flex-start;gap:2px;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:6px 9px;font:inherit;cursor:pointer;text-align:left;max-width:100%}
 .tr-c:hover{border-color:var(--pri)}.tr-c.sel{border-color:var(--pri);background:var(--pri-l)}
-.tr-c.note{border-color:#F2C14E;background:#FFF8E1}
+.tr-c.note{border-color:#F2C14E;background:#FFF8E1}.tr-c.sel,.tr-c.note.sel{border-color:var(--pri);box-shadow:0 0 0 2px var(--pri-l)}
 .tr-en{font-weight:700;font-size:14.5px;color:var(--ink)}.tr-en i{font-style:normal;font-size:11px}
 .tr-v{font-size:12.5px;color:var(--ink2)}
 .tr-note{margin-top:10px;background:var(--pri-l);border-radius:10px;padding:10px 12px}
 </style>
+<style>
+.saybox{margin:0 20px 10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--sh);animation:enter .3s}
+.say-in{display:flex;gap:10px;align-items:flex-start}
+.say-in textarea{flex:1;min-height:64px;resize:vertical;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;font-size:15.5px;background:var(--bg);color:var(--ink)}
+.say-in textarea:focus{outline:2px solid var(--pri);outline-offset:1px;background:#fff}
+.say-modes{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 10px}
+.say-mode{padding:5px 12px;border-radius:99px;border:1px solid var(--line);background:#fff;font-size:13.5px;font-weight:600;color:var(--ink2)}
+.say-mode.on{background:var(--pri);border-color:var(--pri);color:#fff}
+.say-res{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.say-int{background:var(--pri-l);color:var(--pri-d);border-radius:10px;padding:9px 12px;font-size:14.5px;font-weight:600}
+.say-lbl{font-size:12px;font-weight:800;letter-spacing:.04em;color:var(--mut);text-transform:uppercase;margin:4px 0 0}
+.say-p{border:1px solid var(--line);border-radius:12px;padding:10px 12px;background:#fff}
+.say-p .vi{font-size:13.5px;color:var(--mut)}
+.say-p .fr{font-size:17px;font-weight:700;color:var(--ink);margin:2px 0;font-family:inherit}
+.say-p .fr u{text-decoration:none;display:inline-block;min-width:44px;border-bottom:2px dashed var(--pri);color:transparent;user-select:none}
+.say-p .ht{font-size:13.5px;color:var(--ink2)}
+.say-p .use{margin-top:6px}
+.say-chips{display:flex;flex-wrap:wrap;gap:6px}
+.say-chip{display:inline-flex;flex-direction:column;align-items:flex-start;gap:0;border:1px solid var(--line);background:var(--am-l);border-radius:9px;padding:5px 10px;text-align:left;font-size:14px;color:#7A4E05}
+.say-chip b{font-weight:700}.say-chip i{font-style:normal;font-size:12.5px;opacity:.85}
+.say-chip.lk{background:var(--pri-l);color:var(--pri-d)}
+.say-model{border:1px dashed var(--line);border-radius:12px;padding:10px 12px;background:var(--bg)}
+.say-model .en{font-size:16.5px;font-weight:600}
+.say-me textarea{width:100%;min-height:96px;resize:vertical;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:inherit;font-size:16px;background:#fff;color:var(--ink)}
+.say-me textarea:focus{outline:2px solid var(--pri);outline-offset:1px}
+.say-ex{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.say-ex button{font-size:13.5px;padding:5px 11px;border-radius:99px;background:var(--bg);border:1px solid var(--line);color:var(--ink2)}
+.say-ex button:hover{border-color:var(--pri);color:var(--pri)}
+@media(max-width:700px){.say-in{flex-direction:column}.say-in .btn{width:100%}.saybox{margin:0 10px 8px}}
+@media(max-width:1080px){.bn a{font-size:10.5px}}
+</style>
+<script>
+(function(){
+const SAY={vi:'',mode:'talk',busy:false,res:null,show:false,mine:'',cbusy:false,cres:null,ctx:''};window.SAY=SAY;
+const MODES=[['talk','💬 Nói chuyện'],['mail','✉️ Viết email / tin nhắn'],['work','💼 Công việc'],['ielts','📝 Bài viết / IELTS']];
+const MCTX={talk:'natural spoken conversation',mail:'a short written email or chat message at work',work:'workplace communication with a client, boss or team (remote job)',ielts:'a sentence in an IELTS/VSTEP-style written answer, a bit more formal'};
+const EXS=['Mình muốn xin lùi hạn nộp bài vì còn thiếu tư liệu','Mình chưa hiểu rõ yêu cầu, muốn hỏi lại cho chắc','Mình nghĩ cách này tốn thời gian hơn nhưng kết quả tốt hơn','Cảm ơn bạn đã góp ý, mình sẽ sửa lại trong hôm nay'];
+function sayCtx(){return (typeof CH!=='undefined'&&route==='chat'&&CH.sid)?(()=>{const sc=SCEN.find(x=>x.id===CH.sid);return sc?`role-play chat. Her partner is: ${sc.role}. Conversation so far:\n${transcript()}`:MCTX[SAY.mode]})():MCTX[SAY.mode]}
+async function sayAsk(){const vi=(SAY.vi||'').trim();if(!vi)return toast('Gõ ý tiếng Việt trước đã nhé');
+ SAY.busy=true;SAY.res=null;SAY.show=false;render();
+ try{SAY.res=await ai(`A Vietnamese learner (VSTEP B2, about IELTS 5.5, knows many words but struggles to build sentences; weak at writing) wants to say something in English. She wrote her idea in Vietnamese: """${vi}"""
+Situation: ${sayCtx()}
+Do NOT hand her the finished answer. Help her BUILD it herself, piece by piece, using B2-friendly language.
+Return ONLY JSON: {"intent":"1 câu tiếng Việt bắt đầu bằng 'Mình hiểu là bạn muốn…' tóm lại ý (có thể làm rõ ý nếu chưa rõ)","pieces":[{"vi":"ý nhỏ cần nói (tiếng Việt, ngắn)","frame":"English sentence frame with ___ for the parts she fills in (5-11 words)","hint":"tiếng Việt: điền gì vào ___, và vì sao dùng cấu trúc này (nêu rõ giới từ/dạng động từ đi kèm)"}],"vocab":[["English word or phrase","nghĩa tiếng Việt","ghi chú cách dùng ngắn bằng tiếng Việt, có thể để trống"]],"link":["1-3 linking phrases to join the pieces, e.g. The reason is that ..."],"model":"one natural complete English version (B2-C1) for her to compare AFTER she tries","model_why":"1-2 câu tiếng Việt: điểm hay của câu mẫu (từ/cấu trúc nào đáng nhớ)"} with 2-4 pieces in speaking order and 4-6 vocab items.`)}
+ catch(e){toast(aiMsg(e))}
+ SAY.busy=false;render()}
+function sayCard(){const r=SAY.res;if(SAY.busy)return `<div class="say-res"><div class="say-int"><span class="spin"></span> Đang nghĩ cách gợi ý cho m…</div></div>`;if(!r)return '';
+ const P=(r.pieces||[]).map((p,i)=>`<div class="say-p"><div class="vi">${i+1}. ${esc(p.vi||'')}</div><div class="fr">${esc(p.frame||'').replace(/_{2,}/g,'<u>____</u>').replace(/<u>____<\/u>/g,'___')}</div><div class="ht">${esc(p.hint||'')}</div><button class="btn gh s use" data-act="sayuse" data-t="${esc(p.frame||'')}">➕ Dùng khung này</button></div>`).join('');
+ const V=(r.vocab||[]).map(v=>`<button class="say-chip" data-act="savep" data-t="${esc(v[0]||'')}" data-v="${esc(v[1]||'')}" title="Bấm để lưu vào sổ"><b>${esc(v[0]||'')}</b><i>${esc(v[1]||'')}${v[2]?' · '+esc(v[2]):''}</i></button>`).join('');
+ const L=(r.link||[]).map(t=>`<button class="say-chip lk" data-act="sayuse" data-t="${esc(t)}"><b>${esc(t)}</b><i>bấm để thêm vào bài</i></button>`).join('');
+ return `<div class="say-res">${r.intent?`<div class="say-int">${esc(r.intent)}</div>`:''}
+ <div class="say-lbl">Bước 1 · Ghép từng ý (tự điền chỗ ___)</div>${P}
+ ${V?`<div class="say-lbl">Từ & cụm có thể cần · bấm để lưu</div><div class="say-chips">${V}</div>`:''}
+ ${L?`<div class="say-lbl">Nối các ý lại</div><div class="say-chips">${L}</div>`:''}
+ <div class="say-lbl">Bước 2 · Tự viết xong rồi mới xem đáp án</div>
+ ${SAY.show?`<div class="say-model"><div class="row" style="gap:8px;align-items:flex-start"><div class="en sp">${esc(r.model||'')}</div>${spk(r.model||'',.9)}</div>${r.model_why?`<div class="sm" style="margin-top:6px;color:var(--ink2)">${esc(r.model_why)}</div>`:''}<button class="save" style="margin-top:6px" data-act="savep" data-t="${esc(r.model||'')}">⭐ Lưu câu mẫu</button></div>`:`<button class="btn gh s" data-act="saymodel">👀 Xem câu mẫu</button>`}
+ </div>`}
+function sayInput(id){return `<div class="say-modes">${MODES.map(m=>`<button class="say-mode ${SAY.mode===m[0]?'on':''}" data-act="saymode" data-m="${m[0]}">${m[1]}</button>`).join('')}</div>
+ <div class="say-in"><textarea id="${id}" rows="3" placeholder="Gõ ý m muốn nói bằng tiếng Việt… ví dụ: mình muốn xin lùi hạn nộp bài vì còn thiếu tư liệu"></textarea><button class="btn" data-act="sayask" ${SAY.busy?'disabled':''}>${SAY.busy?'<span class="spin"></span>':'Gợi ý cho mình'}</button></div>`}
+window.sayBox=function(){return `<div class="saybox"><div class="row"><b class="sp sm">🗣️ Mình muốn nói… (gõ tiếng Việt)</b><button class="btn gh s" data-act="sayopen">✕</button></div>${sayInput('sayvi')}${sayCard()}</div>`};
+window.vSay=function(){
+ return `<div class="page" style="max-width:860px"><span class="tag">Diễn đạt</span><h1>Mình muốn nói… nhưng chưa biết nói sao</h1>
+ <p class="mut" style="max-width:680px">Gõ ý bằng tiếng Việt. App không viết hộ cả câu mà đưa khung câu, từ cần dùng và cách nối ý. M tự ghép, tự viết, rồi mới xem câu mẫu và nhờ chấm.</p>
+ <div class="card" style="margin-top:14px">${sayInput('sayvi')}<div class="say-ex">${EXS.map(x=>`<button data-act="sayex" data-t="${esc(x)}">${esc(x)}</button>`).join('')}</div>${sayCard()}</div>
+ <div class="card say-me" style="margin-top:16px"><b>✍️ Phần m tự viết</b><div class="xs mut" style="margin:2px 0 8px">Ghép các khung ở trên rồi sửa cho đúng ý m. Xong bấm chấm để AI chỉ lỗi bằng tiếng Việt.</div>
+ <textarea id="sayme" placeholder="Viết bằng tiếng Anh ở đây…"></textarea>
+ <div class="row" style="gap:8px;margin-top:8px"><button class="btn" data-act="saycheck" ${SAY.cbusy?'disabled':''}>${SAY.cbusy?'<span class="spin"></span>':'Chấm giúp mình'}</button><button class="btn gh s" data-act="sayclear">Xóa</button></div>
+ ${SAY.cres?coachHTML(SAY.cres,{orig:SAY.mine}):''}</div></div>`};
+async function sayCheck(){const t=($('#sayme')||{}).value||SAY.mine;if(!t.trim())return toast('Viết vài chữ trước đã nhé');SAY.mine=t;SAY.cbusy=true;SAY.cres=null;render();
+ try{SAY.cres=await coachAsk(`She is writing: ${MCTX[SAY.mode]}. Her original Vietnamese idea was: ${SAY.vi}`,t);touch();save()}catch(e){toast(aiMsg(e))}
+ SAY.cbusy=false;render()}
+function target(){return route==='chat'?$('#cin'):$('#sayme')}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(!b)return;const a=b.dataset.act;
+ if(a==='sayopen'){CH.sayOpen=!CH.sayOpen;render();setTimeout(()=>{const x=$('#sayvi');if(x&&CH.sayOpen)x.focus()},50)}
+ else if(a==='sayask')sayAsk();
+ else if(a==='saymodel'){SAY.show=true;render()}
+ else if(a==='saymode'){const v=$('#sayvi');if(v)SAY.vi=v.value;SAY.mode=b.dataset.m;render()}
+ else if(a==='sayex'){SAY.vi=b.dataset.t;render()}
+ else if(a==='sayuse'){const t=target();if(!t)return;const add=b.dataset.t;t.value=t.value.trim()?t.value.replace(/\s+$/,'')+(route==='chat'?' ':'\n')+add:add;t.focus();t.scrollIntoView({block:'nearest'});if(route==='chat')CH.draft=t.value;else SAY.mine=t.value}
+ else if(a==='saycheck')sayCheck();
+ else if(a==='sayclear'){SAY.mine='';SAY.cres=null;render()}
+});
+document.addEventListener('keydown',e=>{if(e.target.id==='sayvi'&&e.key==='Enter'&&(e.ctrlKey||e.metaKey)){e.preventDefault();SAY.vi=e.target.value;sayAsk()}});
+/* keep typed text across re-render */
+const _r2=render;render=function(){const a=$('#sayvi'),b=$('#sayme'),c=$('#cin');if(a)SAY.vi=a.value;if(b)SAY.mine=b.value;if(c&&!c.disabled)CH.draft=c.value;
+ const r=_r2();const a2=$('#sayvi'),b2=$('#sayme'),c2=$('#cin');if(a2)a2.value=SAY.vi;if(b2)b2.value=SAY.mine;if(c2&&CH.draft)c2.value=CH.draft;return r};
+const _cs=chSend;chSend=function(t){CH.draft='';const c=$('#cin');if(c)c.value='';return _cs(t)};
+})();
+</script>
+
 </body>
 </html>
