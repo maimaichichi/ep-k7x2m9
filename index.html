@@ -1097,7 +1097,13 @@ try{Object.assign(CFG,JSON.parse(localStorage.getItem(CFGK)||'{}'))}catch(e){}
 const saveCfg=()=>{try{localStorage.setItem(CFGK,JSON.stringify(CFG))}catch(e){}};
 const cleanKey=v=>String(v||'').replace(/[\s"'“”‘’]/g,'');
 async function httpErr(r){let m='';try{m=await r.text()}catch(e){}return {code:r.status===429?'rate_limited':'http',status:r.status,msg:m.slice(0,400)}}
-async function callGemini(p){const r=await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(CFG.gmodel||'gemini-3.5-flash')}:generateContent?key=${encodeURIComponent(CFG.gemini)}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{role:'user',parts:[{text:p}]}],generationConfig:{temperature:.6,responseMimeType:'application/json'}})});
+let THK=null;
+function thinkOpts(m){m=String(m||'');return /2\.5.*pro/i.test(m)?[{thinkingBudget:128},null]:/2\.5|2\.0/i.test(m)?[{thinkingBudget:0},null]:[{thinkingLevel:'minimal'},{thinkingLevel:'low'},null]}
+async function callGemini(p){const model=CFG.gmodel||'gemini-3.5-flash';const url=`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(model)}:generateContent?key=${encodeURIComponent(CFG.gemini)}`;
+ const opts=THK&&THK.m===model?[THK.o]:thinkOpts(model);let r,last;
+ for(const o of opts){const gc={temperature:.6,responseMimeType:'application/json'};if(o)gc.thinkingConfig=o;
+  r=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{role:'user',parts:[{text:p}]}],generationConfig:gc})});
+  if(r.ok){THK={m:model,o};break}if(r.status!==400)break;last=r}
  if(!r.ok)throw await httpErr(r);const j=await r.json();const t=(((j.candidates||[])[0]||{}).content||{}).parts;if(!t)throw {code:'empty',msg:'Gemini trả về rỗng'};return t.filter(x=>!x.thought).map(x=>x.text||'').join('')}
 /* Groq */
 const GROQ_PREF=['llama-3.3-70b-versatile','openai/gpt-oss-120b','meta-llama/llama-4-maverick-17b-128e-instruct','meta-llama/llama-4-scout-17b-16e-instruct','qwen/qwen3-32b','openai/gpt-oss-20b','llama-3.1-8b-instant'];
@@ -1973,7 +1979,7 @@ async function sayCheck(){const t=($('#sayme')||{}).value||SAY.mine;if(!t.trim()
 function target(){return route==='chat'?$('#cin'):$('#sayme')}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(!b)return;const a=b.dataset.act;
  if(a==='sayopen'){CH.sayOpen=!CH.sayOpen;render();setTimeout(()=>{const x=$('#sayvi');if(x&&CH.sayOpen)x.focus()},50)}
- else if(a==='sayask')sayAsk();
+ else if(a==='sayask'){const v=$('#sayvi');if(v)SAY.vi=v.value;sayAsk()}
  else if(a==='saymodel'){SAY.show=true;render()}
  else if(a==='saymode'){const v=$('#sayvi');if(v)SAY.vi=v.value;SAY.mode=b.dataset.m;render()}
  else if(a==='sayex'){SAY.vi=b.dataset.t;render()}
@@ -1989,5 +1995,11 @@ const _cs=chSend;chSend=function(t){CH.draft='';const c=$('#cin');if(c)c.value='
 })();
 </script>
 
+<script>
+(function(){
+let busy=false;async function tick(){if(busy||document.hidden||!sbOn())return;const el=document.activeElement;if(el&&/^(TEXTAREA|INPUT)$/.test(el.tagName)&&el.value)return;busy=true;try{await pull()}catch(e){}busy=false}
+setInterval(tick,20000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)tick()});
+})();
+</script>
 </body>
 </html>
