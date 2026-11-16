@@ -1044,7 +1044,7 @@ function vChat(){const sc=SCEN.find(x=>x.id===CH.sid);
  return `<div class="chatwrap"><aside class="chside">${list}</aside><section class="chmain">
  <div class="chhead"><button class="btn gh s" data-act="chback" title="Chọn tình huống khác">←</button><span style="font-size:28px">${sc.emo}</span><div class="sp"><b>${esc(sc.name)}</b><div class="xs mut">${esc(sc.who)}</div></div><button class="btn gh s" data-act="chreset">Làm lại</button><button class="btn s" data-act="chend" ${CH.msgs.length<3||CH.ebusy?'disabled':''}>${CH.ebusy?'<span class="spin"></span>':'Kết thúc & chấm điểm'}</button></div>
  <div class="goals">${sc.goals.map((g,i)=>`<span class="goal ${CH.goals.includes(i)?'on':''}">${CH.goals.includes(i)?'✓':'○'} ${esc(g)}</span>`).join('')}</div>
- <div class="msgs" id="msgs">${CH.msgs.map((m,i)=>m.r==='ai'?`<div class="msg ai"><div class="bub">${esc(m.t)}</div>${spk(m.t)}</div>`:`<div class="msg me"><div class="bub">${esc(m.t)}</div>${m.fix?fixHTML(m.fix):m.wait?'<div class="fixc in"><span class="dots3"><i></i><i></i><i></i></span> Đang đọc…</div>':''}</div>`).join('')}
+ <div class="msgs" id="msgs">${CH.msgs.map((m,i)=>m.r==='ai'?aiMsgHTML(m,i):`<div class="msg me"><div class="bub">${esc(m.t)}</div>${m.fix?fixHTML(m.fix):m.wait?'<div class="fixc in"><span class="dots3"><i></i><i></i><i></i></span> Đang đọc…</div>':''}</div>`).join('')}
  ${CH.busy?`<div class="msg ai"><div class="bub typing"><span class="dots3"><i></i><i></i><i></i></span></div></div>`:''}
  ${CH.end?endHTML(CH.end):''}</div>
  ${CH.hint?`<div class="hintbox"><div class="row"><b class="sp sm">💡 Gợi ý để bạn tự viết</b><button class="btn gh s" data-act="chhintx">✕</button></div>${CH.hint.ideas.map(x=>`<button class="hint" data-act="chuse" data-t="${esc(x)}">${esc(x)}</button>`).join('')}${(CH.hint.vocab||[]).length?`<div class="hints" style="margin:8px 0 0">${CH.hint.vocab.map(v=>`<span><b>${esc(v[0])}</b> · ${esc(v[1])}</span>`).join('')}</div>`:''}</div>`:''}
@@ -1855,5 +1855,48 @@ NAVS.splice(1,0,['plan','Lộ trình','<path d="M9 4l-6 2v14l6-2 6 2 6-2V4l-6 2-
 
 show();
 </script>
+<script>
+/* ===== chat translation: full sentence + chunk-by-chunk ===== */
+function aiMsgHTML(m,i){const tr=m.tr;const open=tr&&m.trOpen;
+ return `<div class="msg ai" id="am${i}"><div class="bubw"><div class="bub">${esc(m.t)}</div>
+ <div class="tr-act">${spk(m.t)}${spk(m.t,.7)}<button class="tr-btn ${open?'on':''}" data-act="chtr" data-i="${i}" ${m.trBusy?'disabled':''}>${m.trBusy?'<span class="spin"></span> Đang dịch…':open?'Ẩn bản dịch':'🇻🇳 Dịch'}</button></div>
+ ${m.trErr?`<div class="tr-err">${esc(m.trErr)}</div>`:''}
+ ${open?`<div class="tr-box"><div class="tr-vi">${esc(tr.vi||'')}</div>
+  <div class="xs mut tr-lab">Dịch từng cụm · cụm có ⭐ là thành ngữ / từ lóng / cấu trúc đáng học, bấm để xem ghi chú</div>
+  <div class="tr-chunks">${(tr.chunks||[]).map((c,k)=>`<button class="tr-c ${c[2]?'note':''} ${m.trSel===k?'sel':''}" data-act="chtrc" data-i="${i}" data-k="${k}"><span class="tr-en">${esc(c[0])}${c[2]?' <i>⭐</i>':''}</span><span class="tr-v">${esc(c[1])}</span></button>`).join('')}</div>
+  ${m.trSel!=null&&tr.chunks[m.trSel]?(()=>{const c=tr.chunks[m.trSel];return `<div class="tr-note"><div class="row" style="gap:8px;align-items:center"><b class="en sp">${esc(c[0])}</b>${spk(c[0],.85)}<button class="save" data-act="savep" data-t="${esc(c[0])}" data-v="${esc(c[1])}">⭐ Lưu</button></div><div class="sm">${esc(c[1])}</div>${c[2]?`<div class="sm" style="margin-top:4px">💡 ${esc(c[2])}</div>`:''}</div>`})():''}
+ </div>`:''}</div></div>`}
+function reAm(i){const el=document.getElementById('am'+i);if(el)el.outerHTML=aiMsgHTML(CH.msgs[i],i)}
+async function chTranslate(i){const m=CH.msgs[i];if(!m)return;if(m.tr){m.trOpen=!m.trOpen;reAm(i);return}
+ m.trBusy=true;m.trErr=null;reAm(i);
+ try{const r=await ai(`Translate this English chat message for a Vietnamese learner (VSTEP B2). Message: <<<${m.t}>>>
+Split the WHOLE message, in order, into meaningful chunks: single words, collocations, phrasal verbs, idioms and slang kept together as one chunk. Every part of the message must be covered (skip only punctuation).
+Return ONLY JSON: {"vi":"natural Vietnamese translation of the whole message","chunks":[["English chunk exactly as written in the message","nghĩa tiếng Việt đúng ngữ cảnh","ghi chú ngắn bằng tiếng Việt nếu là thành ngữ, từ lóng, phrasal verb hoặc cấu trúc đáng học (kèm cách dùng); để chuỗi rỗng nếu là từ bình thường"]]}
+All meanings and notes must be in Vietnamese.`);
+  if(!r||!Array.isArray(r.chunks))throw {message:'AI trả về chưa đúng, bấm Dịch lại nhé.'};
+  m.tr={vi:r.vi||'',chunks:r.chunks.filter(c=>Array.isArray(c)&&c[0]).map(c=>[String(c[0]),String(c[1]||''),String(c[2]||'')])};m.trOpen=true;try{save()}catch(e){}}
+ catch(e){m.trErr=(typeof aiMsg==='function'?aiMsg(e):'')||e.message||'Chưa dịch được.'}
+ m.trBusy=false;reAm(i)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(!b)return;const a=b.dataset.act;
+ if(a==='chtr')chTranslate(+b.dataset.i);
+ if(a==='chtrc'){const i=+b.dataset.i,m=CH.msgs[i],k=+b.dataset.k;m.trSel=m.trSel===k?null:k;reAm(i)}});
+</script>
+<style>
+.msg.ai .bubw{max-width:min(620px,88%)}.msg.ai .bubw .bub{max-width:100%}
+.tr-act{display:flex;gap:6px;align-items:center;margin-top:6px}
+.tr-btn{border:1px solid var(--line);background:#fff;color:var(--ink2);border-radius:999px;padding:5px 12px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.tr-btn:hover,.tr-btn.on{border-color:var(--pri);color:var(--pri-d);background:var(--pri-l)}
+.tr-err{font-size:13px;color:#9B1C24;margin-top:6px}
+.tr-box{margin-top:8px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;animation:enter .25s}
+.tr-vi{font-size:15px;line-height:1.55;color:var(--ink)}
+.tr-lab{margin:10px 0 6px;font-weight:600}
+.tr-chunks{display:flex;flex-wrap:wrap;gap:6px}
+.tr-c{display:flex;flex-direction:column;align-items:flex-start;gap:2px;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:6px 9px;font:inherit;cursor:pointer;text-align:left;max-width:100%}
+.tr-c:hover{border-color:var(--pri)}.tr-c.sel{border-color:var(--pri);background:var(--pri-l)}
+.tr-c.note{border-color:#F2C14E;background:#FFF8E1}
+.tr-en{font-weight:700;font-size:14.5px;color:var(--ink)}.tr-en i{font-style:normal;font-size:11px}
+.tr-v{font-size:12.5px;color:var(--ink2)}
+.tr-note{margin-top:10px;background:var(--pri-l);border-radius:10px;padding:10px 12px}
+</style>
 </body>
 </html>
