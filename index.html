@@ -1094,6 +1094,11 @@ document.addEventListener('keydown',e=>{if(e.target.id==='cin'&&e.key==='Enter'&
 /* ===== standalone: settings, AI providers, speech, sync ===== */
 const CFGK='epw_cfg';let CFG={gemini:'',gmodel:'gemini-3.5-flash',groq:'',qmodel:'',sbUrl:'',sbKey:'',code:''};
 try{Object.assign(CFG,JSON.parse(localStorage.getItem(CFGK)||'{}'))}catch(e){}
+const BAKED={sbUrl:'https://qjiwfwbhmoyuiqgvubrq.supabase.co',sbKey:'sb_publishable_U5nRaZwatYPpxSvqJ46Wrg_K83fWxxr',code:'v5spt48jhrgc'};
+let __MIG=false;if(CFG.code!==BAKED.code){__MIG=!!CFG.code||true;Object.assign(CFG,BAKED);try{localStorage.setItem(CFGK,JSON.stringify(CFG))}catch(e){}}
+const isO_=v=>v&&typeof v==='object'&&!Array.isArray(v);
+function mg(a,b){if(Array.isArray(a)&&Array.isArray(b)){const seen=new Set(),o=[];[...b,...a].forEach(x=>{const k=JSON.stringify(x);if(!seen.has(k)){seen.add(k);o.push(x)}});return o}
+ if(isO_(a)&&isO_(b)){const o=Object.assign({},a);Object.keys(b).forEach(k=>{o[k]=k in a?mg(a[k],b[k]):b[k]});return o}return b===undefined?a:b}
 const saveCfg=()=>{try{localStorage.setItem(CFGK,JSON.stringify(CFG))}catch(e){}};
 const cleanKey=v=>String(v||'').replace(/[\s"'“”‘’]/g,'');
 async function httpErr(r){let m='';try{m=await r.text()}catch(e){}return {code:r.status===429?'rate_limited':'http',status:r.status,msg:m.slice(0,400)}}
@@ -1137,6 +1142,7 @@ const sbH=()=>{const h={'apikey':CFG.sbKey,'Content-Type':'application/json'};if
 const sbOn=()=>CFG.sbUrl&&CFG.sbKey&&CFG.code;
 let syncState='';const hhmm=()=>new Date().toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'});
 async function pull(){if(!sbOn())return;try{const r=await fetch(`${CFG.sbUrl.replace(/\/$/,'')}/rest/v1/progress?id=eq.${encodeURIComponent(CFG.code)}&select=data`,{headers:sbH()});if(!r.ok)throw await httpErr(r);const a=await r.json();
+ if(a[0]&&a[0].data&&__MIG){__MIG=false;const rr=a[0].data;const nw=(rr.t||0)>(S.t||0);S=Object.assign(JSON.parse(JSON.stringify(DEF)),nw?mg(S,rr):mg(rr,S));save();if(!SES_busy())render()}
  if(a[0]&&a[0].data){const rS=a[0].data;if((rS.t||0)>(S.t||0)){const ml=Object.assign({},S.log,rS.log);S=Object.assign(JSON.parse(JSON.stringify(DEF)),rS);S.log=ml;try{localStorage.setItem('epw',JSON.stringify(S))}catch(e){}if(!SES_busy())render()}}syncState='đã đồng bộ '+hhmm()}catch(e){syncState='lỗi đồng bộ';throw e}}
 async function push(json){if(!sbOn())return;const r=await fetch(`${CFG.sbUrl.replace(/\/$/,'')}/rest/v1/progress`,{method:'POST',headers:Object.assign(sbH(),{'Prefer':'resolution=merge-duplicates,return=minimal'}),body:JSON.stringify({id:CFG.code,data:JSON.parse(json),updated_at:Date.now()})});if(!r.ok){syncState='lỗi đồng bộ';throw await httpErr(r)}syncState='đã đồng bộ '+hhmm()}
 function setupSync(){ref=sbOn()?{set:({json})=>push(json).catch(()=>{})}:null}
@@ -2049,5 +2055,18 @@ let last=+(localStorage.getItem('epw_lastst')||0);
 const _r4=render;render=function(){const r=_r4();try{const n=streak();const c=document.querySelector('#hdr .hx');if(c&&n>last&&last>=0&&localStorage.getItem('epw_lastst')!==null)c.classList.add('bump');if(n!==last){last=n;localStorage.setItem('epw_lastst',n)}}catch(e){}return r};
 })();
 </script>
+<style>
+html,body{max-width:100%;overflow-x:clip}
+@media(max-width:640px){
+ .hd .in{gap:8px;padding:0 10px}
+ .logo span{display:none}
+ .hd .nav{display:none}
+ .hd .in .sp{min-width:0}
+ #hdr .row{gap:5px!important;flex-wrap:nowrap}
+ #hdr .chipst{padding:5px 8px!important;font-size:12.5px;gap:3px!important}
+ #hdr .av{display:none}
+ .page{padding-left:14px;padding-right:14px}
+}
+</style>
 </body>
 </html>
