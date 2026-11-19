@@ -988,7 +988,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(
  case 'hidevi':$('#samples').classList.toggle('hidevi');break;
  case 'complete':{const it=ITEM(b.dataset.id);complete(it.id);snd('done');if(it.ty==='prac'||it.ty==='lec')toast(it.ty==='lec'?'Đã thêm 5 từ vào lịch ôn ✓':'Hoàn thành phần luyện tập ✓');const keep=W;render();W=keep;break}
  case 'xcheck':xcheck(i);break;
- case 'xretry':{const x=W.list[i];x.res=null;x.done=false;x.sel=[];x.v=x.k==='write'?'':x.v;rex(i);break}
+ case 'xretry':{const x=W.list[i];x.res=null;x.done=false;x.sel=x.k==='tiles'?(x.sel||[]):[];x.v=x.k==='write'?'':x.v;rex(i);break}
  case 'tb':{const x=W.list[i];if(x.res)return;x.sel.push(+b.dataset.k);rex(i);break}
  case 'tl':{const x=W.list[i];if(x.res)return;x.sel.splice(x.sel.indexOf(+b.dataset.k),1);rex(i);break}
  case 'cpick':{const x=W.list[i];if(x.res)return;x.pick=+b.dataset.k;const ok=x.opts[x.pick]===x.w;x.res={ok,html:ok?'<b>Chính xác!</b> '+esc(x.w.ex):`Đáp án: <b>${esc(x.w.w)}</b> (${esc(x.w.vi)})`};x.done=true;touch();save();snd(ok?'ok':'no');rex(i);break}
@@ -2068,5 +2068,34 @@ html,body{max-width:100%;overflow-x:clip}
  .page{padding-left:14px;padding-right:14px}
 }
 </style>
+<script>
+(function(){
+const SK='epw_sess',VER=1;
+function grabDrafts(){try{const L=(W&&W.list)||(DAYW&&DAYW[TD&&TD.d]&&0)||null;const lists=[];if(W&&W.list)lists.push(W.list);Object.keys(DAYW||{}).forEach(k=>lists.push(DAYW[k]));
+ lists.forEach(list=>{if(!Array.isArray(list))return;list.forEach((x,i)=>{const el=document.getElementById('in'+i);if(el&&list===W.list&&!x.res&&el.value)x._draft=el.value})})}catch(e){}}
+function ser(o){const cut=function(k,v){if(k==='l'&&v&&typeof v==='object')return {__l:1,id:v.id,title:v.title};if(k==='it')return undefined;if(k==='u'&&v&&typeof v==='object'){const o={};Object.keys(v).forEach(q=>{const t=typeof v[q];if(v[q]==null||t==='string'||t==='number'||t==='boolean')o[q]=v[q]});return o}return v};
+ try{return JSON.stringify(o,cut)}catch(e){const st=[];return JSON.stringify(o,function(k,v){v=cut(k,v);if(v&&typeof v==='object'){while(st.length&&st[st.length-1]!==this)st.pop();if(st.indexOf(v)>=0)return undefined;st.push(v)}return v})}}
+function LK(){const m={};try{COURSE.forEach(u=>u.lessons.forEach(l=>m[l.id]=l))}catch(e){}try{LESSONS.forEach(l=>{if(l&&l.id)m[l.id]=l})}catch(e){}return m}
+function relink(list,dayKey){if(!Array.isArray(list))return true;const m=LK();for(const x of list){if(x&&x.l&&x.l.__l){let l=m[x.l.id];if(!l&&dayKey){try{l=dayLesson(+dayKey)}catch(e){}}if(!l)return false;x.l=l}}return true}
+function snap(){try{grabDrafts();const dk0=Object.keys(DAYW||{}).map(Number).sort((a,b)=>a-b).slice(-3);const D={};dk0.forEach(k=>D[k]=DAYW[k]);
+ const w={};Object.keys(W||{}).forEach(k=>{if(k!=='it')w[k]=W[k]});
+ const hasCH=CH&&CH.msgs&&CH.msgs.length;const c=hasCH?{sid:CH.sid,msgs:CH.msgs,goals:CH.goals,end:CH.end,draft:(document.getElementById('cin')||{}).value||CH.draft||''}:null;
+ const o={v:VER,t:Date.now(),day:dk(),route,DAYW:D,W:w,CH:c,SAYvi:(window.SAY&&SAY.vi)||''};
+ const j=ser(o);if(j!==snap.last){snap.last=j;localStorage.setItem(SK,j)}}catch(e){}}
+function restore(){let o;try{o=JSON.parse(localStorage.getItem(SK)||'null')}catch(e){}if(!o||o.v!==VER||Date.now()-o.t>3*864e5)return;
+ let any=false;
+ if(o.DAYW){Object.keys(o.DAYW).forEach(k=>{if(relink(o.DAYW[k],k)){DAYW[k]=o.DAYW[k];any=true}})}
+ if(o.CH&&o.CH.msgs&&o.CH.msgs.length&&!(CH.msgs&&CH.msgs.length)){CH.sid=o.CH.sid;CH.msgs=o.CH.msgs;CH.goals=o.CH.goals||[];CH.end=o.CH.end||null;CH.draft=o.CH.draft||'';any=true}
+ if(o.route===route&&o.W&&Object.keys(o.W).length&&relink(o.W.list,null)){Object.assign(W,o.W);if(o.W.list&&o.DAYW&&Object.keys(o.DAYW).some(k=>o.DAYW[k]&&o.W.list&&0)){}any=true}
+ if(window.SAY&&o.SAYvi&&!SAY.vi)SAY.vi=o.SAYvi;
+ if(any){try{render()}catch(e){try{localStorage.removeItem(SK)}catch(x){}Object.keys(DAYW).forEach(k=>delete DAYW[k]);Object.keys(W).forEach(k=>delete W[k]);CH.msgs=[];CH.sid=null;try{render()}catch(x){}return}setTimeout(()=>{toast('Đã khôi phục phần đang học dở của m 👌')},400)}}
+const _r5=render;render=function(){const r=_r5();try{const list=W&&W.list;if(Array.isArray(list))list.forEach((x,i)=>{if(x&&x._draft){const el=document.getElementById('in'+i);if(el&&!el.value&&!x.res)el.value=x._draft}})}catch(e){}return r};
+restore();
+setInterval(snap,60000);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)snap()});
+window.addEventListener('pagehide',snap);window.addEventListener('beforeunload',snap);
+window.__snap=snap;
+})();
+</script>
 </body>
 </html>
