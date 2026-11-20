@@ -2097,5 +2097,23 @@ window.addEventListener('pagehide',snap);window.addEventListener('beforeunload',
 window.__snap=snap;
 })();
 </script>
+<style>
+.xskip{margin-top:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.xskip button{background:transparent;border:1px dashed var(--line);color:var(--mut);padding:6px 12px;border-radius:99px;font-size:13px;font-weight:600}
+.xskip button:hover{border-color:var(--pri);color:var(--pri)}
+.xskip span{font-size:12px;color:var(--mut)}
+</style>
+<script>
+(function(){
+const SKIPK={dict:'nghe',shadow:'nói',spq:'nói'};
+const _ex=exHTML;exHTML=function(x,i,n){let h=_ex(x,i,n);try{if(SKIPK[x.k]&&!x.res&&!x.done)h+=`<div class="xskip"><button data-act="xskip" data-i="${i}">⏭ Bỏ qua bài ${SKIPK[x.k]}</button><span>Không tiện thì bỏ qua, vẫn tính là xong bài.</span></div>`;
+ else if(x.skip)h=h.replace(/<\/div>\s*$/,'')+'</div>'}catch(e){}return h};
+document.addEventListener('click',e=>{const b=e.target.closest('[data-act=xskip]');if(!b)return;e.stopPropagation();const i=+b.dataset.i,x=W.list&&W.list[i];if(!x)return;
+ try{if(window.speechSynthesis)speechSynthesis.cancel()}catch(_){}
+ x.skip=true;x.done=true;x.res={ok:true,cls:'in',html:'⏭ Đã bỏ qua vì không tiện. Bài này không tính điểm, mai m ôn lại sau nhé.'};
+ try{save()}catch(_){}rex(i)},true);
+try{render()}catch(e){}
+})();
+</script>
 </body>
 </html>
