@@ -963,7 +963,7 @@ function vSpeak(){SP.list=SP.list||spList();
  <div class="row" style="justify-content:center;margin:18px 0 26px">${spk(it.s[0])}${spk(it.s[0],.7)}</div>
  ${caps.dict?`<button class="mic ${SP.on?'on':''}" data-act="spmic" aria-label="Micro"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3" fill="currentColor"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>${SP.on?`<div class="wave">${[0,1,2,3,4,5,6].map(k=>`<i style="animation-delay:${k*.11}s"></i>`).join('')}</div><div class="sm mut" style="margin-top:6px">Đang nghe… bấm lại để dừng</div>`:`<div class="sm mut" style="margin-top:12px">Bấm để nói</div>`}`:`<div class="fbk in" style="text-align:left">Micro chấm phát âm chạy trên Chrome hoặc Edge (máy tính và Android). Ở thiết bị này bạn vẫn có thể nghe và đọc theo (shadowing).</div>`}
  ${SP.heard?`<div class="sm mut" style="margin-top:14px">App nghe được: “${esc(SP.heard)}”</div>`:''}
- ${r?`<div class="fbk ${r.pct>=85?'ok':r.pct>=60?'in':'no'}" style="margin-top:16px"><b>${r.pct}% số từ nghe rõ.</b> ${r.pct>=85?'Phát âm rất ổn!':'Nghe chậm lại từ màu đỏ rồi đọc lại nhé.'}</div>`:''}</div>
+ ${r?`<div class="fbk ${r.pct>=PASS?'ok':r.pct>=50?'in':'no'}" style="margin-top:16px;text-align:left">${spkFb(r,it.s[0],SP.heard)}</div>`:''}</div>
  <div class="row" style="justify-content:space-between;margin-top:14px"><button class="btn gh" data-act="spnav" data-d="-1">← Câu trước</button><span class="sm mut">${SP.i%SP.list.length+1}/${SP.list.length}</span><button class="btn" data-act="spnav" data-d="1">Câu tiếp →</button></div></div>`}
 function vIV(){const q=INTERVIEW[SP.iv];const r=SP.ivRes;
  return `<div class="card"><div class="row"><span class="pill a">Câu ${SP.iv+1}/${INTERVIEW.length}</span><span class="sp"></span><button class="btn gh s" data-act="ivnext">Câu khác</button></div><div class="row" style="margin:16px 0"><span style="font-size:34px">🧑‍💼</span><div class="en sp" style="font-size:22px">${esc(q.q)}</div>${spk(q.q)}</div><div class="frame">Khung trả lời: <b>${esc(q.frame)}</b></div>
@@ -1670,10 +1670,44 @@ function spqHTML(x,i,n){const r=x.res;const on=DD.on&&DD.i===i;const dis=r?'disa
 function roleHTML(x,i,n){const R=x.R;const rec=dayRec(x.d);
  return `${n}<div class="row" style="gap:14px"><span style="font-size:46px">${R.emo}</span><div class="sp"><h3 style="margin:0">Chat với ${esc(R.name)}</h3><div class="xs mut">${esc(R.who)}</div></div></div><div class="en" style="margin:12px 0;font-size:17px;font-style:italic">“${esc(R.open)}”</div><div class="sm"><b>Nhiệm vụ:</b><br>${R.goals.map(g=>'• '+esc(g)).join('<br>')}</div>
  <div class="row" style="margin-top:12px"><button class="btn s" data-act="drole" data-i="${i}">💬 Vào chat với vai này</button><button class="btn gh s" data-act="preroll">🎲 Đổi nhân vật khác</button>${rec.sec.role?'<span class="pill g">✓ Đã chat</span>':''}</div><div class="xs mut" style="margin-top:6px">Phần thưởng thêm, không bắt buộc. Gửi ít nhất 3 tin nhắn để tính là đã hoàn thành.</div>`}
+
+/* ===== speaking feedback (v22) ===== */
+var PASS=70;
+function spkLev(a,b){const m=a.length,n=b.length;if(!m)return n;if(!n)return m;let p=[];for(let j=0;j<=n;j++)p[j]=j;for(let i=1;i<=m;i++){let c=[i];for(let j=1;j<=n;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[n]}
+function spkTip(w,h){w=w.toLowerCase();
+ const T=[];
+ if(/^th/.test(w))T.push('Âm “th”: thè đầu lưỡi ra chạm nhẹ răng cửa rồi thổi hơi, nghe như “thờ” (từ the/this/that thì như “đờ”). Đừng đọc thành “s”, “t” hay “d”.');
+ else if(/^v/.test(w))T.push('Âm “v”: răng trên chạm nhẹ môi dưới rồi thổi, như “vờ” trong tiếng Việt.');
+ else if(/^w/.test(w))T.push('Âm “w”: chu môi tròn như đọc “u”, rồi mở ra luôn. “we” ≈ “u-i”, “what” ≈ “u-ót”.');
+ else if(/^r/.test(w))T.push('Âm “r”: chu môi tròn nhẹ như “ru”, đừng đọc thành “d”, “z” hay “gi”.');
+ else if(/^h/.test(w))T.push('Âm “h” đầu từ: thở hơi ra nhẹ như “hà”, đừng bỏ mất.');
+ if(/(ed)$/.test(w)&&w.length>3)T.push('Đuôi “-ed”: thêm “t” hoặc “d” rất nhẹ ở cuối (worked ≈ “wớt”, played ≈ “plây-d”). Đừng bỏ.');
+ else if(/(s|es)$/.test(w)&&w.length>2)T.push('Đuôi “-s”: kéo thêm tiếng “sờ” nhẹ ở cuối từ. Người Việt hay nuốt âm này nên nghe thành số ít.');
+ else if(/[tdkp]$/.test(w))T.push('Âm cuối “'+w.slice(-1)+'”: tiếng Anh có đọc âm cuối. Khép miệng nhanh để chốt âm đó, đừng bỏ lửng như tiếng Việt.');
+ else if(/(ng)$/.test(w))T.push('Đuôi “-ng”: ngân mũi ở cuối như “ăng”, đừng thêm “gờ” cứng.');
+ else if(/[lmn]$/.test(w)&&w.length>3)T.push('Đuôi “'+w.slice(-1)+'”: giữ âm đến hết từ, đừng cắt sớm.');
+ const syl=(w.match(/[aeiouy]+/g)||[]).length;
+ if(syl>=3)T.push('Từ dài: chọn 1 âm nhấn mạnh to và rõ hơn, các âm còn lại đọc nhẹ và nhanh. Bấm 🐢 nghe mẫu rồi bắt chước nhịp.');
+ if(!T.length)T.push('Nghe mẫu chậm 🐢 rồi đọc lại từng tiếng một, sau đó mới nối lại.');
+ return T.slice(0,2)}
+function spkWhy(ref,heard){const f=t=>t.toLowerCase().replace(/[’]/g,"'").replace(/[^a-z0-9'-]/g,'');
+ const A=ref.split(/\s+/).filter(Boolean),a=A.map(f),b=heard.split(/\s+/).map(f).filter(Boolean),n=a.length,m=b.length;
+ const dp=Array.from({length:n+1},()=>new Array(m+1).fill(0));for(let i=n-1;i>=0;i--)for(let j=m-1;j>=0;j--)dp[i][j]=a[i]===b[j]?dp[i+1][j+1]+1:Math.max(dp[i+1][j],dp[i][j+1]);
+ const miss=[],used=new Array(m).fill(false);let i=0,j=0;while(i<n&&j<m){if(a[i]===b[j]){used[j]=true;i++;j++}else if(dp[i+1][j]>=dp[i][j+1]){miss.push(i);i++}else j++}while(i<n)miss.push(i++);
+ const free=b.map((w,k)=>used[k]?null:w).filter(Boolean);const out=[],seen={};
+ miss.forEach(k=>{const w=a[k];if(!w||seen[w]||w.length<2&&miss.length>2)return;seen[w]=1;
+  let best=null,bd=9;free.forEach(h=>{const d=spkLev(w,h);if(d<bd){bd=d;best=h}});
+  const close=best&&bd<=Math.max(2,Math.ceil(w.length/2));
+  out.push({w:A[k],h:close?best:null,tips:spkTip(w,close?best:null)})});
+ return out.slice(0,3)}
+function spkFb(d,ref,heard){const ok=d.pct>=PASS;
+ let h=`<b>${d.pct}% số từ nghe rõ.</b> ${ok?'✅ Đạt rồi, đọc vậy là đủ để người ta hiểu. Không cần giống người bản xứ 100%.':'Chưa đạt (cần từ '+PASS+'%). Xem từ màu đỏ bên dưới nhé.'}`;
+ if(d.pct<100){const w=spkWhy(ref,heard||'');if(w.length)h+=`<div style="margin-top:10px">${ok?'<div class="xs mut" style="margin-bottom:4px">Muốn nói chuẩn hơn thì chỉnh thêm:</div>':''}${w.map(x=>`<div style="margin:8px 0;padding:8px 10px;background:rgba(0,0,0,.04);border-radius:10px"><b class="en">${esc(x.w)}</b> <span class="xs mut">${x.h?'app nghe thành “'+esc(x.h)+'”':'app không nghe thấy từ này'}</span><div class="sm" style="margin-top:4px">${x.tips.map(t=>'• '+esc(t)).join('<br>')}</div></div>`).join('')}</div>`}
+ return h}
 window.DICT_HOOK=null;
 function dmic(i){const x=W.list[i];if(!caps.dict)return toast('Micro chỉ chạy trên Chrome/Edge');if(DD.on){try{caps.dict.stop()}catch(e){}return}
  DD.i=i;if(x.k==='shadow'){x.heard='';x.res=null}
- window.DICT_HOOK=text=>{const y=W.list&&W.list[DD.i];if(!y)return;if(y.k==='shadow'){y.heard=(y.heard?y.heard+' ':'')+text;const d=diffWords(y.s[0],y.heard);const ok=d.pct>=80;y.res={ok,d,html:`<b>${d.pct}% số từ nghe rõ.</b> ${ok?'Phát âm rất ổn!':'Nghe chậm 🐢 từ màu đỏ rồi đọc lại nhé.'}`};y.done=true;snd(ok?'ok':'no');touch();save()}else{const t=$('#in'+DD.i);y.v=((t?t.value:y.v||'')+' '+text).trim()}rex(DD.i)};
+ window.DICT_HOOK=text=>{const y=W.list&&W.list[DD.i];if(!y)return;if(y.k==='shadow'){y.heard=(y.heard?y.heard+' ':'')+text;const d=diffWords(y.s[0],y.heard);const ok=d.pct>=PASS;y.res={ok,d,html:spkFb(d,y.s[0],y.heard)};y.done=ok;snd(ok?'ok':'no');touch();save()}else{const t=$('#in'+DD.i);y.v=((t?t.value:y.v||'')+' '+text).trim()}rex(DD.i)};
  window.DICT_STATE=st=>{DD.on=st==='listening';if(W.list&&W.list[DD.i])rex(DD.i)};
  try{caps.dict.start().catch(()=>{toast('Chưa bật được micro');DD.on=false;rex(i)})}catch(e){toast('Chưa bật được micro')}}
 
@@ -2287,5 +2321,22 @@ const _r7=render;render=function(){const r=_r7();try{document.body.dataset.route
 try{render()}catch(e){}
 })();
 </script>
+
+<style id="v22css">
+html{overflow-x:hidden;max-width:100%}
+body{overflow-x:clip;max-width:100%}
+.main,.page,.card,.ex-card,.chatwrap,.msg,.bub{min-width:0;max-width:100%}
+.main img,.main svg,.main video,.main table,.main iframe{max-width:100%}
+.main pre,.main code{white-space:pre-wrap;word-break:break-word}
+.main .en,.main p,.main h1,.main h2,.main h3,.main li,.main .sw,.main .tr-box,.main .fbk{overflow-wrap:anywhere}
+table.voc{width:100%}
+@media(max-width:860px){
+ table.voc{table-layout:fixed}table.voc td,table.voc th{overflow-wrap:anywhere;word-break:break-word;padding-left:6px;padding-right:6px}
+ .dprog,.card[style*="position:sticky"]{position:static!important;top:auto!important}
+ .dprog{padding:10px 12px}
+ .toc{display:none!important}
+ .tiles,.bank,.sel{max-width:100%}
+}
+</style>
 </body>
 </html>
