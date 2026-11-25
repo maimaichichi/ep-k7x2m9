@@ -2,7 +2,11 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#2557D6">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="English">
+<link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-180.png"><link rel="icon" type="image/png" href="icon-192.png">
 <title>English cho Mai Chi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
@@ -2340,5 +2344,149 @@ table.voc{width:100%}
  .tiles,.bank,.sel{max-width:100%}
 }
 </style>
+
+<style id="v24css">
+html,body{scroll-behavior:auto!important;overscroll-behavior-y:none}
+body{-webkit-tap-highlight-color:transparent;touch-action:manipulation;-webkit-touch-callout:none}
+img{-webkit-user-drag:none}
+input,textarea,.en,.sw,.msg{-webkit-touch-callout:default;-webkit-user-select:text;user-select:text}
+@media(max-width:860px){
+ .hd{padding-top:env(safe-area-inset-top)}
+ .main{padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
+ .bn{padding-bottom:env(safe-area-inset-bottom)}
+ img{aspect-ratio:auto}
+ *{overflow-anchor:none}
+ .ph,.fart,.hero{contain:layout paint}
+}
+@media(display-mode:standalone){body{min-height:100dvh}}
+</style>
+<script>
+/* v24: stop page jumping */
+(function(){const _r=render;let last=route;
+ render=function(){const y=window.scrollY,same=(last===route);last=route;_r();if(same&&y>0){window.scrollTo({top:y,behavior:'instant'});requestAnimationFrame(()=>window.scrollTo({top:y,behavior:'instant'}))}};
+ const _p=pull;pull=async function(){const a=document.activeElement;if(a&&/^(INPUT|TEXTAREA)$/.test(a.tagName)&&a.value){return}return _p()};
+ window.addEventListener('orientationchange',()=>{});
+})();
+</script>
+<style id="v25css">.wtag{display:inline-block;font-size:12.5px;font-weight:700;color:var(--pri-d);background:var(--pri-l);border-radius:99px;padding:3px 10px;margin-bottom:8px}
+.hctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 8px}
+.hbox{margin:6px 0 8px;padding:8px 10px;background:#FFF8E6;border-radius:10px}
+.hrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.hk{font-size:13.5px;background:#fff;border:1px solid #F0DFB0;border-radius:99px;padding:3px 10px}
+.hchip{font-size:13.5px;background:#fff;border:1px solid var(--line);border-radius:99px;padding:5px 11px;text-align:left}
+.hchip span{color:var(--mut);font-size:12px}
+.hchip:active{background:var(--pri-l)}
+.live{min-height:0;margin:6px 0 0}
+.lvn{font-size:13.5px;background:#FFF1E0;border-radius:8px;padding:6px 10px;margin:4px 0}
+.lvn.mine{background:#FDE8E8}
+.wmodel{margin-top:8px;padding:10px 12px;background:var(--gr-l);border-radius:10px}
+.nextday{margin:22px 0;text-align:center;padding:20px}
+</style><script>/* ===== v25: practical writing, hint ladder, live personal hints, next-day ===== */
+(function(){
+const P1=[
+{t:'Portfolio · Giới thiệu bản thân',p:'Viết đoạn giới thiệu 3–4 câu cho trang portfolio của bạn: bạn làm gì, kinh nghiệm bao lâu, điểm mạnh nhất.',kw:[['specialise in','chuyên về'],['hands-on experience','kinh nghiệm thực tế'],['a track record of','thành tích đã có'],['detail-oriented','tỉ mỉ']],ch:[['I specialise in …','Mình chuyên về …'],['with a focus on …','tập trung vào …'],['I have X years of hands-on experience in …','có X năm kinh nghiệm thực tế …'],['I take pride in …','mình tự hào về …']],m:'I am a YouTube content creator who specialises in history storytelling. I have two years of hands-on experience in research, scriptwriting and channel management. I take pride in turning complex events into clear, engaging stories. I am also detail-oriented, so every fact in my scripts is checked twice.'},
+{t:'Công việc · Một ngày làm việc',p:'Mô tả một ngày làm việc bình thường của bạn cho đồng nghiệp nước ngoài, dùng từ chỉ thứ tự (first, then, after that).',kw:[['first thing in the morning','việc đầu tiên buổi sáng'],['deal with','xử lý'],['meet a deadline','kịp deadline'],['wrap up','kết thúc']],ch:[['I usually start by …','Mình thường bắt đầu bằng …'],['After that, I …','Sau đó mình …'],['I spend most of my time …ing','mình dành phần lớn thời gian …'],['I wrap up by …ing','mình kết thúc bằng cách …']],m:'I usually start by checking the channel analytics and replying to comments. After that, I spend most of my time researching and writing the next script. In the afternoon, I review the edit and give feedback to the editor. I wrap up by planning tomorrow\'s tasks so I can meet every deadline.'},
+{t:'Quy trình · Làm một video',p:'Giải thích cho người mới cách bạn làm một video từ ý tưởng đến khi đăng. Dùng ít nhất 4 bước.',kw:[['come up with an idea','nghĩ ra ý tưởng'],['fact-check','kiểm chứng'],['publish','đăng tải'],['step by step','từng bước']],ch:[['The first step is to …','Bước đầu tiên là …'],['Once that is done, …','Khi xong việc đó, …'],['Next, I …','Tiếp theo mình …'],['Finally, I publish …','Cuối cùng mình đăng …']],m:'The first step is to come up with an idea and check if people are interested. Next, I research the topic and fact-check every detail. Once that is done, I write the script and send it to the editor. Finally, I review the video, design the thumbnail and publish it.'},
+{t:'Thành tích · Có số liệu',p:'Kể một thành tích trong công việc có con số cụ thể (lượt xem, thời gian tiết kiệm, tỉ lệ…). Số liệu có thể tự đặt.',kw:[['increase by','tăng thêm'],['thanks to','nhờ vào'],['result in','dẫn đến'],['over the past … months','trong … tháng qua']],ch:[['… increased by 30 percent','tăng 30%'],['from … to …','từ … lên …'],['This was mainly thanks to …','Chủ yếu nhờ …'],['As a result, …','Kết quả là …']],m:'Over the past six months, the average watch time on my channel increased by 25 percent, from 4 to 5 minutes. This was mainly thanks to stronger hooks in the first 30 seconds. As a result, the channel gained about 12,000 new subscribers.'},
+{t:'Diễn đạt lại · Paraphrase',p:'Chọn 1 câu tiếng Việt về công việc của bạn và viết 2 cách nói tiếng Anh khác nhau cho cùng ý đó.',kw:[['in other words','nói cách khác'],['to put it simply','nói đơn giản là'],['that is to say','tức là'],['rephrase','diễn đạt lại']],ch:[['In other words, …','Nói cách khác, …'],['To put it simply, …','Nói đơn giản thì …'],['What I mean is …','Ý mình là …'],['…, which means …','…, nghĩa là …']],m:'My job is to make history videos that keep people watching. In other words, I turn long research into stories that are easy to follow. To put it simply, I explain the past in a way that feels exciting.'},
+{t:'Phỏng vấn · Điểm mạnh & yếu',p:'Trả lời câu hỏi phỏng vấn: "What is your biggest strength and one weakness?" (4–5 câu, có ví dụ thật).',kw:[['strength','điểm mạnh'],['room for improvement','chỗ cần cải thiện'],['work on','đang cải thiện'],['for example','ví dụ']],ch:[['My biggest strength is …','Điểm mạnh nhất của mình là …'],['For example, …','Ví dụ, …'],['One thing I am working on is …','Điều mình đang cải thiện là …'],['To improve, I …','Để cải thiện, mình …']],m:'My biggest strength is research. For example, I once found three errors in a source that other channels had copied. One thing I am working on is speaking English with more confidence. To improve, I practise speaking for ten minutes every day and record myself.'}];
+const P2=[
+{t:'VSTEP Task 1 · Email khiếu nại',p:'Bạn mua một món hàng online nhưng nhận hàng bị lỗi. Viết email 100–120 từ cho cửa hàng: nêu vấn đề, yêu cầu hoàn tiền hoặc đổi hàng.',kw:[['to be honest','thành thật'],['faulty','bị lỗi'],['refund','hoàn tiền'],['I would appreciate it if','mình sẽ rất cảm kích nếu']],ch:[['I am writing to complain about …','Tôi viết để phản ánh về …'],['When it arrived, …','Khi hàng đến, …'],['I would like a refund / replacement.','Tôi muốn hoàn tiền / đổi hàng.'],['I look forward to hearing from you.','Mong sớm nhận phản hồi.']],m:'Dear Sir or Madam, I am writing to complain about the headphones I ordered on 5 March. When they arrived, the left side did not work at all. I would like a full refund or a replacement as soon as possible. I have attached photos of the problem. I look forward to hearing from you. Yours faithfully, Mai Chi'},
+{t:'VSTEP Task 1 · Email đổi lịch',p:'Viết email cho đồng nghiệp xin dời buổi họp từ thứ Ba sang thứ Năm vì có việc đột xuất; đề xuất giờ mới.',kw:[['reschedule','dời lịch'],['clash with','trùng với'],['convenient','thuận tiện'],['apologise for','xin lỗi vì']],ch:[['I am afraid I need to reschedule …','Mình e là cần dời …'],['It clashes with …','Nó trùng với …'],['Would Thursday at 10 suit you?','Thứ Năm lúc 10h được không?'],['Sorry for the inconvenience.','Xin lỗi vì bất tiện.']],m:'Hi Anna, I am afraid I need to reschedule our meeting on Tuesday because it clashes with a client call. Would Thursday at 10 a.m. suit you? If not, please suggest another time that is convenient. Sorry for the inconvenience, and thanks for understanding. Best, Chi'},
+{t:'IELTS Task 1 · Mô tả xu hướng',p:'Mô tả xu hướng lượt xem một kênh qua 6 tháng (tự đặt số: tháng 1 = 10k, tháng 3 = 25k, tháng 4 = 20k, tháng 6 = 40k). 3–4 câu.',kw:[['rise sharply','tăng mạnh'],['dip','giảm nhẹ'],['peak at','đạt đỉnh'],['overall','nhìn chung']],ch:[['rose from … to …','tăng từ … lên …'],['then dipped slightly to …','sau đó giảm nhẹ xuống …'],['reached a peak of …','đạt đỉnh …'],['Overall, the trend was upward.','Nhìn chung xu hướng đi lên.']],m:'Monthly views rose sharply from 10,000 in January to 25,000 in March. They then dipped slightly to 20,000 in April before climbing again. By June, views had reached a peak of 40,000. Overall, the trend was upward despite one small fall.'},
+{t:'Task 2 · Ý kiến: AI & người làm nội dung',p:'"AI will replace content creators." Bạn đồng ý hay không? Viết 1 đoạn 5–6 câu: ý kiến, 2 lý do, ví dụ.',kw:[['replace','thay thế'],['creativity','sáng tạo'],['rely on','dựa vào'],['to some extent','ở mức độ nào đó']],ch:[['In my opinion, …','Theo mình, …'],['To some extent, I agree that …','Ở mức nào đó mình đồng ý …'],['One reason is that …','Một lý do là …'],['For instance, …','Ví dụ, …']],m:'In my opinion, AI will not replace content creators, but it will change their work. One reason is that AI cannot share real personal experience, which audiences value. For instance, viewers trust a creator who explains why an event matters to them. To some extent, AI can help with research and drafts, but humans still decide what story is worth telling.'},
+{t:'Task 2 · Ưu và nhược điểm',p:'Viết 1 đoạn nêu ưu điểm và nhược điểm của làm việc remote. 5–6 câu, có từ nối đối lập.',kw:[['flexibility','sự linh hoạt'],['isolated','cô lập'],['distraction','xao nhãng'],['on the other hand','mặt khác']],ch:[['One major advantage is …','Một ưu điểm lớn là …'],['On the other hand, …','Mặt khác, …'],['This can lead to …','Điều này có thể dẫn đến …'],['Despite this, …','Tuy vậy, …']],m:'One major advantage of working remotely is flexibility, because people can organise their day around their best hours. On the other hand, remote workers can feel isolated from their team. This can lead to weaker communication and lower motivation. Despite this, clear daily updates and regular video calls can solve most of these problems.'},
+{t:'Task 2 · Vấn đề & giải pháp',p:'Nhiều người làm sáng tạo bị kiệt sức (burnout). Nêu 1 nguyên nhân và 2 giải pháp. 5–6 câu.',kw:[['burnout','kiệt sức'],['workload','khối lượng việc'],['set boundaries','đặt ranh giới'],['take a break','nghỉ giải lao']],ch:[['The main cause of … is …','Nguyên nhân chính của … là …'],['One solution would be to …','Một giải pháp là …'],['Another way to tackle this is to …','Cách khác là …'],['This would help …','Điều này giúp …']],m:'The main cause of burnout among creators is an endless workload, because there is always one more video to make. One solution would be to plan content in batches so there is time to rest. Another way to tackle this is to set clear working hours and stick to them. This would help creators stay creative for much longer.'}];
+const P3=[
+{t:'Slack · Cập nhật tiến độ',p:'Viết tin Slack gửi sếp: việc đã xong hôm nay, việc đang làm, và 1 vướng mắc cần giúp. Ngắn gọn.',kw:[['wrap up','hoàn tất'],['in progress','đang làm'],['blocked by','bị chặn bởi'],['ETA','thời gian dự kiến xong']],ch:[['Quick update:','Cập nhật nhanh:'],['I have finished …','Mình đã xong …'],['I am currently working on …','Mình đang làm …'],['I am blocked by …, could you help?','Mình bị vướng …, bạn giúp được không?']],m:'Quick update: I have finished the script for episode 12 and sent it to the editor. I am currently working on the thumbnail ideas, with an ETA of tomorrow noon. I am blocked by the missing brand colours, could you send them over? Thanks!'},
+{t:'Làm rõ yêu cầu · Hỏi lại lịch sự',p:'Khách gửi brief chưa rõ độ dài và giọng văn. Viết tin hỏi lại lịch sự, nêu 2 câu hỏi cụ thể.',kw:[['clarify','làm rõ'],['brief','bản yêu cầu'],['tone','giọng văn'],['to make sure','để chắc chắn']],ch:[['Just to make sure I understand, …','Để chắc mình hiểu đúng, …'],['Could you clarify …?','Bạn làm rõ giúp …?'],['Do you prefer … or …?','Bạn muốn … hay …?'],['Thanks in advance!','Cảm ơn trước!']],m:'Hi Tom, thanks for the brief. Just to make sure I understand, could you clarify the target length of the video? Also, do you prefer a serious tone or a more casual one? I want to get it right the first time. Thanks in advance!'},
+{t:'Xin gia hạn · Deadline',p:'Bạn sẽ trễ deadline 1 ngày vì cần kiểm chứng thêm nguồn. Viết tin báo khách: lý do, thời gian mới, cách bù đắp.',kw:[['deadline','hạn chót'],['extension','gia hạn'],['double-check','kiểm tra lại'],['deliver','giao']],ch:[['I would like to ask for a short extension.','Mình xin gia hạn ngắn.'],['The reason is that …','Lý do là …'],['I can deliver it by …','Mình giao được vào …'],['I apologise for the delay.','Xin lỗi vì chậm trễ.']],m:'Hi Sam, I would like to ask for a short extension on the script. The reason is that I need one more day to double-check two sources, because accuracy matters for this topic. I can deliver it by Friday noon. I apologise for the delay and I will send a short outline today so you can see the progress.'},
+{t:'Họp đầu tiên · Tự giới thiệu',p:'Viết đoạn bạn sẽ nói khi tự giới thiệu 30 giây trong cuộc họp đầu với khách nước ngoài.',kw:[['nice to meet you','rất vui được gặp'],['be responsible for','chịu trách nhiệm'],['look forward to','mong được'],['based in','sống ở']],ch:[['Hi everyone, I am … and I am based in …','Chào mọi người, mình là … sống ở …'],['I am responsible for …','Mình phụ trách …'],['I have worked on …','Mình từng làm …'],['I look forward to working with you.','Mong được làm việc cùng.']],m:'Hi everyone, I am Chi, and I am based in Hanoi. I am responsible for scriptwriting and research on a history channel. I have worked on more than 80 long videos, so I understand how to keep viewers interested. I look forward to working with you all.'},
+{t:'Phản hồi · Khách chê thumbnail',p:'Khách nói thumbnail "chưa nổi bật". Viết tin phản hồi: cảm ơn, hỏi cụ thể, đề xuất 2 hướng sửa.',kw:[['stand out','nổi bật'],['contrast','độ tương phản'],['suggest','đề xuất'],['A/B test','thử 2 phương án']],ch:[['Thanks for the feedback.','Cảm ơn phản hồi.'],['Could you tell me what feels missing?','Bạn thấy thiếu gì?'],['I suggest two options: …','Mình đề xuất 2 hướng: …'],['We could A/B test them.','Có thể thử cả hai.']],m:'Thanks for the feedback. Could you tell me what feels missing, the colours or the text? I suggest two options: a brighter background with higher contrast, or a closer face with shorter text. We could A/B test them for a week and keep the better one.'},
+{t:'Cover letter · Câu mở đầu',p:'Viết đoạn mở đầu 3–4 câu của cover letter cho vị trí YouTube Channel Manager làm remote.',kw:[['apply for','ứng tuyển'],['relevant experience','kinh nghiệm phù hợp'],['contribute to','đóng góp cho'],['passionate about','đam mê']],ch:[['I am writing to apply for …','Tôi viết để ứng tuyển …'],['I am passionate about …','Mình đam mê …'],['With X years of experience in …','Với X năm kinh nghiệm …'],['I am confident I can contribute to …','Mình tự tin sẽ đóng góp cho …']],m:'Dear Hiring Manager, I am writing to apply for the YouTube Channel Manager position. With two years of experience in scriptwriting, SEO and audience research, I am passionate about helping channels grow with honest, high-quality content. I am confident I can contribute to your team from my first week.'}];
+window.WPB=[P1,P2,P3];
+function wpFor(d){const pool=d<=28?P1:d<=56?P2:P3;return pool[(d-1)%pool.length]}
+/* personal mistake profile */
+function mCat(m){const t=(m.issue||'')+' '+(m.fix||'');
+ if(/gạch nối|hyphen|hands.on|fact.?check|self.?motiv/i.test(t))return 'dấu gạch nối';
+ if(/mạo từ|article/i.test(t)||/\b(→|->)\s*(an?|the)\s/i.test(m.fix||'')&&/\ba\b|\ban\b/.test(t))return 'mạo từ a/an/the';
+ if(/giới từ|prepos|collocation/i.test(t))return 'giới từ';
+ if(/cấu trúc động từ|dạng động từ|danh động từ|nguyên thể|v.?ing|verb pattern|dùng sai.*been/i.test(t))return 'cấu trúc động từ';
+ if(/thì |chia |số ít|số nhiều|agree|tense/i.test(t))return 'thì / chia động từ';
+ if(/chính tả|typo|spell/i.test(t))return 'chính tả';
+ if(/dấu câu|dấu phẩy|comma|chấm phẩy/i.test(t))return 'dấu câu';
+ if(/viết hoa|chữ hoa|capital/i.test(t))return 'viết hoa';
+ return 'từ vựng / diễn đạt'}
+const MINOR=new Set(['dấu gạch nối','chính tả','dấu câu','viết hoa']);
+function mistClean(){const seen=new Set(),out=[];(S.mist||[]).forEach(m=>{if(MINOR.has(mCat(m)))return;const k=String(m.fix||'').toLowerCase().replace(/[^a-z0-9→ -]/g,'').replace(/\s+/g,' ').trim();if(!k||seen.has(k)||/(^|[\s,.])ổn([\s,.]|$)|tốt rồi|không có lỗi/i.test(m.issue||''))return;seen.add(k);out.push(m)});if(out.length!==(S.mist||[]).length){S.mist=out;try{save()}catch(e){}}}
+try{mistClean()}catch(e){}
+function mistProf(){const c={};(S.mist||[]).slice(0,80).forEach(m=>{const t=mCat(m);if(MINOR.has(t))return;const o=c[t]=c[t]||{n:0,ex:''};o.n++;if(!o.ex&&/→/.test(m.fix||''))o.ex=m.fix});return Object.entries(c).sort((a,b)=>b[1].n-a[1].n).slice(0,4).map(([t,o])=>({t,n:o.n,ex:o.ex}))}
+const mistStr=()=>mistProf().map(x=>x.t+(x.ex?' (e.g. '+x.ex+')':'')).join('; ');
+/* inject mistakes into grading prompts */
+const _ca=coachAsk;coachAsk=function(ctx,text,extra){const p=mistStr();return _ca(ctx+(p?`\nHer recurring mistakes so far (check these first, say clearly if she repeated one): ${p}`:'')+'\nIMPORTANT: do NOT list hyphenation, capitalisation, punctuation or simple typos as errors. Only report grammar, word choice, collocations and naturalness.',text,extra)};
+/* build day: practical writing task */
+const _bd=buildDay;buildDay=function(d){const l=_bd(d);try{const wp=wpFor(d);const x=l.find(y=>y.k==='write');if(x){x.wp=wp;x.prompt=wp.p+(x.frame&&!dInfo(d).rev?` Thử dùng khung “${x.frame}” 1 lần nếu hợp.`:'');}}catch(e){}return l};
+const _br=buildReview;buildReview=function(d){const l=_br(d);try{const x=l.find(y=>y.k==='write');if(x){const wp=wpFor(d+3);x.wp=wp;x.prompt=wp.p;x.frame='Bài tổng hợp tuần: dùng ít nhất 3 cấu trúc đã học'}}catch(e){}return l};
+
+const _am=addMist;addMist=function(ns,src){return _am((ns||[]).filter(n=>n&&!MINOR.has(mCat({issue:n.issue,fix:n.fix}))),src)};
+function drillItems(n){const pool=[];(S.mist||[]).forEach(m=>{if(MINOR.has(mCat(m)))return;const f=String(m.fix||'');const p=f.split(/\s*(?:→|->)\s*/);if(p.length!==2)return;const w=p[0].replace(/^["'“]|["'”]$/g,'').trim(),r=p[1].replace(/^["'“]|["'”]$/g,'').trim();if(w.length<3||r.length<3||w.toLowerCase()===r.toLowerCase())return;pool.push({key:'m:'+r.toLowerCase(),w,r,i:m.issue})});
+ const dm=S.dmiss||{};const seen={};return pool.filter(x=>!seen[x.key]&&(seen[x.key]=1)).map(x=>[(dm[x.key]||0)*3+Math.random()*2,x]).sort((a,b)=>b[0]-a[0]).slice(0,n).map(([,x])=>{const opts=shuf([x.r,x.w]);return {k:'mcq',key:x.key,lab:'Lỗi của bạn',q:'<span class="pill a">🎯 Lỗi bạn từng sai</span> Chọn câu đúng:',opts,ans:opts.indexOf(x.r),say:x.r,exp:`<b>${esc(x.r)}</b> ✓<br><span class="xs mut">Bạn từng viết: ${esc(x.w)}</span>${x.i?`<div class="xs" style="margin-top:4px">${esc(String(x.i).slice(0,160))}</div>`:''}`}})}
+const _bd2=buildDay;buildDay=function(d){const l=_bd2(d);try{if(d>1&&!(dInfo(d).rev)){const it=drillItems(2);if(it.length){let at=-1;l.forEach((y,k)=>{if(y.sk==='rev')at=k});it.forEach(y=>{y.sk='rev';y.sec=null});if(at>=0)l.splice(at+1,0,...it)}}}catch(e){}return l};
+/* chunk helper for translation: split reference into collocation-like chunks */
+function chunksOf(ref){const stop=/^(and|but|so|because|that|which|who|when|while|if|to)$/i;const out=[];ref.replace(/[.?!]$/,'').split(/,\s*/).forEach(seg=>{let cur=[];seg.split(/\s+/).forEach(w=>{if(stop.test(w)&&cur.length){out.push(cur.join(' '));cur=[]}cur.push(w);if(cur.length>=4){out.push(cur.join(' '));cur=[]}});if(cur.length)out.push(cur.join(' '))});return out.filter(c=>c.split(' ').length>=2)}
+/* exercise renderer wrapper: hint ladder + model */
+const _eh=exHTML;exHTML=function(x,i,n){let h=_eh(x,i,n);
+ try{if(x.k!=='write'&&x.k!=='trans')return h;
+  if(x.k==='trans'&&!x.h1)h=h.replace(/<div class="hints">[\s\S]*?<\/div>/,'');
+  const wp=x.wp;let box='';
+  const kw=x.k==='write'?(wp?wp.kw:[]):(x.l?x.l.words.filter(w=>x.s[0].toLowerCase().includes(w[0].toLowerCase().split(' ')[0])).map(w=>[w[0],w[1]]):[]);
+  const ch=x.k==='write'?(wp?wp.ch:[]):chunksOf(x.s[0]).sort((a,b)=>a.localeCompare(b)).map(c=>[c,'']);
+  const chip=(a,b)=>`<button class="hchip" data-act="hins" data-i="${i}" data-t="${esc(a)}">${esc(a)}${b?` <span>· ${esc(b)}</span>`:''}</button>`;
+  if(x.h1&&kw.length)box+=`<div class="hbox"><div class="xs mut">Bậc 1 · Từ khóa nên dùng</div><div class="hrow">${kw.map(k=>`<span class="hk"><b>${esc(k[0])}</b> · ${esc(k[1])}</span>`).join('')}</div></div>`;
+  if(x.h2&&ch.length)box+=`<div class="hbox"><div class="xs mut">Bậc 2 · Cụm đi với nhau (bấm để chèn vào ô viết)</div><div class="hrow">${ch.map(c=>chip(c[0],c[1])).join('')}</div></div>`;
+  const prof=mistProf();
+  const ctl=!x.res?`<div class="hctl"><button class="btn gh s" data-act="hint1" data-i="${i}" ${x.h1?'disabled':''}>💡 Gợi ý 1: từ khóa</button><button class="btn gh s" data-act="hint2" data-i="${i}" ${x.h2?'disabled':''}>🧩 Gợi ý 2: cụm từ đi cùng</button><label class="xs mut" style="display:inline-flex;gap:4px;align-items:center"><input type="checkbox" data-act="livet" ${S.live===false?'':'checked'}> gợi ý trực tiếp</label></div>${prof.length?`<div class="xs mut" style="margin:6px 0 0">🎯 Lỗi bạn hay gặp: ${prof.map(p=>`<b>${esc(p.t)}</b>${p.ex?` <i>(${esc(p.ex.slice(0,40))})</i>`:''}`).join(' · ')}</div>`:''}<div class="live" id="lv${i}"></div>`:'';
+  const tag=x.k==='write'&&wp?`<div class="wtag">✍️ ${esc(wp.t)}</div>`:'';
+  h=h.replace('<div class="q">',tag+'<div class="q">');
+  h=h.replace(/(<div class="frame">[\s\S]*?<\/div>)/,'$1'+ctl+box);
+  if(x.k==='write'&&wp&&x.res){h+=`<div class="row" style="margin-top:8px"><button class="btn gh s" data-act="wmodel" data-i="${i}">${x.showM?'Ẩn bài mẫu':'📖 Xem bài mẫu để so sánh'}</button></div>`+(x.showM?`<div class="wmodel"><div class="xs mut">Bài mẫu (tham khảo cách ghép ý, đừng học thuộc):</div><div class="en" style="margin:6px 0;line-height:1.7">${esc(wp.m)}</div><div class="xs mut">Cụm đáng lưu:</div><div class="hrow">${wp.ch.map(c=>`<button class="hchip" data-act="savep" data-t="${esc(c[0])}" data-v="${esc(c[1])}">⭐ ${esc(c[0])}</button>`).join('')}</div></div>`:'')}
+ }catch(e){}return h};
+function setTA(i,txt){txt=txt.replace(/\s*…\s*/g,' ').trim();const ta=document.getElementById('in'+i);if(!ta)return;const s0=ta.selectionStart==null?ta.value.length:ta.selectionStart,e0=ta.selectionEnd==null?s0:ta.selectionEnd;const v=ta.value;const pre=v.slice(0,s0),post=v.slice(e0);const sp=pre&&!/\s$/.test(pre)?' ':'';ta.value=pre+sp+txt+' '+post.replace(/^\s+/,'');const pos=(pre+sp+txt+' ').length;ta.focus();try{ta.setSelectionRange(pos,pos)}catch(e){}ta.dispatchEvent(new Event('input',{bubbles:true}))}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-act=hint1],[data-act=hint2],[data-act=hins],[data-act=wmodel]');if(!b)return;e.stopPropagation();e.preventDefault();const i=+b.dataset.i,x=W.list&&W.list[i];if(!x)return;const ta=document.getElementById('in'+i);if(ta)x.v=ta.value;
+ const a=b.dataset.act;if(a==='hint1'){x.h1=1;rex(i)}else if(a==='hint2'){x.h1=1;x.h2=1;rex(i)}else if(a==='wmodel'){x.showM=!x.showM;rex(i)}else if(a==='hins'){setTA(i,b.dataset.t)}},true);
+document.addEventListener('change',e=>{if(e.target.dataset&&e.target.dataset.act==='livet'){S.live=e.target.checked;save()}},true);
+/* live hints: instant local rules + AI nudge after a pause */
+const RULES=[
+ {re:/\b(would you like|want|wants|wanted|decide|decided|hope|hoped|plan|planned) (come|go|join|do|see|meet|work|try|take)\b/i,c:'vp',cat:/cấu trúc động từ/i,m:'Sau like/want/decide… thêm “to” + động từ (would you like to come)'},
+ {re:/\b(experience|skills?) (for|of) \w+/i,c:'exp',cat:/giới từ/i,m:'Thường nói “experience in/with …” (không dùng for)'},
+ {re:/\b(take|took|taking|make|made|have|had|need|needs) (photo|video|plan|decision|report)\b/i,c:'art2',cat:/mạo từ/i,m:'Danh từ đếm được số ít cần “a/the”: take a photo, make a plan…'},
+ {re:/\bas (professional|teacher|manager|creator|writer|editor|freelancer)\b/i,c:'art3',cat:/mạo từ/i,m:'Thêm “a” trước nghề nghiệp: as a professional'},
+ {re:/\bhave been (hands|experience)/i,c:'been',cat:/cấu trúc động từ/i,m:'Nói “I have hands-on experience” (không dùng “been”)'},
+ {re:/\b(he|she|it)\s+(go|have|do|make|work|need|want|like|use|take|help|think|know|get|give|show|say|come|look|try|feel)\b/i,c:'sva',cat:/chia|thì|ngôi/i,m:'he/she/it + động từ thêm -s/-es (goes, has, works…)'},
+ {re:/\b(an?)\s+(\w+)/gi,c:'art',cat:/mạo từ/i,test:m=>{const w=m[2].toLowerCase(),a=m[1].toLowerCase();const vow=/^[aeiou]/.test(w)&&!/^(uni|use|eu|one|ubi)/.test(w)||/^(hour|honest|honour|heir)/.test(w);if(a==='a'&&vow)return 'Trước “'+w+'” dùng “an”';if(a==='an'&&!vow&&!/^(h)/.test(w))return 'Trước “'+w+'” dùng “a”';return null}},
+ {re:/\b(informations|advices|knowledges|equipments|feedbacks|furnitures|researches)\b/i,c:'unc',cat:/đếm|số nhiều/i,m:'Danh từ không đếm được, không thêm -s'},
+ {re:/\b(discuss about|emphasize on|reach to|explain me|interested about|depend of|married with|listen the)\b/i,c:'prep',cat:/giới từ|cấu trúc động từ/i,m:'Sai giới từ/cấu trúc đi kèm (discuss + N, interested in, depend on…)'}];
+let lvT=null,lvAI=0,lvKey='';
+function lvRun(i){const x=W.list&&W.list[i];const ta=document.getElementById('in'+i);const box=document.getElementById('lv'+i);if(!x||!ta||!box||x.res)return;const t=ta.value;const prof=mistProf();const notes=[];
+ RULES.forEach(r=>{const re=new RegExp(r.re.source,r.re.flags.replace('g','')+'g');let m;let found=null;while((m=re.exec(t))){const msg=r.test?r.test(m):r.m;if(msg){found=msg;break}if(m.index===re.lastIndex)re.lastIndex++}
+  if(found){const mine=prof.some(p=>r.cat.test(p.t));notes.push(`<div class="lvn ${mine?'mine':''}">⚠️ ${esc(found)}${mine?' <b>· lỗi bạn hay gặp 🔁</b>':''}</div>`)}});
+ if(/[àáảãạâầấẩẫậăằắẳẵặèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵđ]/i.test(t))notes.push('<div class="lvn">⚠️ Ô này viết tiếng Anh nhé</div>');
+ const keep=box.querySelector('.lvai');box.innerHTML=notes.join('');if(keep)box.appendChild(keep);
+ if(S.live===false)return;clearTimeout(lvT);const words=t.trim().split(/\s+/).filter(Boolean).length;if(words<3||!caps.sample)return;
+ lvT=setTimeout(async()=>{const key=i+'|'+t.trim();if(key===lvKey||Date.now()-lvAI<4000)return;lvKey=key;lvAI=Date.now();const el=document.getElementById('lv'+i);if(!el)return;
+  let ai_=el.querySelector('.lvai');if(!ai_){ai_=document.createElement('div');ai_.className='lvai';el.appendChild(ai_)}ai_.innerHTML='<span class="xs mut"><span class="spin"></span> đang nghĩ gợi ý…</span>';
+  try{const ctx=x.k==='write'?x.prompt:(x.s&&x.s[1]);const r=await ai(`A Vietnamese learner (B2) is typing an English text RIGHT NOW. Task: ${ctx}\nHer draft so far: """${t}"""\nHer recurring mistakes: ${mistStr()||'none recorded yet'}\nGive live help WITHOUT rewriting her text and without giving a full answer. Return ONLY JSON: {"next":[["natural English chunk/collocation she could use next, 2-5 words","short Vietnamese meaning"]],"watch":"ONE short Vietnamese sentence about the most likely problem in what she wrote (prefer her recurring mistakes), or empty string if fine"} with max 3 items in next.`);
+   if(document.getElementById('in'+i)&&document.getElementById('in'+i).value.trim()!==t.trim())return;
+   ai_.innerHTML=(r.watch?`<div class="lvn mine">🎯 ${esc(r.watch)}</div>`:'')+((r.next||[]).length?`<div class="xs mut" style="margin:4px 0 2px">Gợi ý viết tiếp:</div><div class="hrow">${r.next.slice(0,3).map(c=>`<button class="hchip" data-act="hins" data-i="${i}" data-t="${esc(c[0])}">${esc(c[0])} <span>· ${esc(c[1]||'')}</span></button>`).join('')}</div>`:'')}
+  catch(e){ai_.innerHTML=''}},2200)}
+document.addEventListener('input',e=>{const ta=e.target;if(!ta||!/^in\d+$/.test(ta.id))return;const i=+ta.id.slice(2),x=W.list&&W.list[i];if(!x||(x.k!=='write'&&x.k!=='trans'))return;x.v=ta.value;lvRun(i)},true);
+/* next-day button */
+function nextBox(d){const done=S.days[d]&&S.days[d].done;return done?`<div class="card nextday"><b>🎉 Xong ngày ${d} rồi!</b><div class="sm mut" style="margin:4px 0 10px">Muốn học tiếp luôn thì sang ngày ${d+1}. Hoặc nghỉ, mai quay lại ôn.</div><button class="btn" data-act="dday" data-d="${d+1}">Sang ngày ${d+1} →</button></div>`:''}
+const _vt=vToday;vToday=function(){let h=_vt();try{if(W.day&&h.lastIndexOf('</div>')>0){const k=h.lastIndexOf('</div>');h=h.slice(0,k)+`<div id="dnb">${nextBox(W.day)}</div>`+h.slice(k)}}catch(e){}return h};
+const _dt=dayTick;dayTick=function(){_dt();try{const el=document.getElementById('dnb');if(el&&W.day){const had=el.innerHTML;const nb=nextBox(W.day);if(nb!==had){el.innerHTML=nb;if(nb)setTimeout(()=>{const c=el.firstChild;c&&c.scrollIntoView&&c.scrollIntoView({behavior:'smooth',block:'center'})},600)}}}catch(e){}};
+try{DAYW&&Object.keys(DAYW).forEach(k=>delete DAYW[k])}catch(e){}
+try{render()}catch(e){}
+})();
+</script>
 </body>
 </html>
