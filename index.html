@@ -1143,7 +1143,9 @@ const sbOn=()=>CFG.sbUrl&&CFG.sbKey&&CFG.code;
 let syncState='';const hhmm=()=>new Date().toLocaleTimeString('vi-VN',{hour:'2-digit',minute:'2-digit'});
 async function pull(){if(!sbOn())return;try{const r=await fetch(`${CFG.sbUrl.replace(/\/$/,'')}/rest/v1/progress?id=eq.${encodeURIComponent(CFG.code)}&select=data`,{headers:sbH()});if(!r.ok)throw await httpErr(r);const a=await r.json();
  if(a[0]&&a[0].data&&__MIG){__MIG=false;const rr=a[0].data;const nw=(rr.t||0)>(S.t||0);S=Object.assign(JSON.parse(JSON.stringify(DEF)),nw?mg(S,rr):mg(rr,S));save();if(!SES_busy())render()}
- if(a[0]&&a[0].data){const rS=a[0].data;if((rS.t||0)>(S.t||0)){const ml=Object.assign({},S.log,rS.log);S=Object.assign(JSON.parse(JSON.stringify(DEF)),rS);S.log=ml;try{localStorage.setItem('epw',JSON.stringify(S))}catch(e){}if(!SES_busy())render()}}syncState='đã đồng bộ '+hhmm()}catch(e){syncState='lỗi đồng bộ';throw e}}
+ if(a[0]&&a[0].data){const rS=a[0].data;const before=JSON.stringify(S),rem=JSON.stringify(rS);const nw=(rS.t||0)>(S.t||0);const M=Object.assign(JSON.parse(JSON.stringify(DEF)),nw?mg(S,rS):mg(rS,S));M.t=Math.max(S.t||0,rS.t||0);const after=JSON.stringify(M);
+  if(after!==before){S=M;try{localStorage.setItem('epw',after)}catch(e){}if(!SES_busy())render()}
+  if(after!==rem){clearTimeout(saveTm);try{await push(after)}catch(e){}}}syncState='đã đồng bộ '+hhmm()}catch(e){syncState='lỗi đồng bộ';throw e}}
 async function push(json){if(!sbOn())return;const r=await fetch(`${CFG.sbUrl.replace(/\/$/,'')}/rest/v1/progress`,{method:'POST',headers:Object.assign(sbH(),{'Prefer':'resolution=merge-duplicates,return=minimal'}),body:JSON.stringify({id:CFG.code,data:JSON.parse(json),updated_at:Date.now()})});if(!r.ok){syncState='lỗi đồng bộ';throw await httpErr(r)}syncState='đã đồng bộ '+hhmm()}
 function setupSync(){ref=sbOn()?{set:({json})=>push(json).catch(()=>{})}:null}
 const newCode=()=>Array.from(crypto.getRandomValues(new Uint8Array(12))).map(b=>'abcdefghjkmnpqrstuvwxyz23456789'[b%31]).join('');
